@@ -30,12 +30,6 @@ def get():
         display: inline-block;
         transition: background-color 0.3s ease;
     """
-    hover_style = """
-        .hover-box:hover {
-            background-color: blue;
-        }
-    """
-    # center background image
     body_style = """
         background: linear-gradient(rgba(14, 14, 14, 0.87),
                                     rgba(0, 0, 0, 0.94),
@@ -47,11 +41,11 @@ def get():
         background-position: center;
         height: 100vh
     """
-
+    link_style = "text-decoration: none; color: #4F4F9EFF;"
     return Title("FastHTML"), Body(
-            Div(
-                style="height: 16%;",
-            ),
+        Div(
+            style="height: 16%;",
+        ),
         Div(
             H1(
                 "gpu",
@@ -59,8 +53,7 @@ def get():
             ),
             H1(
                 ".",
-                # style=f"font-size: {font_size}em; display: inline; color:#0F0D8EFF;",
-                style=f"font-size: {font_size}em; display: inline; color:#FFFFFFF0;",
+                style=f"font-size: {font_size}em; display: inline; color:#BBBBBBF0;",
             ),
             H1(
                 "cpp",
@@ -71,50 +64,55 @@ def get():
         ),
         P(),
         Div(
-            "Portable C++ GPU Compute using native WebGPU",
+            "Portable GPU Compute with C++ & WebGPU",
             align="center",
+            style=f"text-decoration: none; color: #66666699; font-weight: bold;",
         ),
         P(),
         # Links
         Div(
-
             Div(
-                A("GitHub", href="https://github.com/AnswerDotAI/gpu.cpp", style="text-decoration: none;"),
-                style=box_style + hover_style,
-                cls="hover-box",
+                A(
+                    "GitHub",
+                    href="https://github.com/AnswerDotAI/gpu.cpp",
+                    style=link_style,
+                ),
+                style=box_style,
             ),
             Div(
                 A(
                     "Intro Blog",
-                    href="https://www.answer.ai/posts/2024-07-11--gpu-cpp.html", style="text-decoration: none;"
+                    href="https://www.answer.ai/posts/2024-07-11--gpu-cpp.html",
+                    style=link_style,
                 ),
                 style=box_style,
-                cls="hover-box",
             ),
             Br(),
             Div(
-                A("API Docs", href="api/index.html", style="text-decoration: none;"),
+                A("API Docs", href="api/index.html", style=link_style),
                 style=box_style,
-                cls="hover-box",
             ),
             Div(
-                A("Discord", href="https://discord.gg/zmJVhXsC7f", style="text-decoration: none;"),
+                A(
+                    "Discord",
+                    href="https://discord.gg/zmJVhXsC7f",
+                    style=link_style,
+                ),
                 style=box_style,
-                cls="hover-box",
             ),
             align="center",
         ),
         P(),
         Div(
-                # link color white
-                A("Answer.AI", href="https://www.answer.ai", style=f"text-decoration: none; color: #33333399;"),
+            A(
+                "Answer.AI",
+                href="https://www.answer.ai",
+                style=f"text-decoration: none; color: #66666699; font-weight: bold;",
+            ),
             align="center",
         ),
         # set height to take up the full window
         style=body_style,
-        cls = "crt",
-        # style = "crt { animation: fadeIn; } @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } } animation: fadeIn 2s;",
-        # style = ".crt { animation: flicker; } @keyframes flicker { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.8; } } @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } } animation: fadeIn 2s;",
     )
 
 
