@@ -16,8 +16,9 @@ async def static(fname: str, ext: str):
 @rt("/")
 def get():
     font_size = 8.0
+    hero_style = f"font-size: {font_size}em; display: inline;"
     box_style = f"""
-        background-color: #22222266;
+        background-color: #22222277;
         width: 20%;
         margin: 10px;
         padding: 8px;
@@ -42,25 +43,24 @@ def get():
         height: 100vh
     """
     link_style = "text-decoration: none; color: #4F4F9EFF;"
-    return Title("FastHTML"), Body(
+    return Title("gpu.cpp"), Body(
         Div(
             style="height: 16%;",
         ),
         Div(
             H1(
                 "gpu",
-                style=f"font-size: {font_size}em; color:#ee4c2cF0; display: inline;",
+                style=hero_style + " color:#ee4c2cF0;",
             ),
             H1(
                 ".",
-                style=f"font-size: {font_size}em; display: inline; color:#BBBBBBF0;",
+                style=hero_style + " color:#BBBBBBF0;",
             ),
             H1(
                 "cpp",
-                style=f"font-size: {font_size}em; display: inline; color:#808080F0;",
+                style=hero_style + " color:#808080F0;",
             ),
             align="center",
-            padding="1020px",
         ),
         P(),
         Div(
@@ -69,10 +69,10 @@ def get():
             style=f"text-decoration: none; color: #66666699; font-weight: bold;",
         ),
         P(),
-        # Links
         Div(
             Div(
                 A(
+                    # Img(src="images/github.svg", style="filter: invert(1);"),
                     "GitHub",
                     href="https://github.com/AnswerDotAI/gpu.cpp",
                     style=link_style,
@@ -89,7 +89,11 @@ def get():
             ),
             Br(),
             Div(
-                A("API Docs", href="api/index.html", style=link_style),
+                A(
+                    "API Docs",
+                    href="api/index.html",
+                    style=link_style,
+                ),
                 style=box_style,
             ),
             Div(
@@ -111,7 +115,6 @@ def get():
             ),
             align="center",
         ),
-        # set height to take up the full window
         style=body_style,
     )
 
