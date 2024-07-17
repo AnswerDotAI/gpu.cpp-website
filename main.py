@@ -30,6 +30,12 @@ async def static(fname: str, ext: str):
 @rt("/")
 def get():
     return Title("FastHTML"), Body(
+        Nav(
+            Sl_icon("home"),
+            Menu('foo', 'Foo', '/foo'),
+            Menu('bar', 'Bar', '/bar'),
+            ),
+
         Br(),
         Div(H1("gpu.cpp"), align="center", style="font-size: 10em"),
         Div(H4("Portable GPU Compute Made Simple"), align="center"),
@@ -41,7 +47,9 @@ def get():
         Div(
             A("Blog Post", href="https://www.answer.ai/posts/2024-07-11--gpu-cpp.html"),
             Br(),
-            A("GitHub", href="github.com/AnswerDotAI/gpu.cpp"),
+            A("API Docs", href="api/index.html"),
+            Br(),
+            A("GitHub", href="https://github.com/AnswerDotAI/gpu.cpp"),
             Br(),
             A("Discord", href="https://discord.gg/zmJVhXsC7f"),
             align="center",
@@ -50,5 +58,5 @@ def get():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
-    # run_uv(fname=None, app=app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)), reload=True)
+    # uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
+    run_uv(fname=None, app="app", host="0.0.0.0", port=int(os.getenv("PORT", 8000)), reload=True)
