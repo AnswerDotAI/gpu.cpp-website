@@ -1,8 +1,9 @@
 from fasthtml.common import *
 from functools import cache
+import os
 import uvicorn
 
-TARGET = "debug"
+TARGET = os.getenv("TARGET", "release")
 
 if TARGET == "release":
     app = FastHTML(hdrs=picolink)
