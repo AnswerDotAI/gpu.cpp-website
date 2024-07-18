@@ -1,4 +1,5 @@
 from fasthtml.common import *
+from functools import cache
 import uvicorn
 
 app = FastHTMLWithLiveReload(
@@ -7,42 +8,42 @@ app = FastHTMLWithLiveReload(
 rt = app.route
 
 
-# For images, CSS, etc.
 @app.get("/{fname:path}.{ext:static}")
 async def static(fname: str, ext: str):
     return FileResponse(f"{fname}.{ext}")
 
 
-@rt("/")
-def get():
+@cache
+def page():
     font_size = 8.0
-    hero_style = f"font-size: {font_size}em; display: inline;"
+    hero_style = f"font-size: {font_size}em; display: inline; font-family: 'Helvetica';"
     box_style = f"""
-        background-color: #22222277;
-        width: 20%;
-        margin: 10px;
+        background-color: #ffffff12;
+        width: 15em;
+        margin: 12px;
         padding: 8px;
-        border-radius: 3px;
+        border-radius: 4px;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(2px);
         color: white;
         font-size: {font_size / 8.0}em;
         text-align: center;
-        
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 20px 0 rgba(48, 48, 48, 0.3);
         display: inline-block;
         transition: background-color 0.3s ease;
     """
     body_style = """
-        background: linear-gradient(rgba(14, 14, 14, 0.87),
-                                    rgba(0, 0, 0, 0.94),
-                                    rgba(0, 0, 0, 0.9), 
-                                    rgba(0, 0, 0, 0.88), 
-                                    rgba(32, 32, 32, 0.88)), 
-                    url('images/shadertui2-small-crop2.gif');
+        background: linear-gradient(rgba(14, 14, 14, 0.86),
+                                    rgba(0, 0, 0, 0.95),
+                                    rgba(0, 0, 0, 0.92), 
+                                    rgba(0, 0, 0, 0.89), 
+                                    rgba(28, 28, 28, 0.80)), 
+                    url('images/shadertui2-small-crop2-loop.gif');
         background-size: cover;
         background-position: center;
         height: 100vh
     """
-    link_style = "text-decoration: none; color: #4F4F9EFF;"
+    link_style = "text-decoration: none; color: #44449EFF; font-size: 1.3em;  font-family: 'Helvetica';"
     return Title("gpu.cpp"), Body(
         Div(
             style="height: 16%;",
@@ -50,15 +51,15 @@ def get():
         Div(
             H1(
                 "gpu",
-                style=hero_style + " color:#ee4c2cF0;",
+                style=hero_style + " color:#ee4c2cFF;",
             ),
             H1(
                 ".",
-                style=hero_style + " color:#BBBBBBF0;",
+                style=hero_style + " color:#BBBBBBFF;",
             ),
             H1(
                 "cpp",
-                style=hero_style + " color:#808080F0;",
+                style=hero_style + " color:#808080FF;",
             ),
             align="center",
         ),
@@ -66,7 +67,7 @@ def get():
         Div(
             "Portable GPU Compute with C++ & WebGPU",
             align="center",
-            style=f"text-decoration: none; color: #66666699; font-weight: bold;",
+            style=f"text-decoration: none; color: #88888899; font-size: 1.58em; font-family: 'Helvetica';",
         ),
         P(),
         Div(
@@ -81,7 +82,7 @@ def get():
             ),
             Div(
                 A(
-                    "Intro Blog",
+                    "Blog Post",
                     href="https://www.answer.ai/posts/2024-07-11--gpu-cpp.html",
                     style=link_style,
                 ),
@@ -111,12 +112,17 @@ def get():
             A(
                 "Answer.AI",
                 href="https://www.answer.ai",
-                style=f"text-decoration: none; color: #66666699; font-weight: bold;",
+                style=f"text-decoration: none; color: #88888899; font-size: 1.58em ; font-family: 'Helvetica';",
             ),
             align="center",
         ),
         style=body_style,
     )
+
+
+@rt("/")
+def get():
+    return page()
 
 
 if __name__ == "__main__":
