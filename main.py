@@ -37,15 +37,16 @@ def page():
         backdrop-filter: blur(3px);
         -webkit-backdrop-filter: blur(2px);
         text-align: center;
-        box-shadow: 0 0 20px 0 rgba(48, 48, 48, 0.3);
+        box-shadow: 0 0 20px 0 rgba(48, 48, 48, 0.15);
         display: inline-block;
     """
     body_style = """
-        background: linear-gradient(rgba(14, 14, 14, 0.86),
+        background: linear-gradient(rgba(14, 14, 14, 0.7),
+                                    rgba(0, 0, 0, 0.94),
                                     rgba(0, 0, 0, 1.0),
-                                    rgba(0, 0, 0, 0.92), 
-                                    rgba(0, 0, 0, 0.89), 
-                                    rgba(28, 28, 28, 0.80)), 
+                                    rgba(0, 0, 0, 0.88),
+                                    rgba(0, 0, 0, 0.8),
+                                    rgba(32, 32, 32, 0.5)),
                     url('images/shadertui2-small-crop2-loop.gif');
         background-size: cover;
         background-position: center;
@@ -105,7 +106,7 @@ def page():
                     "API Docs",
                     style=box_style + link_style,
                 ),
-                href="api/index.html",
+                href="api/gpu_8h.html",
                 style="text-decoration: none;",
             ),
             A(
