@@ -65,7 +65,7 @@ def page():
         ),
         P(),
         Div(
-            "Portable GPU Compute with C++ & WebGPU",
+            "Portable C++ GPU Compute using WebGPU",
             align="center",
             style=f"text-decoration: none; color: #88888899; font-size: 1.58em; font-family: 'Helvetica';",
         ),
