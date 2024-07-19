@@ -26,7 +26,7 @@ async def images(fname: str, ext: str):
 @cache
 def page():
     font_family = "font-family: 'Helvetica';"
-    hero_style = f"font-size: 7.6em; display: inline; {font_family}"
+    hero_style = f"font-size: 7.2em; display: inline; {font_family}"
 
     box_style = f"""
         background-color: #ffffff12;
@@ -34,19 +34,19 @@ def page():
         margin: 12px;
         padding: 8px;
         border-radius: 4px;
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(2px);
         text-align: center;
         box-shadow: 0 0 20px 0 rgba(48, 48, 48, 0.15);
         display: inline-block;
     """
     body_style = """
-        background: linear-gradient(rgba(14, 14, 14, 0.7),
+        background: linear-gradient(rgba(14, 14, 14, 0.75),
                                     rgba(0, 0, 0, 0.94),
                                     rgba(0, 0, 0, 1.0),
                                     rgba(0, 0, 0, 0.88),
-                                    rgba(0, 0, 0, 0.8),
-                                    rgba(32, 32, 32, 0.5)),
+                                    rgba(3, 3, 3, 0.8),
+                                    rgba(28, 28, 28, 0.68)),
                     url('images/shadertui2-small-crop2-loop.gif');
         background-size: cover;
         background-position: center;
@@ -57,7 +57,7 @@ def page():
     )
     return Title("gpu.cpp"), Body(
         Div(
-            style="height: 12%;",
+            style="height: 9%;",
         ),
         Div(
             H1(
