@@ -221,9 +221,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3e8bcb1dd85ad12c99d6f27ace6d891a" id="r_a3e8bcb1dd85ad12c99d6f27ace6d891a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a> (bool condition, const char *message, const char *file=&quot;unkown&quot;, int line=-1)</td></tr>
 <tr class="memdesc:a3e8bcb1dd85ad12c99d6f27ace6d891a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks a condition and logs an error message if the condition is false. In debug mode, it will also exit the program with an error code.  <br /></td></tr>
 <tr class="separator:a3e8bcb1dd85ad12c99d6f27ace6d891a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d4931274b4522b102e4e98c5f056768" id="r_a1d4931274b4522b102e4e98c5f056768"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgpu_1_1_context.html">Context</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d4931274b4522b102e4e98c5f056768">createContext</a> (const WGPUInstanceDescriptor &amp;desc={}, const WGPURequestAdapterOptions &amp;adapterOpts={}, WGPUDeviceDescriptor devDescriptor={})</td></tr>
-<tr class="memdesc:a1d4931274b4522b102e4e98c5f056768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function to create a GPU context, which aggregates WebGPU API handles to interact with the GPU including the instance, adapter, device, and queue.  <br /></td></tr>
-<tr class="separator:a1d4931274b4522b102e4e98c5f056768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca30e59bd4eb9e991f4f275c40bc00db" id="r_aca30e59bd4eb9e991f4f275c40bc00db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgpu_1_1_context.html">Context</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca30e59bd4eb9e991f4f275c40bc00db">createContext</a> (const WGPUInstanceDescriptor &amp;desc={}, const WGPURequestAdapterOptions &amp;adapterOpts={}, const WGPUDeviceDescriptor &amp;devDescriptor={})</td></tr>
+<tr class="memdesc:aca30e59bd4eb9e991f4f275c40bc00db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function to create a GPU context, which aggregates WebGPU API handles to interact with the GPU including the instance, adapter, device, and queue.  <br /></td></tr>
+<tr class="separator:aca30e59bd4eb9e991f4f275c40bc00db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2d750e74781cee97de3145d9949b777" id="r_ae2d750e74781cee97de3145d9949b777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2d750e74781cee97de3145d9949b777">wait</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, std::future&lt; void &gt; &amp;future)</td></tr>
 <tr class="separator:ae2d750e74781cee97de3145d9949b777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e645acd60386c08f5425ce2845856c0" id="r_a3e645acd60386c08f5425ce2845856c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e645acd60386c08f5425ce2845856c0">toCPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> &amp;tensor, void *data, size_t bufferSize, <a class="el" href="structgpu_1_1_copy_data.html">CopyData</a> &amp;op)</td></tr>
@@ -456,17 +456,17 @@ template&lt;std::size_t N&gt; </div>
 <h1><a class="anchor" id="autotoc_md0"></a>
 threads by workgroup size dimensions.</h1>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00942">942</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  942</span>                                            {</div>
-<div class="line"><span class="lineno">  943</span>  assert(total.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a> == group.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a>);</div>
-<div class="line"><span class="lineno">  944</span>  <a class="code hl_struct" href="structgpu_1_1_shape.html">Shape</a> result;</div>
-<div class="line"><span class="lineno">  945</span>  result.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a> = total.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a>;</div>
-<div class="line"><span class="lineno">  946</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> dim = 0; dim &lt; total.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a>; ++dim) {</div>
-<div class="line"><span class="lineno">  947</span>    result[dim] = <a class="code hl_function" href="#ae639cf27d731534ea42a77b63f928c88">cdiv</a>(total[dim], group[dim]);</div>
-<div class="line"><span class="lineno">  948</span>  }</div>
-<div class="line"><span class="lineno">  949</span>  <span class="keywordflow">return</span> result;</div>
-<div class="line"><span class="lineno">  950</span>}</div>
-<div class="ttc" id="anamespacegpu_html_ae639cf27d731534ea42a77b63f928c88"><div class="ttname"><a href="#ae639cf27d731534ea42a77b63f928c88">gpu::cdiv</a></div><div class="ttdeci">size_t cdiv(size_t n, size_t d)</div><div class="ttdoc">Ceiling division.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00936">gpu.h:936</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00944">944</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  944</span>                                            {</div>
+<div class="line"><span class="lineno">  945</span>  assert(total.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a> == group.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a>);</div>
+<div class="line"><span class="lineno">  946</span>  <a class="code hl_struct" href="structgpu_1_1_shape.html">Shape</a> result;</div>
+<div class="line"><span class="lineno">  947</span>  result.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a> = total.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a>;</div>
+<div class="line"><span class="lineno">  948</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> dim = 0; dim &lt; total.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a>; ++dim) {</div>
+<div class="line"><span class="lineno">  949</span>    result[dim] = <a class="code hl_function" href="#ae639cf27d731534ea42a77b63f928c88">cdiv</a>(total[dim], group[dim]);</div>
+<div class="line"><span class="lineno">  950</span>  }</div>
+<div class="line"><span class="lineno">  951</span>  <span class="keywordflow">return</span> result;</div>
+<div class="line"><span class="lineno">  952</span>}</div>
+<div class="ttc" id="anamespacegpu_html_ae639cf27d731534ea42a77b63f928c88"><div class="ttname"><a href="#ae639cf27d731534ea42a77b63f928c88">gpu::cdiv</a></div><div class="ttdeci">size_t cdiv(size_t n, size_t d)</div><div class="ttdoc">Ceiling division.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00938">gpu.h:938</a></div></div>
 <div class="ttc" id="astructgpu_1_1_shape_html"><div class="ttname"><a href="structgpu_1_1_shape.html">gpu::Shape</a></div><div class="ttdoc">Represents the shape of a tensor.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00045">gpu.h:45</a></div></div>
 <div class="ttc" id="astructgpu_1_1_shape_html_a0a0e6afec8c276bd46d6b9a8f9a2244e"><div class="ttname"><a href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">gpu::Shape::rank</a></div><div class="ttdeci">size_t rank</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00049">gpu.h:49</a></div></div>
 </div><!-- fragment -->
@@ -501,8 +501,8 @@ threads by workgroup size dimensions.</h1>
 
 <p>Ceiling division. </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00936">936</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  936</span>{ <span class="keywordflow">return</span> (n + d - 1) / d; }</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00938">938</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  938</span>{ <span class="keywordflow">return</span> (n + d - 1) / d; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -554,22 +554,22 @@ threads by workgroup size dimensions.</h1>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00633">633</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  634</span>                                                              {</div>
-<div class="line"><span class="lineno">  635</span>  <span class="keywordflow">if</span> (!condition) {</div>
-<div class="line"><span class="lineno">  636</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kError, <span class="stringliteral">&quot;Error in file %s line %d:\n%s&quot;</span>, file, line, message);</div>
-<div class="line"><span class="lineno">  637</span>    exit(1);</div>
-<div class="line"><span class="lineno">  638</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  639</span>    LOG(kDefLog, kTrace, <span class="stringliteral">&quot;Success in file %s line %d:\n%s&quot;</span>, file, line,</div>
-<div class="line"><span class="lineno">  640</span>        message);</div>
-<div class="line"><span class="lineno">  641</span>  }</div>
-<div class="line"><span class="lineno">  642</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00635">635</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  636</span>                                                              {</div>
+<div class="line"><span class="lineno">  637</span>  <span class="keywordflow">if</span> (!condition) {</div>
+<div class="line"><span class="lineno">  638</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kError, <span class="stringliteral">&quot;Error in file %s line %d:\n%s&quot;</span>, file, line, message);</div>
+<div class="line"><span class="lineno">  639</span>    exit(1);</div>
+<div class="line"><span class="lineno">  640</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  641</span>    LOG(kDefLog, kTrace, <span class="stringliteral">&quot;Success in file %s line %d:\n%s&quot;</span>, file, line,</div>
+<div class="line"><span class="lineno">  642</span>        message);</div>
+<div class="line"><span class="lineno">  643</span>  }</div>
+<div class="line"><span class="lineno">  644</span>}</div>
 <div class="ttc" id="anamespacegpu_html_a508fff3f15882a37b1c0bd0341296176"><div class="ttname"><a href="#a508fff3f15882a37b1c0bd0341296176">gpu::LOG</a></div><div class="ttdeci">void LOG(Logger &amp;logger, int level, const char *message,...)</div><div class="ttdoc">Log a message to the logger. If NDEBUG is defined in a source or as a compiler flag,...</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00034">logging.h:34</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a1d4931274b4522b102e4e98c5f056768" name="a1d4931274b4522b102e4e98c5f056768"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d4931274b4522b102e4e98c5f056768">&#9670;&#160;</a></span>createContext()</h2>
+<a id="aca30e59bd4eb9e991f4f275c40bc00db" name="aca30e59bd4eb9e991f4f275c40bc00db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca30e59bd4eb9e991f4f275c40bc00db">&#9670;&#160;</a></span>createContext()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -590,7 +590,7 @@ threads by workgroup size dimensions.</h1>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">WGPUDeviceDescriptor</td>          <td class="paramname"><span class="paramname"><em>devDescriptor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+          <td class="paramtype">const WGPUDeviceDescriptor &amp;</td>          <td class="paramname"><span class="paramname"><em>devDescriptor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -612,90 +612,90 @@ threads by workgroup size dimensions.</h1>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structgpu_1_1_context.html" title="Represents a GPU context, aggregates WebGPU API handles to interact with the GPU including the instan...">Context</a> instance representing the created GPU context</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_context.html">Context</a> ctx = <a class="code hl_function" href="#a1d4931274b4522b102e4e98c5f056768">createContext</a>();</div>
-<div class="ttc" id="anamespacegpu_html_a1d4931274b4522b102e4e98c5f056768"><div class="ttname"><a href="#a1d4931274b4522b102e4e98c5f056768">gpu::createContext</a></div><div class="ttdeci">Context createContext(const WGPUInstanceDescriptor &amp;desc={}, const WGPURequestAdapterOptions &amp;adapterOpts={}, WGPUDeviceDescriptor devDescriptor={})</div><div class="ttdoc">Factory function to create a GPU context, which aggregates WebGPU API handles to interact with the GP...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00665">gpu.h:665</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html"><div class="ttname"><a href="structgpu_1_1_context.html">gpu::Context</a></div><div class="ttdoc">Represents a GPU context, aggregates WebGPU API handles to interact with the GPU including the instan...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00420">gpu.h:420</a></div></div>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_context.html">Context</a> ctx = <a class="code hl_function" href="#aca30e59bd4eb9e991f4f275c40bc00db">createContext</a>();</div>
+<div class="ttc" id="anamespacegpu_html_aca30e59bd4eb9e991f4f275c40bc00db"><div class="ttname"><a href="#aca30e59bd4eb9e991f4f275c40bc00db">gpu::createContext</a></div><div class="ttdeci">Context createContext(const WGPUInstanceDescriptor &amp;desc={}, const WGPURequestAdapterOptions &amp;adapterOpts={}, const WGPUDeviceDescriptor &amp;devDescriptor={})</div><div class="ttdoc">Factory function to create a GPU context, which aggregates WebGPU API handles to interact with the GP...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00667">gpu.h:667</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html"><div class="ttname"><a href="structgpu_1_1_context.html">gpu::Context</a></div><div class="ttdoc">Represents a GPU context, aggregates WebGPU API handles to interact with the GPU including the instan...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00422">gpu.h:422</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00665">665</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  665</span>                                                                  {},</div>
-<div class="line"><span class="lineno">  666</span>                             <span class="keyword">const</span> WGPURequestAdapterOptions &amp;adapterOpts = {},</div>
-<div class="line"><span class="lineno">  667</span>                             WGPUDeviceDescriptor devDescriptor = {}) {</div>
-<div class="line"><span class="lineno">  668</span>  Context context;</div>
-<div class="line"><span class="lineno">  669</span>  {</div>
-<div class="line"><span class="lineno">  670</span>    context.instance = wgpuCreateInstance(&amp;desc);</div>
-<div class="line"><span class="lineno">  671</span>    <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(context.instance, <span class="stringliteral">&quot;Initialize WebGPU&quot;</span>, __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno">  672</span>  }</div>
-<div class="line"><span class="lineno">  673</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Requesting adapter&quot;</span>);</div>
-<div class="line"><span class="lineno">  674</span>  {</div>
-<div class="line"><span class="lineno">  675</span>    <span class="keyword">struct </span>AdapterData {</div>
-<div class="line"><span class="lineno">  676</span>      WGPUAdapter adapter = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  677</span>      <span class="keywordtype">bool</span> requestEnded = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  678</span>    };</div>
-<div class="line"><span class="lineno">  679</span>    AdapterData adapterData;</div>
-<div class="line"><span class="lineno">  680</span>    <span class="keyword">auto</span> onAdapterRequestEnded = [](WGPURequestAdapterStatus status,</div>
-<div class="line"><span class="lineno">  681</span>                                    WGPUAdapter adapter, <span class="keywordtype">char</span> <span class="keyword">const</span> *message,</div>
-<div class="line"><span class="lineno">  682</span>                                    <span class="keywordtype">void</span> *pUserData) {</div>
-<div class="line"><span class="lineno">  683</span>      AdapterData &amp;adapterData = *<span class="keyword">reinterpret_cast&lt;</span>AdapterData *<span class="keyword">&gt;</span>(pUserData);</div>
-<div class="line"><span class="lineno">  684</span>      <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(status == WGPURequestAdapterStatus_Success,</div>
-<div class="line"><span class="lineno">  685</span>            <span class="stringliteral">&quot;Request WebGPU adapter&quot;</span>, __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno">  686</span>      adapterData.adapter = adapter;</div>
-<div class="line"><span class="lineno">  687</span>      adapterData.requestEnded = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  688</span>    };</div>
-<div class="line"><span class="lineno">  689</span>    wgpuInstanceRequestAdapter(context.instance, &amp;adapterOpts,</div>
-<div class="line"><span class="lineno">  690</span>                               onAdapterRequestEnded, (<span class="keywordtype">void</span> *)&amp;adapterData);</div>
-<div class="line"><span class="lineno">  691</span>    assert(adapterData.requestEnded);</div>
-<div class="line"><span class="lineno">  692</span>    context.adapter = adapterData.adapter;</div>
-<div class="line"><span class="lineno">  693</span>  }</div>
-<div class="line"><span class="lineno">  694</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Requesting device&quot;</span>);</div>
-<div class="line"><span class="lineno">  695</span>  {</div>
-<div class="line"><span class="lineno">  696</span>    <span class="keyword">struct </span>DeviceData {</div>
-<div class="line"><span class="lineno">  697</span>      WGPUDevice device = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  698</span>      <span class="keywordtype">bool</span> requestEnded = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  699</span>    };</div>
-<div class="line"><span class="lineno">  700</span>    DeviceData devData;</div>
-<div class="line"><span class="lineno">  701</span>    <span class="keyword">auto</span> onDeviceRequestEnded = [](WGPURequestDeviceStatus status,</div>
-<div class="line"><span class="lineno">  702</span>                                   WGPUDevice device, <span class="keywordtype">char</span> <span class="keyword">const</span> *message,</div>
-<div class="line"><span class="lineno">  703</span>                                   <span class="keywordtype">void</span> *pUserData) {</div>
-<div class="line"><span class="lineno">  704</span>      DeviceData &amp;devData = *<span class="keyword">reinterpret_cast&lt;</span>DeviceData *<span class="keyword">&gt;</span>(pUserData);</div>
-<div class="line"><span class="lineno">  705</span>      <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(status == WGPURequestDeviceStatus_Success,</div>
-<div class="line"><span class="lineno">  706</span>            <span class="stringliteral">&quot;Could not get WebGPU device.&quot;</span>, __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno">  707</span>      <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;Device Request succeeded %x&quot;</span>,</div>
-<div class="line"><span class="lineno">  708</span>          <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(device));</div>
-<div class="line"><span class="lineno">  709</span>      devData.device = device;</div>
-<div class="line"><span class="lineno">  710</span>      devData.requestEnded = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  711</span>    };</div>
-<div class="line"><span class="lineno">  712</span> </div>
-<div class="line"><span class="lineno">  713</span><span class="preprocessor">#ifdef WEBGPU_BACKEND_DAWN</span></div>
-<div class="line"><span class="lineno">  714</span>    devDescriptor.deviceLostCallbackInfo = {</div>
-<div class="line"><span class="lineno">  715</span>        .callback =</div>
-<div class="line"><span class="lineno">  716</span>            [](WGPUDevice <span class="keyword">const</span> *device, WGPUDeviceLostReason reason,</div>
-<div class="line"><span class="lineno">  717</span>               <span class="keywordtype">char</span> <span class="keyword">const</span> *message, <span class="keywordtype">void</span> *userdata) {</div>
-<div class="line"><span class="lineno">  718</span>              <span class="keywordflow">if</span> (reason != WGPUDeviceLostReason_Destroyed) {</div>
-<div class="line"><span class="lineno">  719</span>                <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kError, <span class="stringliteral">&quot;Device lost (code %d):\n%s&quot;</span>, reason,</div>
-<div class="line"><span class="lineno">  720</span>                    message);</div>
-<div class="line"><span class="lineno">  721</span>              } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  722</span>                <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Device destroyed: %s&quot;</span>, message);</div>
-<div class="line"><span class="lineno">  723</span>              }</div>
-<div class="line"><span class="lineno">  724</span>            },</div>
-<div class="line"><span class="lineno">  725</span>    };</div>
-<div class="line"><span class="lineno">  726</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  727</span> </div>
-<div class="line"><span class="lineno">  728</span>    wgpuAdapterRequestDevice(context.adapter, &amp;devDescriptor,</div>
-<div class="line"><span class="lineno">  729</span>                             onDeviceRequestEnded, (<span class="keywordtype">void</span> *)&amp;devData);</div>
-<div class="line"><span class="lineno">  730</span>    assert(devData.requestEnded);</div>
-<div class="line"><span class="lineno">  731</span>    context.device = devData.device;</div>
-<div class="line"><span class="lineno">  732</span>    wgpuDeviceSetUncapturedErrorCallback(</div>
-<div class="line"><span class="lineno">  733</span>        context.device,</div>
-<div class="line"><span class="lineno">  734</span>        [](WGPUErrorType type, <span class="keywordtype">char</span> <span class="keyword">const</span> *message, <span class="keywordtype">void</span> *devData) {</div>
-<div class="line"><span class="lineno">  735</span>          LOG(kDefLog, kError, <span class="stringliteral">&quot;Device uncaptured error: %s&quot;</span>, message);</div>
-<div class="line"><span class="lineno">  736</span>          throw std::runtime_error(<span class="stringliteral">&quot;Device uncaptured exception.&quot;</span>);</div>
-<div class="line"><span class="lineno">  737</span>        },</div>
-<div class="line"><span class="lineno">  738</span>        <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">  739</span>  }</div>
-<div class="line"><span class="lineno">  740</span>  context.queue = wgpuDeviceGetQueue(context.device);</div>
-<div class="line"><span class="lineno">  741</span>  <span class="keywordflow">return</span> context;</div>
-<div class="line"><span class="lineno">  742</span>}</div>
-<div class="ttc" id="anamespacegpu_html_a3e8bcb1dd85ad12c99d6f27ace6d891a"><div class="ttname"><a href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">gpu::check</a></div><div class="ttdeci">void check(bool condition, const char *message, const char *file=&quot;unkown&quot;, int line=-1)</div><div class="ttdoc">Checks a condition and logs an error message if the condition is false. In debug mode,...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00633">gpu.h:633</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00667">667</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  667</span>                                                                  {},</div>
+<div class="line"><span class="lineno">  668</span>                             <span class="keyword">const</span> WGPURequestAdapterOptions &amp;adapterOpts = {},</div>
+<div class="line"><span class="lineno">  669</span>                             <span class="keyword">const</span> WGPUDeviceDescriptor &amp;devDescriptor = {}) {</div>
+<div class="line"><span class="lineno">  670</span>  Context context;</div>
+<div class="line"><span class="lineno">  671</span>  {</div>
+<div class="line"><span class="lineno">  672</span>    context.instance = wgpuCreateInstance(&amp;desc);</div>
+<div class="line"><span class="lineno">  673</span>    <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(context.instance, <span class="stringliteral">&quot;Initialize WebGPU&quot;</span>, __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno">  674</span>  }</div>
+<div class="line"><span class="lineno">  675</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Requesting adapter&quot;</span>);</div>
+<div class="line"><span class="lineno">  676</span>  {</div>
+<div class="line"><span class="lineno">  677</span>    <span class="keyword">struct </span>AdapterData {</div>
+<div class="line"><span class="lineno">  678</span>      WGPUAdapter adapter = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  679</span>      <span class="keywordtype">bool</span> requestEnded = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  680</span>    };</div>
+<div class="line"><span class="lineno">  681</span>    AdapterData adapterData;</div>
+<div class="line"><span class="lineno">  682</span>    <span class="keyword">auto</span> onAdapterRequestEnded = [](WGPURequestAdapterStatus status,</div>
+<div class="line"><span class="lineno">  683</span>                                    WGPUAdapter adapter, <span class="keywordtype">char</span> <span class="keyword">const</span> *message,</div>
+<div class="line"><span class="lineno">  684</span>                                    <span class="keywordtype">void</span> *pUserData) {</div>
+<div class="line"><span class="lineno">  685</span>      AdapterData &amp;adapterData = *<span class="keyword">reinterpret_cast&lt;</span>AdapterData *<span class="keyword">&gt;</span>(pUserData);</div>
+<div class="line"><span class="lineno">  686</span>      <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(status == WGPURequestAdapterStatus_Success,</div>
+<div class="line"><span class="lineno">  687</span>            <span class="stringliteral">&quot;Request WebGPU adapter&quot;</span>, __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno">  688</span>      adapterData.adapter = adapter;</div>
+<div class="line"><span class="lineno">  689</span>      adapterData.requestEnded = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  690</span>    };</div>
+<div class="line"><span class="lineno">  691</span>    wgpuInstanceRequestAdapter(context.instance, &amp;adapterOpts,</div>
+<div class="line"><span class="lineno">  692</span>                               onAdapterRequestEnded, (<span class="keywordtype">void</span> *)&amp;adapterData);</div>
+<div class="line"><span class="lineno">  693</span>    assert(adapterData.requestEnded);</div>
+<div class="line"><span class="lineno">  694</span>    context.adapter = adapterData.adapter;</div>
+<div class="line"><span class="lineno">  695</span>  }</div>
+<div class="line"><span class="lineno">  696</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Requesting device&quot;</span>);</div>
+<div class="line"><span class="lineno">  697</span>  {</div>
+<div class="line"><span class="lineno">  698</span>    <span class="keyword">struct </span>DeviceData {</div>
+<div class="line"><span class="lineno">  699</span>      WGPUDevice device = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  700</span>      <span class="keywordtype">bool</span> requestEnded = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  701</span>    };</div>
+<div class="line"><span class="lineno">  702</span>    DeviceData devData;</div>
+<div class="line"><span class="lineno">  703</span>    <span class="keyword">auto</span> onDeviceRequestEnded = [](WGPURequestDeviceStatus status,</div>
+<div class="line"><span class="lineno">  704</span>                                   WGPUDevice device, <span class="keywordtype">char</span> <span class="keyword">const</span> *message,</div>
+<div class="line"><span class="lineno">  705</span>                                   <span class="keywordtype">void</span> *pUserData) {</div>
+<div class="line"><span class="lineno">  706</span>      DeviceData &amp;devData = *<span class="keyword">reinterpret_cast&lt;</span>DeviceData *<span class="keyword">&gt;</span>(pUserData);</div>
+<div class="line"><span class="lineno">  707</span>      <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(status == WGPURequestDeviceStatus_Success,</div>
+<div class="line"><span class="lineno">  708</span>            <span class="stringliteral">&quot;Could not get WebGPU device.&quot;</span>, __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno">  709</span>      <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;Device Request succeeded %x&quot;</span>,</div>
+<div class="line"><span class="lineno">  710</span>          <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(device));</div>
+<div class="line"><span class="lineno">  711</span>      devData.device = device;</div>
+<div class="line"><span class="lineno">  712</span>      devData.requestEnded = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  713</span>    };</div>
+<div class="line"><span class="lineno">  714</span> </div>
+<div class="line"><span class="lineno">  715</span><span class="preprocessor">#ifdef WEBGPU_BACKEND_DAWN</span></div>
+<div class="line"><span class="lineno">  716</span>    devDescriptor.deviceLostCallbackInfo = {</div>
+<div class="line"><span class="lineno">  717</span>        .callback =</div>
+<div class="line"><span class="lineno">  718</span>            [](WGPUDevice <span class="keyword">const</span> *device, WGPUDeviceLostReason reason,</div>
+<div class="line"><span class="lineno">  719</span>               <span class="keywordtype">char</span> <span class="keyword">const</span> *message, <span class="keywordtype">void</span> *userdata) {</div>
+<div class="line"><span class="lineno">  720</span>              <span class="keywordflow">if</span> (reason != WGPUDeviceLostReason_Destroyed) {</div>
+<div class="line"><span class="lineno">  721</span>                <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kError, <span class="stringliteral">&quot;Device lost (code %d):\n%s&quot;</span>, reason,</div>
+<div class="line"><span class="lineno">  722</span>                    message);</div>
+<div class="line"><span class="lineno">  723</span>              } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  724</span>                <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Device destroyed: %s&quot;</span>, message);</div>
+<div class="line"><span class="lineno">  725</span>              }</div>
+<div class="line"><span class="lineno">  726</span>            },</div>
+<div class="line"><span class="lineno">  727</span>    };</div>
+<div class="line"><span class="lineno">  728</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  729</span> </div>
+<div class="line"><span class="lineno">  730</span>    wgpuAdapterRequestDevice(context.adapter, &amp;devDescriptor,</div>
+<div class="line"><span class="lineno">  731</span>                             onDeviceRequestEnded, (<span class="keywordtype">void</span> *)&amp;devData);</div>
+<div class="line"><span class="lineno">  732</span>    assert(devData.requestEnded);</div>
+<div class="line"><span class="lineno">  733</span>    context.device = devData.device;</div>
+<div class="line"><span class="lineno">  734</span>    wgpuDeviceSetUncapturedErrorCallback(</div>
+<div class="line"><span class="lineno">  735</span>        context.device,</div>
+<div class="line"><span class="lineno">  736</span>        [](WGPUErrorType type, <span class="keywordtype">char</span> <span class="keyword">const</span> *message, <span class="keywordtype">void</span> *devData) {</div>
+<div class="line"><span class="lineno">  737</span>          LOG(kDefLog, kError, <span class="stringliteral">&quot;Device uncaptured error: %s&quot;</span>, message);</div>
+<div class="line"><span class="lineno">  738</span>          throw std::runtime_error(<span class="stringliteral">&quot;Device uncaptured exception.&quot;</span>);</div>
+<div class="line"><span class="lineno">  739</span>        },</div>
+<div class="line"><span class="lineno">  740</span>        <span class="keyword">nullptr</span>);</div>
+<div class="line"><span class="lineno">  741</span>  }</div>
+<div class="line"><span class="lineno">  742</span>  context.queue = wgpuDeviceGetQueue(context.device);</div>
+<div class="line"><span class="lineno">  743</span>  <span class="keywordflow">return</span> context;</div>
+<div class="line"><span class="lineno">  744</span>}</div>
+<div class="ttc" id="anamespacegpu_html_a3e8bcb1dd85ad12c99d6f27ace6d891a"><div class="ttname"><a href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">gpu::check</a></div><div class="ttdeci">void check(bool condition, const char *message, const char *file=&quot;unkown&quot;, int line=-1)</div><div class="ttdoc">Checks a condition and logs an error message if the condition is false. In debug mode,...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00635">gpu.h:635</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -748,26 +748,26 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structgpu_1_1_kernel.html" title="Represents handles + metadata for a reusable kernel on the GPU. The struct members can be divided int...">Kernel</a> instance representing the created kernel</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_kernel.html">Kernel</a> kernel = <a class="code hl_function" href="#a62a564af334eff94a0fd4118c70e84f3">createKernel</a>(ctx, code, tensorData, output,</div>
-<div class="ttc" id="anamespacegpu_html_a62a564af334eff94a0fd4118c70e84f3"><div class="ttname"><a href="#a62a564af334eff94a0fd4118c70e84f3">gpu::createKernel</a></div><div class="ttdeci">Kernel createKernel(Context &amp;ctx, const KernelCode &amp;code, const Tensor *dataBindings, size_t numTensors, const size_t *viewOffsets, const Shape &amp;nWorkgroups, const void *params=nullptr, size_t paramsSize=0)</div><div class="ttdoc">A factory function to create a kernel on the GPU. The kernel is created with the given WGSL code,...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00979">gpu.h:979</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_html"><div class="ttname"><a href="structgpu_1_1_kernel.html">gpu::Kernel</a></div><div class="ttdoc">Represents handles + metadata for a reusable kernel on the GPU. The struct members can be divided int...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00376">gpu.h:376</a></div></div>
+<div class="ttc" id="anamespacegpu_html_a62a564af334eff94a0fd4118c70e84f3"><div class="ttname"><a href="#a62a564af334eff94a0fd4118c70e84f3">gpu::createKernel</a></div><div class="ttdeci">Kernel createKernel(Context &amp;ctx, const KernelCode &amp;code, const Tensor *dataBindings, size_t numTensors, const size_t *viewOffsets, const Shape &amp;nWorkgroups, const void *params=nullptr, size_t paramsSize=0)</div><div class="ttdoc">A factory function to create a kernel on the GPU. The kernel is created with the given WGSL code,...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00981">gpu.h:981</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_html"><div class="ttname"><a href="structgpu_1_1_kernel.html">gpu::Kernel</a></div><div class="ttdoc">Represents handles + metadata for a reusable kernel on the GPU. The struct members can be divided int...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00378">gpu.h:378</a></div></div>
 </div><!-- fragment --><p> nWorkgroups, params); </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l01135">1135</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1138</span>                                                         {}) {</div>
-<div class="line"><span class="lineno"> 1139</span>  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (!IsNoParam&lt;ParamsType&gt;) {</div>
-<div class="line"><span class="lineno"> 1140</span>    <span class="comment">// LOG(kDefLog, kTrace, &quot;Using params of size %d bytes&quot;,</span></div>
-<div class="line"><span class="lineno"> 1141</span>    <span class="comment">// sizeof(ParamsType));</span></div>
-<div class="line"><span class="lineno"> 1142</span>    <span class="keywordflow">return</span> createKernel(ctx, code, dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae3c08de2be75853afcb03a5aa40ba304">data</a>.data(), numInputs,</div>
-<div class="line"><span class="lineno"> 1143</span>                        dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae09528d38daded0931b9d6ab4af8166d">viewOffsets</a>.data(), nWorkgroups,</div>
-<div class="line"><span class="lineno"> 1144</span>                        <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(&amp;params),</div>
-<div class="line"><span class="lineno"> 1145</span>                        <span class="keyword">sizeof</span>(ParamsType));</div>
-<div class="line"><span class="lineno"> 1146</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno"> 1147</span>    <span class="comment">// LOG(kDefLog, kTrace , &quot;No params&quot;);</span></div>
-<div class="line"><span class="lineno"> 1148</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a62a564af334eff94a0fd4118c70e84f3">createKernel</a>(ctx, code, dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae3c08de2be75853afcb03a5aa40ba304">data</a>.data(), numInputs,</div>
-<div class="line"><span class="lineno"> 1149</span>                        dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae09528d38daded0931b9d6ab4af8166d">viewOffsets</a>.data(), nWorkgroups, <span class="keyword">nullptr</span>,</div>
-<div class="line"><span class="lineno"> 1150</span>                        0);</div>
-<div class="line"><span class="lineno"> 1151</span>  }</div>
-<div class="line"><span class="lineno"> 1152</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l01137">1137</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1140</span>                                                         {}) {</div>
+<div class="line"><span class="lineno"> 1141</span>  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (!IsNoParam&lt;ParamsType&gt;) {</div>
+<div class="line"><span class="lineno"> 1142</span>    <span class="comment">// LOG(kDefLog, kTrace, &quot;Using params of size %d bytes&quot;,</span></div>
+<div class="line"><span class="lineno"> 1143</span>    <span class="comment">// sizeof(ParamsType));</span></div>
+<div class="line"><span class="lineno"> 1144</span>    <span class="keywordflow">return</span> createKernel(ctx, code, dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae3c08de2be75853afcb03a5aa40ba304">data</a>.data(), numInputs,</div>
+<div class="line"><span class="lineno"> 1145</span>                        dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae09528d38daded0931b9d6ab4af8166d">viewOffsets</a>.data(), nWorkgroups,</div>
+<div class="line"><span class="lineno"> 1146</span>                        <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(&amp;params),</div>
+<div class="line"><span class="lineno"> 1147</span>                        <span class="keyword">sizeof</span>(ParamsType));</div>
+<div class="line"><span class="lineno"> 1148</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno"> 1149</span>    <span class="comment">// LOG(kDefLog, kTrace , &quot;No params&quot;);</span></div>
+<div class="line"><span class="lineno"> 1150</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a62a564af334eff94a0fd4118c70e84f3">createKernel</a>(ctx, code, dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae3c08de2be75853afcb03a5aa40ba304">data</a>.data(), numInputs,</div>
+<div class="line"><span class="lineno"> 1151</span>                        dataBindings.<a class="code hl_variable" href="structgpu_1_1_bindings.html#ae09528d38daded0931b9d6ab4af8166d">viewOffsets</a>.data(), nWorkgroups, <span class="keyword">nullptr</span>,</div>
+<div class="line"><span class="lineno"> 1152</span>                        0);</div>
+<div class="line"><span class="lineno"> 1153</span>  }</div>
+<div class="line"><span class="lineno"> 1154</span>}</div>
 <div class="ttc" id="astructgpu_1_1_bindings_html_ae09528d38daded0931b9d6ab4af8166d"><div class="ttname"><a href="structgpu_1_1_bindings.html#ae09528d38daded0931b9d6ab4af8166d">gpu::Bindings::viewOffsets</a></div><div class="ttdeci">std::array&lt; size_t, N &gt; viewOffsets</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00122">gpu.h:122</a></div></div>
 <div class="ttc" id="astructgpu_1_1_bindings_html_ae3c08de2be75853afcb03a5aa40ba304"><div class="ttname"><a href="structgpu_1_1_bindings.html#ae3c08de2be75853afcb03a5aa40ba304">gpu::Bindings::data</a></div><div class="ttdeci">std::array&lt; Tensor, N &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00121">gpu.h:121</a></div></div>
 </div><!-- fragment -->
@@ -849,152 +849,152 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_kernel.html">Kernel</a> kernel = <a class="code hl_function" href="#a62a564af334eff94a0fd4118c70e84f3">createKernel</a>(ctx, code, dataBindings, numInputs,</div>
 </div><!-- fragment --><p> output, nThreads, params, paramsSize); </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00979">979</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  983</span>                                                  {</div>
-<div class="line"><span class="lineno">  984</span>  assert(nWorkgroups.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a> == 3);</div>
-<div class="line"><span class="lineno">  985</span>  WGPUDevice device = ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>;</div>
-<div class="line"><span class="lineno">  986</span>  WGPUQueue queue = ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>;</div>
-<div class="line"><span class="lineno">  987</span>  <a class="code hl_struct" href="structgpu_1_1_kernel.html">Kernel</a> op;</div>
-<div class="line"><span class="lineno">  988</span>  <span class="comment">// paramIndex is the index into bgLayoutEntries for the parameters buffer If</span></div>
-<div class="line"><span class="lineno">  989</span>  <span class="comment">// there are no parameters for the kernel, paramsSize == 0 and paramIndex is</span></div>
-<div class="line"><span class="lineno">  990</span>  <span class="comment">// effectively undefined (== -1)</span></div>
-<div class="line"><span class="lineno">  991</span>  <span class="keywordtype">size_t</span> paramIndex = -1;</div>
-<div class="line"><span class="lineno">  992</span>  <span class="comment">// Note: paramIndex is undefined unless paramsSize &gt; 0</span></div>
-<div class="line"><span class="lineno">  993</span>  <span class="keywordtype">size_t</span> numBindings = numTensors;</div>
-<div class="line"><span class="lineno">  994</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
-<div class="line"><span class="lineno">  995</span>    numBindings++;                <span class="comment">// parameters buffer</span></div>
-<div class="line"><span class="lineno">  996</span>    paramIndex = numBindings - 1; <span class="comment">// index of the parameters buffer within</span></div>
-<div class="line"><span class="lineno">  997</span>                                  <span class="comment">// op.buffers, op.bufferSizes and</span></div>
-<div class="line"><span class="lineno">  998</span>                                  <span class="comment">// bgLayoutEntries</span></div>
-<div class="line"><span class="lineno">  999</span>  }</div>
-<div class="line"><span class="lineno"> 1000</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a> = std::make_unique&lt;WGPUBuffer[]&gt;(numBindings);</div>
-<div class="line"><span class="lineno"> 1001</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a> = std::make_unique&lt;size_t[]&gt;(numBindings);</div>
-<div class="line"><span class="lineno"> 1002</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">numBindings</a> = numBindings;</div>
-<div class="line"><span class="lineno"> 1003</span>  std::vector&lt;WGPUBindGroupLayoutEntry&gt; bgLayoutEntries(numBindings);</div>
-<div class="line"><span class="lineno"> 1004</span>  <span class="comment">// Create layout entries for input buffers</span></div>
-<div class="line"><span class="lineno"> 1005</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; numTensors; ++i) {</div>
-<div class="line"><span class="lineno"> 1006</span>    bgLayoutEntries[i] = WGPUBindGroupLayoutEntry{</div>
-<div class="line"><span class="lineno"> 1007</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(i),</div>
-<div class="line"><span class="lineno"> 1008</span>        .visibility = WGPUShaderStage_Compute,</div>
-<div class="line"><span class="lineno"> 1009</span>        .buffer =</div>
-<div class="line"><span class="lineno"> 1010</span>            WGPUBufferBindingLayout{</div>
-<div class="line"><span class="lineno"> 1011</span>                .type = WGPUBufferBindingType_Storage,</div>
-<div class="line"><span class="lineno"> 1012</span>                .minBindingSize = dataBindings[i].<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>,</div>
-<div class="line"><span class="lineno"> 1013</span>            },</div>
-<div class="line"><span class="lineno"> 1014</span>    };</div>
-<div class="line"><span class="lineno"> 1015</span>  }</div>
-<div class="line"><span class="lineno"> 1016</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
-<div class="line"><span class="lineno"> 1017</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Create layout entry for the params buffer&quot;</span>);</div>
-<div class="line"><span class="lineno"> 1018</span>    <span class="comment">// Create layout entry for the params buffer</span></div>
-<div class="line"><span class="lineno"> 1019</span>    bgLayoutEntries[paramIndex] = WGPUBindGroupLayoutEntry{</div>
-<div class="line"><span class="lineno"> 1020</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(paramIndex),</div>
-<div class="line"><span class="lineno"> 1021</span>        .visibility = WGPUShaderStage_Compute,</div>
-<div class="line"><span class="lineno"> 1022</span>        .buffer =</div>
-<div class="line"><span class="lineno"> 1023</span>            WGPUBufferBindingLayout{</div>
-<div class="line"><span class="lineno"> 1024</span>                .type = WGPUBufferBindingType_Uniform,</div>
-<div class="line"><span class="lineno"> 1025</span>                .minBindingSize = paramsSize,</div>
-<div class="line"><span class="lineno"> 1026</span>            },</div>
-<div class="line"><span class="lineno"> 1027</span>    };</div>
-<div class="line"><span class="lineno"> 1028</span>  }</div>
-<div class="line"><span class="lineno"> 1029</span>  WGPUBindGroupLayoutDescriptor bgLayoutDesc = {</div>
-<div class="line"><span class="lineno"> 1030</span>      .entryCount = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(bgLayoutEntries.size()),</div>
-<div class="line"><span class="lineno"> 1031</span>      .entries = bgLayoutEntries.data(),</div>
-<div class="line"><span class="lineno"> 1032</span>  };</div>
-<div class="line"><span class="lineno"> 1033</span>  WGPUBindGroupLayout bgLayout =</div>
-<div class="line"><span class="lineno"> 1034</span>      wgpuDeviceCreateBindGroupLayout(device, &amp;bgLayoutDesc);</div>
-<div class="line"><span class="lineno"> 1035</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; numTensors; ++i) {</div>
-<div class="line"><span class="lineno"> 1036</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[i] = dataBindings[i].<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>;</div>
-<div class="line"><span class="lineno"> 1037</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a>[i] = dataBindings[i].<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>;</div>
-<div class="line"><span class="lineno"> 1038</span>  }</div>
-<div class="line"><span class="lineno"> 1039</span>  <span class="comment">// Create a buffer for the Params struct</span></div>
-<div class="line"><span class="lineno"> 1040</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
-<div class="line"><span class="lineno"> 1041</span>    WGPUBufferDescriptor paramsBufferDesc = {</div>
-<div class="line"><span class="lineno"> 1042</span>        .usage = WGPUBufferUsage_Uniform | WGPUBufferUsage_CopyDst,</div>
-<div class="line"><span class="lineno"> 1043</span>        .size = paramsSize,</div>
-<div class="line"><span class="lineno"> 1044</span>        .mappedAtCreation = <span class="keyword">false</span>,</div>
-<div class="line"><span class="lineno"> 1045</span>    };</div>
-<div class="line"><span class="lineno"> 1046</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[paramIndex] = wgpuDeviceCreateBuffer(device, &amp;paramsBufferDesc);</div>
-<div class="line"><span class="lineno"> 1047</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a>[paramIndex] = paramsSize;</div>
-<div class="line"><span class="lineno"> 1048</span>    wgpuQueueWriteBuffer(queue, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[paramIndex], 0, params, paramsSize);</div>
-<div class="line"><span class="lineno"> 1049</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;Params buffer written&quot;</span>);</div>
-<div class="line"><span class="lineno"> 1050</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno"> 1051</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;No params buffer needed&quot;</span>);</div>
-<div class="line"><span class="lineno"> 1052</span>  }</div>
-<div class="line"><span class="lineno"> 1053</span>  std::vector&lt;WGPUBindGroupEntry&gt; bindGroupEntries(numBindings);</div>
-<div class="line"><span class="lineno"> 1054</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; numTensors; ++i) {</div>
-<div class="line"><span class="lineno"> 1055</span>    bindGroupEntries[i] = WGPUBindGroupEntry{</div>
-<div class="line"><span class="lineno"> 1056</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(i),</div>
-<div class="line"><span class="lineno"> 1057</span>        .buffer = op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[i],</div>
-<div class="line"><span class="lineno"> 1058</span>        .offset = viewOffsets[i],</div>
-<div class="line"><span class="lineno"> 1059</span>        .size = op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a>[i],</div>
-<div class="line"><span class="lineno"> 1060</span>    };</div>
-<div class="line"><span class="lineno"> 1061</span>  }</div>
-<div class="line"><span class="lineno"> 1062</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
-<div class="line"><span class="lineno"> 1063</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Create bind group entry for the params buffer&quot;</span>);</div>
-<div class="line"><span class="lineno"> 1064</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;paramIndex: %d&quot;</span>, paramIndex);</div>
-<div class="line"><span class="lineno"> 1065</span>    bindGroupEntries[paramIndex] = WGPUBindGroupEntry{</div>
-<div class="line"><span class="lineno"> 1066</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(paramIndex),</div>
-<div class="line"><span class="lineno"> 1067</span>        .buffer = op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[paramIndex],</div>
-<div class="line"><span class="lineno"> 1068</span>        .offset = 0,</div>
-<div class="line"><span class="lineno"> 1069</span>        .size = paramsSize,</div>
-<div class="line"><span class="lineno"> 1070</span>    };</div>
-<div class="line"><span class="lineno"> 1071</span>  }</div>
-<div class="line"><span class="lineno"> 1072</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;BG Entries Size: %d&quot;</span>, numBindings);</div>
-<div class="line"><span class="lineno"> 1073</span>  WGPUBindGroupDescriptor bindGroupDesc = {</div>
-<div class="line"><span class="lineno"> 1074</span>      .layout = bgLayout,</div>
-<div class="line"><span class="lineno"> 1075</span>      .entryCount = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(numBindings),</div>
-<div class="line"><span class="lineno"> 1076</span>      .entries = bindGroupEntries.data(),</div>
-<div class="line"><span class="lineno"> 1077</span>  };</div>
-<div class="line"><span class="lineno"> 1078</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#ab3c829286d3d649f9d6888288f132e41">bindGroup</a> = wgpuDeviceCreateBindGroup(device, &amp;bindGroupDesc);</div>
-<div class="line"><span class="lineno"> 1079</span>  {</div>
-<div class="line"><span class="lineno"> 1080</span>    WGPUPipelineLayoutDescriptor pipelineLayoutDesc = {</div>
-<div class="line"><span class="lineno"> 1081</span>        .bindGroupLayoutCount = 1,</div>
-<div class="line"><span class="lineno"> 1082</span>        .bindGroupLayouts = &amp;bgLayout,</div>
-<div class="line"><span class="lineno"> 1083</span>    };</div>
-<div class="line"><span class="lineno"> 1084</span>    WGPUPipelineLayout pipelineLayout =</div>
-<div class="line"><span class="lineno"> 1085</span>        wgpuDeviceCreatePipelineLayout(device, &amp;pipelineLayoutDesc);</div>
-<div class="line"><span class="lineno"> 1086</span>    WGPUShaderModuleWGSLDescriptor wgslDesc = {</div>
-<div class="line"><span class="lineno"> 1087</span>        .code = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#a2ad15822c743263eb63ef98eb7456818">data</a>.c_str(),</div>
-<div class="line"><span class="lineno"> 1088</span>    };</div>
-<div class="line"><span class="lineno"> 1089</span>    wgslDesc.chain.sType = WGPUSType_ShaderModuleWGSLDescriptor;</div>
-<div class="line"><span class="lineno"> 1090</span>    WGPUShaderModuleDescriptor shaderModuleDesc = {};</div>
-<div class="line"><span class="lineno"> 1091</span>    shaderModuleDesc.nextInChain = &amp;wgslDesc.chain;</div>
-<div class="line"><span class="lineno"> 1092</span>    shaderModuleDesc.label = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#aadbebd728ce096c0458ae507e3f379bf">label</a>.c_str();</div>
-<div class="line"><span class="lineno"> 1093</span>    WGPUComputePipelineDescriptor computePipelineDesc = {};</div>
-<div class="line"><span class="lineno"> 1094</span>    computePipelineDesc.layout = pipelineLayout;</div>
-<div class="line"><span class="lineno"> 1095</span>    computePipelineDesc.compute.module =</div>
-<div class="line"><span class="lineno"> 1096</span>        wgpuDeviceCreateShaderModule(device, &amp;shaderModuleDesc);</div>
-<div class="line"><span class="lineno"> 1097</span>    computePipelineDesc.compute.entryPoint = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#a27e10760b792860a6ad635f8057e687d">entryPoint</a>.c_str();</div>
-<div class="line"><span class="lineno"> 1098</span>    computePipelineDesc.label = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#aadbebd728ce096c0458ae507e3f379bf">label</a>.c_str();</div>
-<div class="line"><span class="lineno"> 1099</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aa8aaca0b5f23c2991b0d74fa6cfd1967">computePipeline</a> =</div>
-<div class="line"><span class="lineno"> 1100</span>        wgpuDeviceCreateComputePipeline(device, &amp;computePipelineDesc);</div>
-<div class="line"><span class="lineno"> 1101</span>  }</div>
-<div class="line"><span class="lineno"> 1102</span>  <span class="comment">/*</span></div>
-<div class="line"><span class="lineno"> 1103</span><span class="comment">  op.nWorkgroups = {cdiv(nThreads[0], code.workgroupSize[0]),</span></div>
-<div class="line"><span class="lineno"> 1104</span><span class="comment">                    cdiv(nThreads[1], code.workgroupSize[1]),</span></div>
-<div class="line"><span class="lineno"> 1105</span><span class="comment">                    cdiv(nThreads[2], code.workgroupSize[2])};</span></div>
-<div class="line"><span class="lineno"> 1106</span><span class="comment">  */</span></div>
-<div class="line"><span class="lineno"> 1107</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a> = {nWorkgroups[0], nWorkgroups[1], nWorkgroups[2]};</div>
-<div class="line"><span class="lineno"> 1108</span>  <a class="code hl_function" href="#ac59323bc390c2a01dc473dcb72d03868">resetCommandBuffer</a>(device, op);</div>
-<div class="line"><span class="lineno"> 1109</span>  ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#aa4098b7ad968c4558aef2ced17812ca0">kernelPool</a>.<a class="code hl_variable" href="structgpu_1_1_kernel_pool.html#a14be3fcb1e16529602f3f32f65ae4a30">data</a>.insert(&amp;op);</div>
-<div class="line"><span class="lineno"> 1110</span>  <span class="keywordflow">return</span> op;</div>
-<div class="line"><span class="lineno"> 1111</span>}</div>
-<div class="ttc" id="anamespacegpu_html_ac59323bc390c2a01dc473dcb72d03868"><div class="ttname"><a href="#ac59323bc390c2a01dc473dcb72d03868">gpu::resetCommandBuffer</a></div><div class="ttdeci">void resetCommandBuffer(WGPUDevice &amp;device, Kernel &amp;op)</div><div class="ttdoc">Resets the command buffer in preparation for a kernel dispatch. Since command buffers are consumed up...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00909">gpu.h:909</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00981">981</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  985</span>                                                  {</div>
+<div class="line"><span class="lineno">  986</span>  assert(nWorkgroups.<a class="code hl_variable" href="structgpu_1_1_shape.html#a0a0e6afec8c276bd46d6b9a8f9a2244e">rank</a> == 3);</div>
+<div class="line"><span class="lineno">  987</span>  WGPUDevice device = ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>;</div>
+<div class="line"><span class="lineno">  988</span>  WGPUQueue queue = ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>;</div>
+<div class="line"><span class="lineno">  989</span>  <a class="code hl_struct" href="structgpu_1_1_kernel.html">Kernel</a> op;</div>
+<div class="line"><span class="lineno">  990</span>  <span class="comment">// paramIndex is the index into bgLayoutEntries for the parameters buffer If</span></div>
+<div class="line"><span class="lineno">  991</span>  <span class="comment">// there are no parameters for the kernel, paramsSize == 0 and paramIndex is</span></div>
+<div class="line"><span class="lineno">  992</span>  <span class="comment">// effectively undefined (== -1)</span></div>
+<div class="line"><span class="lineno">  993</span>  <span class="keywordtype">size_t</span> paramIndex = -1;</div>
+<div class="line"><span class="lineno">  994</span>  <span class="comment">// Note: paramIndex is undefined unless paramsSize &gt; 0</span></div>
+<div class="line"><span class="lineno">  995</span>  <span class="keywordtype">size_t</span> numBindings = numTensors;</div>
+<div class="line"><span class="lineno">  996</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
+<div class="line"><span class="lineno">  997</span>    numBindings++;                <span class="comment">// parameters buffer</span></div>
+<div class="line"><span class="lineno">  998</span>    paramIndex = numBindings - 1; <span class="comment">// index of the parameters buffer within</span></div>
+<div class="line"><span class="lineno">  999</span>                                  <span class="comment">// op.buffers, op.bufferSizes and</span></div>
+<div class="line"><span class="lineno"> 1000</span>                                  <span class="comment">// bgLayoutEntries</span></div>
+<div class="line"><span class="lineno"> 1001</span>  }</div>
+<div class="line"><span class="lineno"> 1002</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a> = std::make_unique&lt;WGPUBuffer[]&gt;(numBindings);</div>
+<div class="line"><span class="lineno"> 1003</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a> = std::make_unique&lt;size_t[]&gt;(numBindings);</div>
+<div class="line"><span class="lineno"> 1004</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">numBindings</a> = numBindings;</div>
+<div class="line"><span class="lineno"> 1005</span>  std::vector&lt;WGPUBindGroupLayoutEntry&gt; bgLayoutEntries(numBindings);</div>
+<div class="line"><span class="lineno"> 1006</span>  <span class="comment">// Create layout entries for input buffers</span></div>
+<div class="line"><span class="lineno"> 1007</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; numTensors; ++i) {</div>
+<div class="line"><span class="lineno"> 1008</span>    bgLayoutEntries[i] = WGPUBindGroupLayoutEntry{</div>
+<div class="line"><span class="lineno"> 1009</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(i),</div>
+<div class="line"><span class="lineno"> 1010</span>        .visibility = WGPUShaderStage_Compute,</div>
+<div class="line"><span class="lineno"> 1011</span>        .buffer =</div>
+<div class="line"><span class="lineno"> 1012</span>            WGPUBufferBindingLayout{</div>
+<div class="line"><span class="lineno"> 1013</span>                .type = WGPUBufferBindingType_Storage,</div>
+<div class="line"><span class="lineno"> 1014</span>                .minBindingSize = dataBindings[i].<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>,</div>
+<div class="line"><span class="lineno"> 1015</span>            },</div>
+<div class="line"><span class="lineno"> 1016</span>    };</div>
+<div class="line"><span class="lineno"> 1017</span>  }</div>
+<div class="line"><span class="lineno"> 1018</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
+<div class="line"><span class="lineno"> 1019</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Create layout entry for the params buffer&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1020</span>    <span class="comment">// Create layout entry for the params buffer</span></div>
+<div class="line"><span class="lineno"> 1021</span>    bgLayoutEntries[paramIndex] = WGPUBindGroupLayoutEntry{</div>
+<div class="line"><span class="lineno"> 1022</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(paramIndex),</div>
+<div class="line"><span class="lineno"> 1023</span>        .visibility = WGPUShaderStage_Compute,</div>
+<div class="line"><span class="lineno"> 1024</span>        .buffer =</div>
+<div class="line"><span class="lineno"> 1025</span>            WGPUBufferBindingLayout{</div>
+<div class="line"><span class="lineno"> 1026</span>                .type = WGPUBufferBindingType_Uniform,</div>
+<div class="line"><span class="lineno"> 1027</span>                .minBindingSize = paramsSize,</div>
+<div class="line"><span class="lineno"> 1028</span>            },</div>
+<div class="line"><span class="lineno"> 1029</span>    };</div>
+<div class="line"><span class="lineno"> 1030</span>  }</div>
+<div class="line"><span class="lineno"> 1031</span>  WGPUBindGroupLayoutDescriptor bgLayoutDesc = {</div>
+<div class="line"><span class="lineno"> 1032</span>      .entryCount = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(bgLayoutEntries.size()),</div>
+<div class="line"><span class="lineno"> 1033</span>      .entries = bgLayoutEntries.data(),</div>
+<div class="line"><span class="lineno"> 1034</span>  };</div>
+<div class="line"><span class="lineno"> 1035</span>  WGPUBindGroupLayout bgLayout =</div>
+<div class="line"><span class="lineno"> 1036</span>      wgpuDeviceCreateBindGroupLayout(device, &amp;bgLayoutDesc);</div>
+<div class="line"><span class="lineno"> 1037</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; numTensors; ++i) {</div>
+<div class="line"><span class="lineno"> 1038</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[i] = dataBindings[i].<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>;</div>
+<div class="line"><span class="lineno"> 1039</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a>[i] = dataBindings[i].<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>;</div>
+<div class="line"><span class="lineno"> 1040</span>  }</div>
+<div class="line"><span class="lineno"> 1041</span>  <span class="comment">// Create a buffer for the Params struct</span></div>
+<div class="line"><span class="lineno"> 1042</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
+<div class="line"><span class="lineno"> 1043</span>    WGPUBufferDescriptor paramsBufferDesc = {</div>
+<div class="line"><span class="lineno"> 1044</span>        .usage = WGPUBufferUsage_Uniform | WGPUBufferUsage_CopyDst,</div>
+<div class="line"><span class="lineno"> 1045</span>        .size = paramsSize,</div>
+<div class="line"><span class="lineno"> 1046</span>        .mappedAtCreation = <span class="keyword">false</span>,</div>
+<div class="line"><span class="lineno"> 1047</span>    };</div>
+<div class="line"><span class="lineno"> 1048</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[paramIndex] = wgpuDeviceCreateBuffer(device, &amp;paramsBufferDesc);</div>
+<div class="line"><span class="lineno"> 1049</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a>[paramIndex] = paramsSize;</div>
+<div class="line"><span class="lineno"> 1050</span>    wgpuQueueWriteBuffer(queue, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[paramIndex], 0, params, paramsSize);</div>
+<div class="line"><span class="lineno"> 1051</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;Params buffer written&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1052</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno"> 1053</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;No params buffer needed&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1054</span>  }</div>
+<div class="line"><span class="lineno"> 1055</span>  std::vector&lt;WGPUBindGroupEntry&gt; bindGroupEntries(numBindings);</div>
+<div class="line"><span class="lineno"> 1056</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; numTensors; ++i) {</div>
+<div class="line"><span class="lineno"> 1057</span>    bindGroupEntries[i] = WGPUBindGroupEntry{</div>
+<div class="line"><span class="lineno"> 1058</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(i),</div>
+<div class="line"><span class="lineno"> 1059</span>        .buffer = op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[i],</div>
+<div class="line"><span class="lineno"> 1060</span>        .offset = viewOffsets[i],</div>
+<div class="line"><span class="lineno"> 1061</span>        .size = op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">bufferSizes</a>[i],</div>
+<div class="line"><span class="lineno"> 1062</span>    };</div>
+<div class="line"><span class="lineno"> 1063</span>  }</div>
+<div class="line"><span class="lineno"> 1064</span>  <span class="keywordflow">if</span> (paramsSize &gt; 0) {</div>
+<div class="line"><span class="lineno"> 1065</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;Create bind group entry for the params buffer&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1066</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kInfo, <span class="stringliteral">&quot;paramIndex: %d&quot;</span>, paramIndex);</div>
+<div class="line"><span class="lineno"> 1067</span>    bindGroupEntries[paramIndex] = WGPUBindGroupEntry{</div>
+<div class="line"><span class="lineno"> 1068</span>        .binding = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(paramIndex),</div>
+<div class="line"><span class="lineno"> 1069</span>        .buffer = op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[paramIndex],</div>
+<div class="line"><span class="lineno"> 1070</span>        .offset = 0,</div>
+<div class="line"><span class="lineno"> 1071</span>        .size = paramsSize,</div>
+<div class="line"><span class="lineno"> 1072</span>    };</div>
+<div class="line"><span class="lineno"> 1073</span>  }</div>
+<div class="line"><span class="lineno"> 1074</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;BG Entries Size: %d&quot;</span>, numBindings);</div>
+<div class="line"><span class="lineno"> 1075</span>  WGPUBindGroupDescriptor bindGroupDesc = {</div>
+<div class="line"><span class="lineno"> 1076</span>      .layout = bgLayout,</div>
+<div class="line"><span class="lineno"> 1077</span>      .entryCount = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(numBindings),</div>
+<div class="line"><span class="lineno"> 1078</span>      .entries = bindGroupEntries.data(),</div>
+<div class="line"><span class="lineno"> 1079</span>  };</div>
+<div class="line"><span class="lineno"> 1080</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#ab3c829286d3d649f9d6888288f132e41">bindGroup</a> = wgpuDeviceCreateBindGroup(device, &amp;bindGroupDesc);</div>
+<div class="line"><span class="lineno"> 1081</span>  {</div>
+<div class="line"><span class="lineno"> 1082</span>    WGPUPipelineLayoutDescriptor pipelineLayoutDesc = {</div>
+<div class="line"><span class="lineno"> 1083</span>        .bindGroupLayoutCount = 1,</div>
+<div class="line"><span class="lineno"> 1084</span>        .bindGroupLayouts = &amp;bgLayout,</div>
+<div class="line"><span class="lineno"> 1085</span>    };</div>
+<div class="line"><span class="lineno"> 1086</span>    WGPUPipelineLayout pipelineLayout =</div>
+<div class="line"><span class="lineno"> 1087</span>        wgpuDeviceCreatePipelineLayout(device, &amp;pipelineLayoutDesc);</div>
+<div class="line"><span class="lineno"> 1088</span>    WGPUShaderModuleWGSLDescriptor wgslDesc = {</div>
+<div class="line"><span class="lineno"> 1089</span>        .code = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#a2ad15822c743263eb63ef98eb7456818">data</a>.c_str(),</div>
+<div class="line"><span class="lineno"> 1090</span>    };</div>
+<div class="line"><span class="lineno"> 1091</span>    wgslDesc.chain.sType = WGPUSType_ShaderModuleWGSLDescriptor;</div>
+<div class="line"><span class="lineno"> 1092</span>    WGPUShaderModuleDescriptor shaderModuleDesc = {};</div>
+<div class="line"><span class="lineno"> 1093</span>    shaderModuleDesc.nextInChain = &amp;wgslDesc.chain;</div>
+<div class="line"><span class="lineno"> 1094</span>    shaderModuleDesc.label = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#aadbebd728ce096c0458ae507e3f379bf">label</a>.c_str();</div>
+<div class="line"><span class="lineno"> 1095</span>    WGPUComputePipelineDescriptor computePipelineDesc = {};</div>
+<div class="line"><span class="lineno"> 1096</span>    computePipelineDesc.layout = pipelineLayout;</div>
+<div class="line"><span class="lineno"> 1097</span>    computePipelineDesc.compute.module =</div>
+<div class="line"><span class="lineno"> 1098</span>        wgpuDeviceCreateShaderModule(device, &amp;shaderModuleDesc);</div>
+<div class="line"><span class="lineno"> 1099</span>    computePipelineDesc.compute.entryPoint = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#a27e10760b792860a6ad635f8057e687d">entryPoint</a>.c_str();</div>
+<div class="line"><span class="lineno"> 1100</span>    computePipelineDesc.label = code.<a class="code hl_variable" href="structgpu_1_1_kernel_code.html#aadbebd728ce096c0458ae507e3f379bf">label</a>.c_str();</div>
+<div class="line"><span class="lineno"> 1101</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aa8aaca0b5f23c2991b0d74fa6cfd1967">computePipeline</a> =</div>
+<div class="line"><span class="lineno"> 1102</span>        wgpuDeviceCreateComputePipeline(device, &amp;computePipelineDesc);</div>
+<div class="line"><span class="lineno"> 1103</span>  }</div>
+<div class="line"><span class="lineno"> 1104</span>  <span class="comment">/*</span></div>
+<div class="line"><span class="lineno"> 1105</span><span class="comment">  op.nWorkgroups = {cdiv(nThreads[0], code.workgroupSize[0]),</span></div>
+<div class="line"><span class="lineno"> 1106</span><span class="comment">                    cdiv(nThreads[1], code.workgroupSize[1]),</span></div>
+<div class="line"><span class="lineno"> 1107</span><span class="comment">                    cdiv(nThreads[2], code.workgroupSize[2])};</span></div>
+<div class="line"><span class="lineno"> 1108</span><span class="comment">  */</span></div>
+<div class="line"><span class="lineno"> 1109</span>  op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a> = {nWorkgroups[0], nWorkgroups[1], nWorkgroups[2]};</div>
+<div class="line"><span class="lineno"> 1110</span>  <a class="code hl_function" href="#ac59323bc390c2a01dc473dcb72d03868">resetCommandBuffer</a>(device, op);</div>
+<div class="line"><span class="lineno"> 1111</span>  ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#aa4098b7ad968c4558aef2ced17812ca0">kernelPool</a>.<a class="code hl_variable" href="structgpu_1_1_kernel_pool.html#a14be3fcb1e16529602f3f32f65ae4a30">data</a>.insert(&amp;op);</div>
+<div class="line"><span class="lineno"> 1112</span>  <span class="keywordflow">return</span> op;</div>
+<div class="line"><span class="lineno"> 1113</span>}</div>
+<div class="ttc" id="anamespacegpu_html_ac59323bc390c2a01dc473dcb72d03868"><div class="ttname"><a href="#ac59323bc390c2a01dc473dcb72d03868">gpu::resetCommandBuffer</a></div><div class="ttdeci">void resetCommandBuffer(WGPUDevice &amp;device, Kernel &amp;op)</div><div class="ttdoc">Resets the command buffer in preparation for a kernel dispatch. Since command buffers are consumed up...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00911">gpu.h:911</a></div></div>
 <div class="ttc" id="astructgpu_1_1_array_html_a4dbb66b98ca78d85a755e11b3607c3e2"><div class="ttname"><a href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">gpu::Array::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00031">gpu.h:31</a></div></div>
 <div class="ttc" id="astructgpu_1_1_array_html_ac4df84a36b0d7c8f1dbf54adfe999ad8"><div class="ttname"><a href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">gpu::Array::buffer</a></div><div class="ttdeci">WGPUBuffer buffer</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00029">gpu.h:29</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html_a6e289f57ee9bfa539477ecf18726242e"><div class="ttname"><a href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">gpu::Context::queue</a></div><div class="ttdeci">WGPUQueue queue</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00424">gpu.h:424</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html_aa4098b7ad968c4558aef2ced17812ca0"><div class="ttname"><a href="structgpu_1_1_context.html#aa4098b7ad968c4558aef2ced17812ca0">gpu::Context::kernelPool</a></div><div class="ttdeci">KernelPool kernelPool</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00426">gpu.h:426</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html_ae810ad2a9cd07cd59e28a1da6965a7ba"><div class="ttname"><a href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">gpu::Context::device</a></div><div class="ttdeci">WGPUDevice device</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00423">gpu.h:423</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_code_html_a27e10760b792860a6ad635f8057e687d"><div class="ttname"><a href="structgpu_1_1_kernel_code.html#a27e10760b792860a6ad635f8057e687d">gpu::KernelCode::entryPoint</a></div><div class="ttdeci">std::string entryPoint</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00323">gpu.h:323</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_code_html_a2ad15822c743263eb63ef98eb7456818"><div class="ttname"><a href="structgpu_1_1_kernel_code.html#a2ad15822c743263eb63ef98eb7456818">gpu::KernelCode::data</a></div><div class="ttdeci">std::string data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00319">gpu.h:319</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_code_html_aadbebd728ce096c0458ae507e3f379bf"><div class="ttname"><a href="structgpu_1_1_kernel_code.html#aadbebd728ce096c0458ae507e3f379bf">gpu::KernelCode::label</a></div><div class="ttdeci">std::string label</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00322">gpu.h:322</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_html_a47efa9ca7930e5774964a651270ace44"><div class="ttname"><a href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">gpu::Kernel::bufferSizes</a></div><div class="ttdeci">std::unique_ptr&lt; size_t[]&gt; bufferSizes</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00378">gpu.h:378</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_html_a552ac93214b23de9d252e0823adcd7ff"><div class="ttname"><a href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">gpu::Kernel::numBindings</a></div><div class="ttdeci">size_t numBindings</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00379">gpu.h:379</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_html_aa8aaca0b5f23c2991b0d74fa6cfd1967"><div class="ttname"><a href="structgpu_1_1_kernel.html#aa8aaca0b5f23c2991b0d74fa6cfd1967">gpu::Kernel::computePipeline</a></div><div class="ttdeci">WGPUComputePipeline computePipeline</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00382">gpu.h:382</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_html_ab3c829286d3d649f9d6888288f132e41"><div class="ttname"><a href="structgpu_1_1_kernel.html#ab3c829286d3d649f9d6888288f132e41">gpu::Kernel::bindGroup</a></div><div class="ttdeci">WGPUBindGroup bindGroup</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00381">gpu.h:381</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_html_aec962f96d74dd1f3144c138030b14446"><div class="ttname"><a href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">gpu::Kernel::nWorkgroups</a></div><div class="ttdeci">Shape nWorkgroups</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00380">gpu.h:380</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_html_aecc74359af917ca7f6937beda8b21a24"><div class="ttname"><a href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">gpu::Kernel::buffers</a></div><div class="ttdeci">std::unique_ptr&lt; WGPUBuffer[]&gt; buffers</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00377">gpu.h:377</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_pool_html_a14be3fcb1e16529602f3f32f65ae4a30"><div class="ttname"><a href="structgpu_1_1_kernel_pool.html#a14be3fcb1e16529602f3f32f65ae4a30">gpu::KernelPool::data</a></div><div class="ttdeci">std::set&lt; Kernel * &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00404">gpu.h:404</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html_a6e289f57ee9bfa539477ecf18726242e"><div class="ttname"><a href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">gpu::Context::queue</a></div><div class="ttdeci">WGPUQueue queue</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00426">gpu.h:426</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html_aa4098b7ad968c4558aef2ced17812ca0"><div class="ttname"><a href="structgpu_1_1_context.html#aa4098b7ad968c4558aef2ced17812ca0">gpu::Context::kernelPool</a></div><div class="ttdeci">KernelPool kernelPool</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00428">gpu.h:428</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html_ae810ad2a9cd07cd59e28a1da6965a7ba"><div class="ttname"><a href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">gpu::Context::device</a></div><div class="ttdeci">WGPUDevice device</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00425">gpu.h:425</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_code_html_a27e10760b792860a6ad635f8057e687d"><div class="ttname"><a href="structgpu_1_1_kernel_code.html#a27e10760b792860a6ad635f8057e687d">gpu::KernelCode::entryPoint</a></div><div class="ttdeci">std::string entryPoint</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00325">gpu.h:325</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_code_html_a2ad15822c743263eb63ef98eb7456818"><div class="ttname"><a href="structgpu_1_1_kernel_code.html#a2ad15822c743263eb63ef98eb7456818">gpu::KernelCode::data</a></div><div class="ttdeci">std::string data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00321">gpu.h:321</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_code_html_aadbebd728ce096c0458ae507e3f379bf"><div class="ttname"><a href="structgpu_1_1_kernel_code.html#aadbebd728ce096c0458ae507e3f379bf">gpu::KernelCode::label</a></div><div class="ttdeci">std::string label</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00324">gpu.h:324</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_html_a47efa9ca7930e5774964a651270ace44"><div class="ttname"><a href="structgpu_1_1_kernel.html#a47efa9ca7930e5774964a651270ace44">gpu::Kernel::bufferSizes</a></div><div class="ttdeci">std::unique_ptr&lt; size_t[]&gt; bufferSizes</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00380">gpu.h:380</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_html_a552ac93214b23de9d252e0823adcd7ff"><div class="ttname"><a href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">gpu::Kernel::numBindings</a></div><div class="ttdeci">size_t numBindings</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00381">gpu.h:381</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_html_aa8aaca0b5f23c2991b0d74fa6cfd1967"><div class="ttname"><a href="structgpu_1_1_kernel.html#aa8aaca0b5f23c2991b0d74fa6cfd1967">gpu::Kernel::computePipeline</a></div><div class="ttdeci">WGPUComputePipeline computePipeline</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00384">gpu.h:384</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_html_ab3c829286d3d649f9d6888288f132e41"><div class="ttname"><a href="structgpu_1_1_kernel.html#ab3c829286d3d649f9d6888288f132e41">gpu::Kernel::bindGroup</a></div><div class="ttdeci">WGPUBindGroup bindGroup</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00383">gpu.h:383</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_html_aec962f96d74dd1f3144c138030b14446"><div class="ttname"><a href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">gpu::Kernel::nWorkgroups</a></div><div class="ttdeci">Shape nWorkgroups</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00382">gpu.h:382</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_html_aecc74359af917ca7f6937beda8b21a24"><div class="ttname"><a href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">gpu::Kernel::buffers</a></div><div class="ttdeci">std::unique_ptr&lt; WGPUBuffer[]&gt; buffers</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00379">gpu.h:379</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_pool_html_a14be3fcb1e16529602f3f32f65ae4a30"><div class="ttname"><a href="structgpu_1_1_kernel_pool.html#a14be3fcb1e16529602f3f32f65ae4a30">gpu::KernelPool::data</a></div><div class="ttdeci">std::set&lt; Kernel * &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00406">gpu.h:406</a></div></div>
 <div class="ttc" id="astructgpu_1_1_tensor_html_abc63dd485f74fa62eb8ee63f1b5ec767"><div class="ttname"><a href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">gpu::Tensor::data</a></div><div class="ttdeci">Array data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00093">gpu.h:93</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1043,14 +1043,14 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structgpu_1_1_tensor.html" title="Represents a tensor on the GPU, which is a buffer of values with a shape.">Tensor</a> instance representing the created tensor</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor = <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx, {256, 256}, <a class="code hl_enumvalue" href="#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe">kf32</a>);</div>
-<div class="ttc" id="anamespacegpu_html_a49f54c3a36e4b4d7756995c7211bc212"><div class="ttname"><a href="#a49f54c3a36e4b4d7756995c7211bc212">gpu::createTensor</a></div><div class="ttdeci">Tensor createTensor(TensorPool &amp;pool, WGPUDevice &amp;device, const Shape &amp;shape, NumType dtype, WGPUBufferUsageFlags usage=WGPUBufferUsage_Storage|WGPUBufferUsage_CopyDst|WGPUBufferUsage_CopySrc)</div><div class="ttdoc">Tensor factory function to create a tensor (a Tensor type is simply an Array with an N-dimensional Sh...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00478">gpu.h:478</a></div></div>
+<div class="ttc" id="anamespacegpu_html_a49f54c3a36e4b4d7756995c7211bc212"><div class="ttname"><a href="#a49f54c3a36e4b4d7756995c7211bc212">gpu::createTensor</a></div><div class="ttdeci">Tensor createTensor(TensorPool &amp;pool, WGPUDevice &amp;device, const Shape &amp;shape, NumType dtype, WGPUBufferUsageFlags usage=WGPUBufferUsage_Storage|WGPUBufferUsage_CopyDst|WGPUBufferUsage_CopySrc)</div><div class="ttdoc">Tensor factory function to create a tensor (a Tensor type is simply an Array with an N-dimensional Sh...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00480">gpu.h:480</a></div></div>
 <div class="ttc" id="astructgpu_1_1_tensor_html"><div class="ttname"><a href="structgpu_1_1_tensor.html">gpu::Tensor</a></div><div class="ttdoc">Represents a tensor on the GPU, which is a buffer of values with a shape.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00092">gpu.h:92</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00517">517</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  517</span>                                                                            {</div>
-<div class="line"><span class="lineno">  518</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">pool</a>, ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, shape, dtype);</div>
-<div class="line"><span class="lineno">  519</span>}</div>
-<div class="ttc" id="astructgpu_1_1_context_html_a6bf6ba07b846f568ccd0deebeacf258c"><div class="ttname"><a href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">gpu::Context::pool</a></div><div class="ttdeci">TensorPool pool</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00425">gpu.h:425</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00519">519</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  519</span>                                                                            {</div>
+<div class="line"><span class="lineno">  520</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">pool</a>, ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, shape, dtype);</div>
+<div class="line"><span class="lineno">  521</span>}</div>
+<div class="ttc" id="astructgpu_1_1_context_html_a6bf6ba07b846f568ccd0deebeacf258c"><div class="ttname"><a href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">gpu::Context::pool</a></div><div class="ttdeci">TensorPool pool</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00427">gpu.h:427</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1105,17 +1105,17 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structgpu_1_1_tensor.html" title="Represents a tensor on the GPU, which is a buffer of values with a shape.">Tensor</a> instance representing the created tensor</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor = <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx, {256, 256}, <a class="code hl_enumvalue" href="#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe">kf32</a>, data);</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00539">539</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  540</span>                                        {</div>
-<div class="line"><span class="lineno">  541</span>  assert(dtype == kf32);</div>
-<div class="line"><span class="lineno">  542</span>  <a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor =</div>
-<div class="line"><span class="lineno">  543</span>      <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">pool</a>, ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, shape, dtype,</div>
-<div class="line"><span class="lineno">  544</span>                   WGPUBufferUsage_Storage | WGPUBufferUsage_CopyDst |</div>
-<div class="line"><span class="lineno">  545</span>                       WGPUBufferUsage_CopySrc);</div>
-<div class="line"><span class="lineno">  546</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
-<div class="line"><span class="lineno">  547</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
-<div class="line"><span class="lineno">  548</span>  <span class="keywordflow">return</span> tensor;</div>
-<div class="line"><span class="lineno">  549</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00541">541</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  542</span>                                        {</div>
+<div class="line"><span class="lineno">  543</span>  assert(dtype == kf32);</div>
+<div class="line"><span class="lineno">  544</span>  <a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor =</div>
+<div class="line"><span class="lineno">  545</span>      <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">pool</a>, ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, shape, dtype,</div>
+<div class="line"><span class="lineno">  546</span>                   WGPUBufferUsage_Storage | WGPUBufferUsage_CopyDst |</div>
+<div class="line"><span class="lineno">  547</span>                       WGPUBufferUsage_CopySrc);</div>
+<div class="line"><span class="lineno">  548</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
+<div class="line"><span class="lineno">  549</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
+<div class="line"><span class="lineno">  550</span>  <span class="keywordflow">return</span> tensor;</div>
+<div class="line"><span class="lineno">  551</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1170,17 +1170,17 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structgpu_1_1_tensor.html" title="Represents a tensor on the GPU, which is a buffer of values with a shape.">Tensor</a> instance representing the created tensor</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor = <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx, {256, 256}, <a class="code hl_enumvalue" href="#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe">kf32</a>, data);</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00569">569</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  570</span>                                       {</div>
-<div class="line"><span class="lineno">  571</span>  assert(dtype == kf16);</div>
-<div class="line"><span class="lineno">  572</span>  <a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor =</div>
-<div class="line"><span class="lineno">  573</span>      <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">pool</a>, ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, shape, dtype,</div>
-<div class="line"><span class="lineno">  574</span>                   WGPUBufferUsage_Storage | WGPUBufferUsage_CopyDst |</div>
-<div class="line"><span class="lineno">  575</span>                       WGPUBufferUsage_CopySrc);</div>
-<div class="line"><span class="lineno">  576</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
-<div class="line"><span class="lineno">  577</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
-<div class="line"><span class="lineno">  578</span>  <span class="keywordflow">return</span> tensor;</div>
-<div class="line"><span class="lineno">  579</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00571">571</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  572</span>                                       {</div>
+<div class="line"><span class="lineno">  573</span>  assert(dtype == kf16);</div>
+<div class="line"><span class="lineno">  574</span>  <a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor =</div>
+<div class="line"><span class="lineno">  575</span>      <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6bf6ba07b846f568ccd0deebeacf258c">pool</a>, ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, shape, dtype,</div>
+<div class="line"><span class="lineno">  576</span>                   WGPUBufferUsage_Storage | WGPUBufferUsage_CopyDst |</div>
+<div class="line"><span class="lineno">  577</span>                       WGPUBufferUsage_CopySrc);</div>
+<div class="line"><span class="lineno">  578</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
+<div class="line"><span class="lineno">  579</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
+<div class="line"><span class="lineno">  580</span>  <span class="keywordflow">return</span> tensor;</div>
+<div class="line"><span class="lineno">  581</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1241,22 +1241,22 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structgpu_1_1_tensor.html" title="Represents a tensor on the GPU, which is a buffer of values with a shape.">Tensor</a> instance representing the created tensor</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structgpu_1_1_tensor.html">Tensor</a> tensor = <a class="code hl_function" href="#a49f54c3a36e4b4d7756995c7211bc212">createTensor</a>(pool, device, {256, 256}, <a class="code hl_enumvalue" href="#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe">kf32</a>);</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00478">478</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  482</span>                                                                   {</div>
-<div class="line"><span class="lineno">  483</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;Creating tensor&quot;</span>);</div>
-<div class="line"><span class="lineno">  484</span>  <span class="keywordtype">size_t</span> numElements = <a class="code hl_function" href="#ad0a150a30d8cb17db98e18ad6df0dcea">size</a>(shape);</div>
-<div class="line"><span class="lineno">  485</span>  <span class="keywordtype">size_t</span> <a class="code hl_function" href="#ad0a150a30d8cb17db98e18ad6df0dcea">size</a> = <a class="code hl_function" href="#aee4f458c8ea52a549339459aa46fafe0">sizeBytes</a>(dtype) * numElements;</div>
-<div class="line"><span class="lineno">  486</span>  WGPUBufferDescriptor bufferDesc = {</div>
-<div class="line"><span class="lineno">  487</span>      .usage = usage,</div>
-<div class="line"><span class="lineno">  488</span>      .size = <a class="code hl_function" href="#ad0a150a30d8cb17db98e18ad6df0dcea">size</a>,</div>
-<div class="line"><span class="lineno">  489</span>  };</div>
-<div class="line"><span class="lineno">  490</span>  WGPUBuffer buffer = wgpuDeviceCreateBuffer(device, &amp;bufferDesc);</div>
-<div class="line"><span class="lineno">  491</span>  pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>[buffer] = Tensor{</div>
-<div class="line"><span class="lineno">  492</span>      .data = Array{.buffer = buffer, .usage = usage, .size = size},</div>
-<div class="line"><span class="lineno">  493</span>      .shape = shape,</div>
-<div class="line"><span class="lineno">  494</span>  };</div>
-<div class="line"><span class="lineno">  495</span>  <span class="keywordflow">return</span> pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>[buffer];</div>
-<div class="line"><span class="lineno">  496</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00480">480</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  484</span>                                                                   {</div>
+<div class="line"><span class="lineno">  485</span>  <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kTrace, <span class="stringliteral">&quot;Creating tensor&quot;</span>);</div>
+<div class="line"><span class="lineno">  486</span>  <span class="keywordtype">size_t</span> numElements = <a class="code hl_function" href="#ad0a150a30d8cb17db98e18ad6df0dcea">size</a>(shape);</div>
+<div class="line"><span class="lineno">  487</span>  <span class="keywordtype">size_t</span> <a class="code hl_function" href="#ad0a150a30d8cb17db98e18ad6df0dcea">size</a> = <a class="code hl_function" href="#aee4f458c8ea52a549339459aa46fafe0">sizeBytes</a>(dtype) * numElements;</div>
+<div class="line"><span class="lineno">  488</span>  WGPUBufferDescriptor bufferDesc = {</div>
+<div class="line"><span class="lineno">  489</span>      .usage = usage,</div>
+<div class="line"><span class="lineno">  490</span>      .size = <a class="code hl_function" href="#ad0a150a30d8cb17db98e18ad6df0dcea">size</a>,</div>
+<div class="line"><span class="lineno">  491</span>  };</div>
+<div class="line"><span class="lineno">  492</span>  WGPUBuffer buffer = wgpuDeviceCreateBuffer(device, &amp;bufferDesc);</div>
+<div class="line"><span class="lineno">  493</span>  pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>[buffer] = Tensor{</div>
+<div class="line"><span class="lineno">  494</span>      .data = Array{.buffer = buffer, .usage = usage, .size = size},</div>
+<div class="line"><span class="lineno">  495</span>      .shape = shape,</div>
+<div class="line"><span class="lineno">  496</span>  };</div>
+<div class="line"><span class="lineno">  497</span>  <span class="keywordflow">return</span> pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>[buffer];</div>
+<div class="line"><span class="lineno">  498</span>}</div>
 <div class="ttc" id="anamespacegpu_html_ad0a150a30d8cb17db98e18ad6df0dcea"><div class="ttname"><a href="#ad0a150a30d8cb17db98e18ad6df0dcea">gpu::size</a></div><div class="ttdeci">size_t size(const Shape &amp;shape)</div><div class="ttdoc">Returns the number of elements in a tensor with the given shape, which is equal to the product of the...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00076">gpu.h:76</a></div></div>
 <div class="ttc" id="anamespacegpu_html_aee4f458c8ea52a549339459aa46fafe0"><div class="ttname"><a href="#aee4f458c8ea52a549339459aa46fafe0">gpu::sizeBytes</a></div><div class="ttdeci">size_t sizeBytes(const NumType &amp;type)</div><div class="ttdoc">Returns the number of bytes of a number type.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00187">gpu.h:187</a></div></div>
 <div class="ttc" id="astructgpu_1_1_tensor_pool_html_a9ddc1ca280f17c2d4006c04617000c58"><div class="ttname"><a href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">gpu::TensorPool::data</a></div><div class="ttdeci">std::unordered_map&lt; WGPUBuffer, Tensor &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00175">gpu.h:175</a></div></div>
@@ -1306,23 +1306,23 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#ad9d0086bd70e16a57ea98d068b7ab226">dispatchKernel</a>(ctx, kernel);</div>
-<div class="ttc" id="anamespacegpu_html_ad9d0086bd70e16a57ea98d068b7ab226"><div class="ttname"><a href="#ad9d0086bd70e16a57ea98d068b7ab226">gpu::dispatchKernel</a></div><div class="ttdeci">void dispatchKernel(Context &amp;ctx, Kernel &amp;kernel, std::promise&lt; void &gt; &amp;promise)</div><div class="ttdoc">Asynchronously submits a kernel to the GPU queue for execution. It also sets up a callback to notify ...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l01172">gpu.h:1172</a></div></div>
+<div class="ttc" id="anamespacegpu_html_ad9d0086bd70e16a57ea98d068b7ab226"><div class="ttname"><a href="#ad9d0086bd70e16a57ea98d068b7ab226">gpu::dispatchKernel</a></div><div class="ttdeci">void dispatchKernel(Context &amp;ctx, Kernel &amp;kernel, std::promise&lt; void &gt; &amp;promise)</div><div class="ttdoc">Asynchronously submits a kernel to the GPU queue for execution. It also sets up a callback to notify ...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l01174">gpu.h:1174</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l01172">1172</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1173</span>                                                      {</div>
-<div class="line"><span class="lineno"> 1174</span>  <span class="comment">// Submit the command buffer</span></div>
-<div class="line"><span class="lineno"> 1175</span>  wgpuQueueSubmit(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, 1, &amp;kernel.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a>);</div>
-<div class="line"><span class="lineno"> 1176</span>  wgpuQueueOnSubmittedWorkDone(</div>
-<div class="line"><span class="lineno"> 1177</span>      ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>,</div>
-<div class="line"><span class="lineno"> 1178</span>      [](WGPUQueueWorkDoneStatus status, <span class="keywordtype">void</span> *data) {</div>
-<div class="line"><span class="lineno"> 1179</span>        check(status == WGPUQueueWorkDoneStatus_Success, <span class="stringliteral">&quot;Queue work done&quot;</span>,</div>
-<div class="line"><span class="lineno"> 1180</span>              __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno"> 1181</span>        auto *promise = static_cast&lt;std::promise&lt;void&gt; *&gt;(data);</div>
-<div class="line"><span class="lineno"> 1182</span>        promise-&gt;set_value();</div>
-<div class="line"><span class="lineno"> 1183</span>      },</div>
-<div class="line"><span class="lineno"> 1184</span>      &amp;promise);</div>
-<div class="line"><span class="lineno"> 1185</span>}</div>
-<div class="ttc" id="astructgpu_1_1_kernel_html_a6216cca1a6525ef62ce02c56f86b1e36"><div class="ttname"><a href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">gpu::Kernel::commandBuffer</a></div><div class="ttdeci">WGPUCommandBuffer commandBuffer</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00383">gpu.h:383</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l01174">1174</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1175</span>                                                      {</div>
+<div class="line"><span class="lineno"> 1176</span>  <span class="comment">// Submit the command buffer</span></div>
+<div class="line"><span class="lineno"> 1177</span>  wgpuQueueSubmit(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, 1, &amp;kernel.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a>);</div>
+<div class="line"><span class="lineno"> 1178</span>  wgpuQueueOnSubmittedWorkDone(</div>
+<div class="line"><span class="lineno"> 1179</span>      ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>,</div>
+<div class="line"><span class="lineno"> 1180</span>      [](WGPUQueueWorkDoneStatus status, <span class="keywordtype">void</span> *data) {</div>
+<div class="line"><span class="lineno"> 1181</span>        check(status == WGPUQueueWorkDoneStatus_Success, <span class="stringliteral">&quot;Queue work done&quot;</span>,</div>
+<div class="line"><span class="lineno"> 1182</span>              __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno"> 1183</span>        auto *promise = static_cast&lt;std::promise&lt;void&gt; *&gt;(data);</div>
+<div class="line"><span class="lineno"> 1184</span>        promise-&gt;set_value();</div>
+<div class="line"><span class="lineno"> 1185</span>      },</div>
+<div class="line"><span class="lineno"> 1186</span>      &amp;promise);</div>
+<div class="line"><span class="lineno"> 1187</span>}</div>
+<div class="ttc" id="astructgpu_1_1_kernel_html_a6216cca1a6525ef62ce02c56f86b1e36"><div class="ttname"><a href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">gpu::Kernel::commandBuffer</a></div><div class="ttdeci">WGPUCommandBuffer commandBuffer</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00385">gpu.h:385</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1477,21 +1477,21 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a2b6ed2e0cf0953575f225df1ecac2970">FreeTensor</a>(pool, tensor);</div>
-<div class="ttc" id="anamespacegpu_html_a2b6ed2e0cf0953575f225df1ecac2970"><div class="ttname"><a href="#a2b6ed2e0cf0953575f225df1ecac2970">gpu::FreeTensor</a></div><div class="ttdeci">void FreeTensor(TensorPool &amp;pool, Tensor tensor)</div><div class="ttdoc">Frees a tensor resource and updates the tensor pool.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00595">gpu.h:595</a></div></div>
+<div class="ttc" id="anamespacegpu_html_a2b6ed2e0cf0953575f225df1ecac2970"><div class="ttname"><a href="#a2b6ed2e0cf0953575f225df1ecac2970">gpu::FreeTensor</a></div><div class="ttdeci">void FreeTensor(TensorPool &amp;pool, Tensor tensor)</div><div class="ttdoc">Frees a tensor resource and updates the tensor pool.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00597">gpu.h:597</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00595">595</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  595</span>                                                        {</div>
-<div class="line"><span class="lineno">  596</span>  <span class="keywordflow">if</span> (tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>) {</div>
-<div class="line"><span class="lineno">  597</span>    wgpuBufferRelease(tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>);</div>
-<div class="line"><span class="lineno">  598</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  599</span>    LOG(kDefLog, kWarn, <span class="stringliteral">&quot;Tried to free tensor with null buffer&quot;</span>);</div>
-<div class="line"><span class="lineno">  600</span>  }</div>
-<div class="line"><span class="lineno">  601</span>  <span class="keywordflow">if</span> (pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>.find(tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>) != pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>.end()) {</div>
-<div class="line"><span class="lineno">  602</span>    pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>.erase(tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>);</div>
-<div class="line"><span class="lineno">  603</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  604</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kWarn, <span class="stringliteral">&quot;Tried to free tensor that was not in pool&quot;</span>);</div>
-<div class="line"><span class="lineno">  605</span>  }</div>
-<div class="line"><span class="lineno">  606</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00597">597</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  597</span>                                                        {</div>
+<div class="line"><span class="lineno">  598</span>  <span class="keywordflow">if</span> (tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>) {</div>
+<div class="line"><span class="lineno">  599</span>    wgpuBufferRelease(tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>);</div>
+<div class="line"><span class="lineno">  600</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  601</span>    LOG(kDefLog, kWarn, <span class="stringliteral">&quot;Tried to free tensor with null buffer&quot;</span>);</div>
+<div class="line"><span class="lineno">  602</span>  }</div>
+<div class="line"><span class="lineno">  603</span>  <span class="keywordflow">if</span> (pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>.find(tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>) != pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>.end()) {</div>
+<div class="line"><span class="lineno">  604</span>    pool.<a class="code hl_variable" href="structgpu_1_1_tensor_pool.html#a9ddc1ca280f17c2d4006c04617000c58">data</a>.erase(tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>);</div>
+<div class="line"><span class="lineno">  605</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  606</span>    <a class="code hl_function" href="#a508fff3f15882a37b1c0bd0341296176">LOG</a>(kDefLog, kWarn, <span class="stringliteral">&quot;Tried to free tensor that was not in pool&quot;</span>);</div>
+<div class="line"><span class="lineno">  607</span>  }</div>
+<div class="line"><span class="lineno">  608</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1661,10 +1661,10 @@ template&lt;typename ParamsType  = NoParam, size_t numInputs&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if lhs &lt; rhs, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00392">392</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  392</span>                                                            {</div>
-<div class="line"><span class="lineno">  393</span>  <span class="keywordflow">return</span> lhs.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a> &lt; rhs.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a>;</div>
-<div class="line"><span class="lineno">  394</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00394">394</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  394</span>                                                            {</div>
+<div class="line"><span class="lineno">  395</span>  <span class="keywordflow">return</span> lhs.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a> &lt; rhs.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a>;</div>
+<div class="line"><span class="lineno">  396</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2077,12 +2077,12 @@ template&lt;size_t N&gt; </div>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a9f58428241e500f69c95422e678ac2f0">replaceAll</a>(str, {{<span class="stringliteral">&quot;{{workgroupSize}}&quot;</span>, <span class="stringliteral">&quot;256&quot;</span>}, {<span class="stringliteral">&quot;{{precision}}&quot;</span>,</div>
 </div><!-- fragment --><p> "f32"}}); </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00340">340</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  341</span>                                                                 {</div>
-<div class="line"><span class="lineno">  342</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;rep : reps) {</div>
-<div class="line"><span class="lineno">  343</span>    <a class="code hl_function" href="#a9f58428241e500f69c95422e678ac2f0">replaceAll</a>(str, rep.first, rep.second);</div>
-<div class="line"><span class="lineno">  344</span>  }</div>
-<div class="line"><span class="lineno">  345</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00342">342</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  343</span>                                                                 {</div>
+<div class="line"><span class="lineno">  344</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;rep : reps) {</div>
+<div class="line"><span class="lineno">  345</span>    <a class="code hl_function" href="#a9f58428241e500f69c95422e678ac2f0">replaceAll</a>(str, rep.first, rep.second);</div>
+<div class="line"><span class="lineno">  346</span>  }</div>
+<div class="line"><span class="lineno">  347</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2123,23 +2123,23 @@ template&lt;size_t N&gt; </div>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#ac59323bc390c2a01dc473dcb72d03868">resetCommandBuffer</a>(device, op);</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00909">909</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  909</span>                                                               {</div>
-<div class="line"><span class="lineno">  910</span>  {</div>
-<div class="line"><span class="lineno">  911</span>    WGPUCommandEncoder commandEncoder =</div>
-<div class="line"><span class="lineno">  912</span>        wgpuDeviceCreateCommandEncoder(device, <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">  913</span>    WGPUComputePassEncoder computePassEncoder =</div>
-<div class="line"><span class="lineno">  914</span>        wgpuCommandEncoderBeginComputePass(commandEncoder, <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">  915</span>    wgpuComputePassEncoderSetPipeline(computePassEncoder, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aa8aaca0b5f23c2991b0d74fa6cfd1967">computePipeline</a>);</div>
-<div class="line"><span class="lineno">  916</span>    wgpuComputePassEncoderSetBindGroup(computePassEncoder, 0, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#ab3c829286d3d649f9d6888288f132e41">bindGroup</a>, 0,</div>
-<div class="line"><span class="lineno">  917</span>                                       <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">  918</span>    wgpuComputePassEncoderDispatchWorkgroups(</div>
-<div class="line"><span class="lineno">  919</span>        computePassEncoder, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a>[0], op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a>[1],</div>
-<div class="line"><span class="lineno">  920</span>        op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a>[2]);</div>
-<div class="line"><span class="lineno">  921</span>    wgpuComputePassEncoderEnd(computePassEncoder);</div>
-<div class="line"><span class="lineno">  922</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a> = wgpuCommandEncoderFinish(commandEncoder, <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">  923</span>  }</div>
-<div class="line"><span class="lineno">  924</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00911">911</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  911</span>                                                               {</div>
+<div class="line"><span class="lineno">  912</span>  {</div>
+<div class="line"><span class="lineno">  913</span>    WGPUCommandEncoder commandEncoder =</div>
+<div class="line"><span class="lineno">  914</span>        wgpuDeviceCreateCommandEncoder(device, <span class="keyword">nullptr</span>);</div>
+<div class="line"><span class="lineno">  915</span>    WGPUComputePassEncoder computePassEncoder =</div>
+<div class="line"><span class="lineno">  916</span>        wgpuCommandEncoderBeginComputePass(commandEncoder, <span class="keyword">nullptr</span>);</div>
+<div class="line"><span class="lineno">  917</span>    wgpuComputePassEncoderSetPipeline(computePassEncoder, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aa8aaca0b5f23c2991b0d74fa6cfd1967">computePipeline</a>);</div>
+<div class="line"><span class="lineno">  918</span>    wgpuComputePassEncoderSetBindGroup(computePassEncoder, 0, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#ab3c829286d3d649f9d6888288f132e41">bindGroup</a>, 0,</div>
+<div class="line"><span class="lineno">  919</span>                                       <span class="keyword">nullptr</span>);</div>
+<div class="line"><span class="lineno">  920</span>    wgpuComputePassEncoderDispatchWorkgroups(</div>
+<div class="line"><span class="lineno">  921</span>        computePassEncoder, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a>[0], op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a>[1],</div>
+<div class="line"><span class="lineno">  922</span>        op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aec962f96d74dd1f3144c138030b14446">nWorkgroups</a>[2]);</div>
+<div class="line"><span class="lineno">  923</span>    wgpuComputePassEncoderEnd(computePassEncoder);</div>
+<div class="line"><span class="lineno">  924</span>    op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a6216cca1a6525ef62ce02c56f86b1e36">commandBuffer</a> = wgpuCommandEncoderFinish(commandEncoder, <span class="keyword">nullptr</span>);</div>
+<div class="line"><span class="lineno">  925</span>  }</div>
+<div class="line"><span class="lineno">  926</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2449,12 +2449,12 @@ template&lt;size_t N&gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a3e645acd60386c08f5425ce2845856c0">toCPU</a>(ctx, tensor, data);</div>
-<div class="ttc" id="anamespacegpu_html_a3e645acd60386c08f5425ce2845856c0"><div class="ttname"><a href="#a3e645acd60386c08f5425ce2845856c0">gpu::toCPU</a></div><div class="ttdeci">void toCPU(Context &amp;ctx, Tensor &amp;tensor, void *data, size_t bufferSize, CopyData &amp;op)</div><div class="ttdoc">Copies data from a GPU buffer to CPU memory.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00763">gpu.h:763</a></div></div>
+<div class="ttc" id="anamespacegpu_html_a3e645acd60386c08f5425ce2845856c0"><div class="ttname"><a href="#a3e645acd60386c08f5425ce2845856c0">gpu::toCPU</a></div><div class="ttdeci">void toCPU(Context &amp;ctx, Tensor &amp;tensor, void *data, size_t bufferSize, CopyData &amp;op)</div><div class="ttdoc">Copies data from a GPU buffer to CPU memory.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00765">gpu.h:765</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00842">842</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  842</span>                                                                   {</div>
-<div class="line"><span class="lineno">  843</span>  <a class="code hl_function" href="#a3e645acd60386c08f5425ce2845856c0">toCPU</a>(ctx, tensor, data.data(), <span class="keyword">sizeof</span>(data));</div>
-<div class="line"><span class="lineno">  844</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00844">844</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  844</span>                                                                   {</div>
+<div class="line"><span class="lineno">  845</span>  <a class="code hl_function" href="#a3e645acd60386c08f5425ce2845856c0">toCPU</a>(ctx, tensor, data.data(), <span class="keyword">sizeof</span>(data));</div>
+<div class="line"><span class="lineno">  846</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2507,34 +2507,34 @@ template&lt;size_t N&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00807">807</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  807</span>                                                                               {</div>
-<div class="line"><span class="lineno">  808</span>  <a class="code hl_struct" href="structgpu_1_1_copy_data.html">CopyData</a> op;</div>
-<div class="line"><span class="lineno">  809</span>  op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">future</a> = op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a92c9c93be52bf25997cf50d776929d22">promise</a>.get_future();</div>
-<div class="line"><span class="lineno">  810</span>  {</div>
-<div class="line"><span class="lineno">  811</span>    WGPUBufferDescriptor readbackBufferDescriptor = {</div>
-<div class="line"><span class="lineno">  812</span>        .usage = WGPUBufferUsage_CopyDst | WGPUBufferUsage_MapRead,</div>
-<div class="line"><span class="lineno">  813</span>        .size = bufferSize,</div>
-<div class="line"><span class="lineno">  814</span>    };</div>
-<div class="line"><span class="lineno">  815</span>    op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">readbackBuffer</a> =</div>
-<div class="line"><span class="lineno">  816</span>        wgpuDeviceCreateBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, &amp;readbackBufferDescriptor);</div>
-<div class="line"><span class="lineno">  817</span>  }</div>
-<div class="line"><span class="lineno">  818</span>  {</div>
-<div class="line"><span class="lineno">  819</span>    WGPUCommandEncoder commandEncoder;</div>
-<div class="line"><span class="lineno">  820</span>    WGPUComputePassEncoder computePassEncoder;</div>
-<div class="line"><span class="lineno">  821</span>    commandEncoder = wgpuDeviceCreateCommandEncoder(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">  822</span>    wgpuCommandEncoderCopyBufferToBuffer(commandEncoder, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0,</div>
-<div class="line"><span class="lineno">  823</span>                                         op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">readbackBuffer</a>, 0, bufferSize);</div>
-<div class="line"><span class="lineno">  824</span>    op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">commandBuffer</a> = wgpuCommandEncoderFinish(commandEncoder, <span class="keyword">nullptr</span>);</div>
-<div class="line"><span class="lineno">  825</span>    <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">commandBuffer</a>, <span class="stringliteral">&quot;Create command buffer&quot;</span>, __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno">  826</span>  }</div>
-<div class="line"><span class="lineno">  827</span>  <a class="code hl_function" href="#a3e645acd60386c08f5425ce2845856c0">toCPU</a>(ctx, tensor, data, bufferSize, op);</div>
-<div class="line"><span class="lineno">  828</span>}</div>
-<div class="ttc" id="astructgpu_1_1_copy_data_html"><div class="ttname"><a href="structgpu_1_1_copy_data.html">gpu::CopyData</a></div><div class="ttdoc">Staging buffer and callback data for copying data between the GPU and CPU.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00364">gpu.h:364</a></div></div>
-<div class="ttc" id="astructgpu_1_1_copy_data_html_a2221c46fc86dfce06dcea4c72ffb4ee1"><div class="ttname"><a href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">gpu::CopyData::commandBuffer</a></div><div class="ttdeci">WGPUCommandBuffer commandBuffer</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00365">gpu.h:365</a></div></div>
-<div class="ttc" id="astructgpu_1_1_copy_data_html_a5118ab31b5c3062671940856aa7fcee8"><div class="ttname"><a href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">gpu::CopyData::readbackBuffer</a></div><div class="ttdeci">WGPUBuffer readbackBuffer</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00366">gpu.h:366</a></div></div>
-<div class="ttc" id="astructgpu_1_1_copy_data_html_a92c9c93be52bf25997cf50d776929d22"><div class="ttname"><a href="structgpu_1_1_copy_data.html#a92c9c93be52bf25997cf50d776929d22">gpu::CopyData::promise</a></div><div class="ttdeci">std::promise&lt; void &gt; promise</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00367">gpu.h:367</a></div></div>
-<div class="ttc" id="astructgpu_1_1_copy_data_html_af607412184396f25b8b182bd24a4202c"><div class="ttname"><a href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">gpu::CopyData::future</a></div><div class="ttdeci">std::future&lt; void &gt; future</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00368">gpu.h:368</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00809">809</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  809</span>                                                                               {</div>
+<div class="line"><span class="lineno">  810</span>  <a class="code hl_struct" href="structgpu_1_1_copy_data.html">CopyData</a> op;</div>
+<div class="line"><span class="lineno">  811</span>  op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">future</a> = op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a92c9c93be52bf25997cf50d776929d22">promise</a>.get_future();</div>
+<div class="line"><span class="lineno">  812</span>  {</div>
+<div class="line"><span class="lineno">  813</span>    WGPUBufferDescriptor readbackBufferDescriptor = {</div>
+<div class="line"><span class="lineno">  814</span>        .usage = WGPUBufferUsage_CopyDst | WGPUBufferUsage_MapRead,</div>
+<div class="line"><span class="lineno">  815</span>        .size = bufferSize,</div>
+<div class="line"><span class="lineno">  816</span>    };</div>
+<div class="line"><span class="lineno">  817</span>    op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">readbackBuffer</a> =</div>
+<div class="line"><span class="lineno">  818</span>        wgpuDeviceCreateBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, &amp;readbackBufferDescriptor);</div>
+<div class="line"><span class="lineno">  819</span>  }</div>
+<div class="line"><span class="lineno">  820</span>  {</div>
+<div class="line"><span class="lineno">  821</span>    WGPUCommandEncoder commandEncoder;</div>
+<div class="line"><span class="lineno">  822</span>    WGPUComputePassEncoder computePassEncoder;</div>
+<div class="line"><span class="lineno">  823</span>    commandEncoder = wgpuDeviceCreateCommandEncoder(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><span class="lineno">  824</span>    wgpuCommandEncoderCopyBufferToBuffer(commandEncoder, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0,</div>
+<div class="line"><span class="lineno">  825</span>                                         op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">readbackBuffer</a>, 0, bufferSize);</div>
+<div class="line"><span class="lineno">  826</span>    op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">commandBuffer</a> = wgpuCommandEncoderFinish(commandEncoder, <span class="keyword">nullptr</span>);</div>
+<div class="line"><span class="lineno">  827</span>    <a class="code hl_function" href="#a3e8bcb1dd85ad12c99d6f27ace6d891a">check</a>(op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">commandBuffer</a>, <span class="stringliteral">&quot;Create command buffer&quot;</span>, __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno">  828</span>  }</div>
+<div class="line"><span class="lineno">  829</span>  <a class="code hl_function" href="#a3e645acd60386c08f5425ce2845856c0">toCPU</a>(ctx, tensor, data, bufferSize, op);</div>
+<div class="line"><span class="lineno">  830</span>}</div>
+<div class="ttc" id="astructgpu_1_1_copy_data_html"><div class="ttname"><a href="structgpu_1_1_copy_data.html">gpu::CopyData</a></div><div class="ttdoc">Staging buffer and callback data for copying data between the GPU and CPU.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00366">gpu.h:366</a></div></div>
+<div class="ttc" id="astructgpu_1_1_copy_data_html_a2221c46fc86dfce06dcea4c72ffb4ee1"><div class="ttname"><a href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">gpu::CopyData::commandBuffer</a></div><div class="ttdeci">WGPUCommandBuffer commandBuffer</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00367">gpu.h:367</a></div></div>
+<div class="ttc" id="astructgpu_1_1_copy_data_html_a5118ab31b5c3062671940856aa7fcee8"><div class="ttname"><a href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">gpu::CopyData::readbackBuffer</a></div><div class="ttdeci">WGPUBuffer readbackBuffer</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00368">gpu.h:368</a></div></div>
+<div class="ttc" id="astructgpu_1_1_copy_data_html_a92c9c93be52bf25997cf50d776929d22"><div class="ttname"><a href="structgpu_1_1_copy_data.html#a92c9c93be52bf25997cf50d776929d22">gpu::CopyData::promise</a></div><div class="ttdeci">std::promise&lt; void &gt; promise</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00369">gpu.h:369</a></div></div>
+<div class="ttc" id="astructgpu_1_1_copy_data_html_af607412184396f25b8b182bd24a4202c"><div class="ttname"><a href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">gpu::CopyData::future</a></div><div class="ttdeci">std::future&lt; void &gt; future</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00370">gpu.h:370</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2593,37 +2593,37 @@ template&lt;size_t N&gt; </div>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a3e645acd60386c08f5425ce2845856c0">toCPU</a>(ctx, tensor, data, bufferSize);</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00763">763</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  764</span>                                {</div>
-<div class="line"><span class="lineno">  765</span>  wgpuQueueSubmit(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, 1, &amp;op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">commandBuffer</a>);</div>
-<div class="line"><span class="lineno">  766</span>  <a class="code hl_struct" href="structgpu_1_1_callback_data.html">CallbackData</a> callbackData = {op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">readbackBuffer</a>, bufferSize, data, &amp;op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a92c9c93be52bf25997cf50d776929d22">promise</a>,</div>
-<div class="line"><span class="lineno">  767</span>                               &amp;op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">future</a>};</div>
-<div class="line"><span class="lineno">  768</span>  wgpuQueueOnSubmittedWorkDone(</div>
-<div class="line"><span class="lineno">  769</span>      ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>,</div>
-<div class="line"><span class="lineno">  770</span>      [](WGPUQueueWorkDoneStatus status, <span class="keywordtype">void</span> *callbackData) {</div>
-<div class="line"><span class="lineno">  771</span>        check(status == WGPUQueueWorkDoneStatus_Success, <span class="stringliteral">&quot;Queue work done&quot;</span>,</div>
-<div class="line"><span class="lineno">  772</span>              __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno">  773</span>        const auto *data = static_cast&lt;CallbackData *&gt;(callbackData);</div>
-<div class="line"><span class="lineno">  774</span>        wgpuBufferMapAsync(</div>
-<div class="line"><span class="lineno">  775</span>            data-&gt;buffer, WGPUMapMode_Read, 0, data-&gt;bufferSize,</div>
-<div class="line"><span class="lineno">  776</span>            [](WGPUBufferMapAsyncStatus status, void *captureData) {</div>
-<div class="line"><span class="lineno">  777</span>              const auto *data = static_cast&lt;CallbackData *&gt;(captureData);</div>
-<div class="line"><span class="lineno">  778</span>              check(status == WGPUBufferMapAsyncStatus_Success,</div>
-<div class="line"><span class="lineno">  779</span>                    <span class="stringliteral">&quot;Map readbackBuffer&quot;</span>, __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno">  780</span>              const void *mappedData = wgpuBufferGetConstMappedRange(</div>
-<div class="line"><span class="lineno">  781</span>                  data-&gt;buffer, <span class="comment">/*offset=*/</span>0, data-&gt;bufferSize);</div>
-<div class="line"><span class="lineno">  782</span>              check(mappedData, <span class="stringliteral">&quot;Get mapped range&quot;</span>, __FILE__, __LINE__);</div>
-<div class="line"><span class="lineno">  783</span>              memcpy(data-&gt;output, mappedData, data-&gt;bufferSize);</div>
-<div class="line"><span class="lineno">  784</span>              wgpuBufferUnmap(data-&gt;buffer);</div>
-<div class="line"><span class="lineno">  785</span>              data-&gt;promise-&gt;set_value();</div>
-<div class="line"><span class="lineno">  786</span>            },</div>
-<div class="line"><span class="lineno">  787</span>            callbackData);</div>
-<div class="line"><span class="lineno">  788</span>      },</div>
-<div class="line"><span class="lineno">  789</span>      &amp;callbackData);</div>
-<div class="line"><span class="lineno">  790</span>  <a class="code hl_function" href="#ae2d750e74781cee97de3145d9949b777">wait</a>(ctx, op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">future</a>);</div>
-<div class="line"><span class="lineno">  791</span>}</div>
-<div class="ttc" id="anamespacegpu_html_ae2d750e74781cee97de3145d9949b777"><div class="ttname"><a href="#ae2d750e74781cee97de3145d9949b777">gpu::wait</a></div><div class="ttdeci">void wait(Context &amp;ctx, std::future&lt; void &gt; &amp;future)</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00744">gpu.h:744</a></div></div>
-<div class="ttc" id="astructgpu_1_1_callback_data_html"><div class="ttname"><a href="structgpu_1_1_callback_data.html">gpu::CallbackData</a></div><div class="ttdoc">Used for on-done callback data for asynchronous operations sduch as kernel launching.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00351">gpu.h:351</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00765">765</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  766</span>                                {</div>
+<div class="line"><span class="lineno">  767</span>  wgpuQueueSubmit(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, 1, &amp;op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a2221c46fc86dfce06dcea4c72ffb4ee1">commandBuffer</a>);</div>
+<div class="line"><span class="lineno">  768</span>  <a class="code hl_struct" href="structgpu_1_1_callback_data.html">CallbackData</a> callbackData = {op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a5118ab31b5c3062671940856aa7fcee8">readbackBuffer</a>, bufferSize, data, &amp;op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#a92c9c93be52bf25997cf50d776929d22">promise</a>,</div>
+<div class="line"><span class="lineno">  769</span>                               &amp;op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">future</a>};</div>
+<div class="line"><span class="lineno">  770</span>  wgpuQueueOnSubmittedWorkDone(</div>
+<div class="line"><span class="lineno">  771</span>      ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>,</div>
+<div class="line"><span class="lineno">  772</span>      [](WGPUQueueWorkDoneStatus status, <span class="keywordtype">void</span> *callbackData) {</div>
+<div class="line"><span class="lineno">  773</span>        check(status == WGPUQueueWorkDoneStatus_Success, <span class="stringliteral">&quot;Queue work done&quot;</span>,</div>
+<div class="line"><span class="lineno">  774</span>              __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno">  775</span>        const auto *data = static_cast&lt;CallbackData *&gt;(callbackData);</div>
+<div class="line"><span class="lineno">  776</span>        wgpuBufferMapAsync(</div>
+<div class="line"><span class="lineno">  777</span>            data-&gt;buffer, WGPUMapMode_Read, 0, data-&gt;bufferSize,</div>
+<div class="line"><span class="lineno">  778</span>            [](WGPUBufferMapAsyncStatus status, void *captureData) {</div>
+<div class="line"><span class="lineno">  779</span>              const auto *data = static_cast&lt;CallbackData *&gt;(captureData);</div>
+<div class="line"><span class="lineno">  780</span>              check(status == WGPUBufferMapAsyncStatus_Success,</div>
+<div class="line"><span class="lineno">  781</span>                    <span class="stringliteral">&quot;Map readbackBuffer&quot;</span>, __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno">  782</span>              const void *mappedData = wgpuBufferGetConstMappedRange(</div>
+<div class="line"><span class="lineno">  783</span>                  data-&gt;buffer, <span class="comment">/*offset=*/</span>0, data-&gt;bufferSize);</div>
+<div class="line"><span class="lineno">  784</span>              check(mappedData, <span class="stringliteral">&quot;Get mapped range&quot;</span>, __FILE__, __LINE__);</div>
+<div class="line"><span class="lineno">  785</span>              memcpy(data-&gt;output, mappedData, data-&gt;bufferSize);</div>
+<div class="line"><span class="lineno">  786</span>              wgpuBufferUnmap(data-&gt;buffer);</div>
+<div class="line"><span class="lineno">  787</span>              data-&gt;promise-&gt;set_value();</div>
+<div class="line"><span class="lineno">  788</span>            },</div>
+<div class="line"><span class="lineno">  789</span>            callbackData);</div>
+<div class="line"><span class="lineno">  790</span>      },</div>
+<div class="line"><span class="lineno">  791</span>      &amp;callbackData);</div>
+<div class="line"><span class="lineno">  792</span>  <a class="code hl_function" href="#ae2d750e74781cee97de3145d9949b777">wait</a>(ctx, op.<a class="code hl_variable" href="structgpu_1_1_copy_data.html#af607412184396f25b8b182bd24a4202c">future</a>);</div>
+<div class="line"><span class="lineno">  793</span>}</div>
+<div class="ttc" id="anamespacegpu_html_ae2d750e74781cee97de3145d9949b777"><div class="ttname"><a href="#ae2d750e74781cee97de3145d9949b777">gpu::wait</a></div><div class="ttdeci">void wait(Context &amp;ctx, std::future&lt; void &gt; &amp;future)</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00746">gpu.h:746</a></div></div>
+<div class="ttc" id="astructgpu_1_1_callback_data_html"><div class="ttname"><a href="structgpu_1_1_callback_data.html">gpu::CallbackData</a></div><div class="ttdoc">Used for on-done callback data for asynchronous operations sduch as kernel launching.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00353">gpu.h:353</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2669,13 +2669,13 @@ template&lt;size_t N&gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#acb3f60f1a4282808c882b205d05c44ab">toGPU</a>(ctx, data, tensor);</div>
-<div class="ttc" id="anamespacegpu_html_acb3f60f1a4282808c882b205d05c44ab"><div class="ttname"><a href="#acb3f60f1a4282808c882b205d05c44ab">gpu::toGPU</a></div><div class="ttdeci">void toGPU(Context &amp;ctx, const void *data, WGPUBuffer buffer, size_t size)</div><div class="ttdoc">Copies data from CPU memory to a GPU buffer. The toGPU overloads are effectively a convenience wrappe...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00860">gpu.h:860</a></div></div>
+<div class="ttc" id="anamespacegpu_html_acb3f60f1a4282808c882b205d05c44ab"><div class="ttname"><a href="#acb3f60f1a4282808c882b205d05c44ab">gpu::toGPU</a></div><div class="ttdeci">void toGPU(Context &amp;ctx, const void *data, WGPUBuffer buffer, size_t size)</div><div class="ttdoc">Copies data from CPU memory to a GPU buffer. The toGPU overloads are effectively a convenience wrappe...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00862">gpu.h:862</a></div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00876">876</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  876</span>                                                                   {</div>
-<div class="line"><span class="lineno">  877</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
-<div class="line"><span class="lineno">  878</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
-<div class="line"><span class="lineno">  879</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00878">878</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  878</span>                                                                   {</div>
+<div class="line"><span class="lineno">  879</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
+<div class="line"><span class="lineno">  880</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
+<div class="line"><span class="lineno">  881</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2711,11 +2711,11 @@ template&lt;size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00881">881</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  881</span>                                                                  {</div>
-<div class="line"><span class="lineno">  882</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
-<div class="line"><span class="lineno">  883</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
-<div class="line"><span class="lineno">  884</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00883">883</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  883</span>                                                                  {</div>
+<div class="line"><span class="lineno">  884</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#ac4df84a36b0d7c8f1dbf54adfe999ad8">buffer</a>, 0, data,</div>
+<div class="line"><span class="lineno">  885</span>                       tensor.<a class="code hl_variable" href="structgpu_1_1_tensor.html#abc63dd485f74fa62eb8ee63f1b5ec767">data</a>.<a class="code hl_variable" href="structgpu_1_1_array.html#a4dbb66b98ca78d85a755e11b3607c3e2">size</a>);</div>
+<div class="line"><span class="lineno">  886</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2768,10 +2768,10 @@ template&lt;size_t N&gt; </div>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#acb3f60f1a4282808c882b205d05c44ab">toGPU</a>(ctx, data, buffer, <a class="code hl_function" href="#ad0a150a30d8cb17db98e18ad6df0dcea">size</a>);</div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00860">860</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  861</span>                               {</div>
-<div class="line"><span class="lineno">  862</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, buffer, 0, data, size);</div>
-<div class="line"><span class="lineno">  863</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00862">862</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  863</span>                               {</div>
+<div class="line"><span class="lineno">  864</span>  wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, buffer, 0, data, size);</div>
+<div class="line"><span class="lineno">  865</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2809,16 +2809,16 @@ template&lt;typename Params &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00887">887</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  887</span>                                                            {</div>
-<div class="line"><span class="lineno">  888</span>  <span class="comment">// TODO(avh): Maintain params metadata in Kernel and check for consistency.</span></div>
-<div class="line"><span class="lineno">  889</span>  <span class="comment">// If a kernel does not have parameters this will quietly overwrite</span></div>
-<div class="line"><span class="lineno">  890</span>  <span class="comment">// the last buffer in the bind group with the parameters buffer.</span></div>
-<div class="line"><span class="lineno">  891</span>  <span class="keywordflow">if</span> (op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">numBindings</a> &gt; 0) {</div>
-<div class="line"><span class="lineno">  892</span>    wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">numBindings</a> - 1], 0,</div>
-<div class="line"><span class="lineno">  893</span>                         <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(&amp;params), <span class="keyword">sizeof</span>(params));</div>
-<div class="line"><span class="lineno">  894</span>  }</div>
-<div class="line"><span class="lineno">  895</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00889">889</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  889</span>                                                            {</div>
+<div class="line"><span class="lineno">  890</span>  <span class="comment">// TODO(avh): Maintain params metadata in Kernel and check for consistency.</span></div>
+<div class="line"><span class="lineno">  891</span>  <span class="comment">// If a kernel does not have parameters this will quietly overwrite</span></div>
+<div class="line"><span class="lineno">  892</span>  <span class="comment">// the last buffer in the bind group with the parameters buffer.</span></div>
+<div class="line"><span class="lineno">  893</span>  <span class="keywordflow">if</span> (op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">numBindings</a> &gt; 0) {</div>
+<div class="line"><span class="lineno">  894</span>    wgpuQueueWriteBuffer(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a6e289f57ee9bfa539477ecf18726242e">queue</a>, op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#aecc74359af917ca7f6937beda8b21a24">buffers</a>[op.<a class="code hl_variable" href="structgpu_1_1_kernel.html#a552ac93214b23de9d252e0823adcd7ff">numBindings</a> - 1], 0,</div>
+<div class="line"><span class="lineno">  895</span>                         <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(&amp;params), <span class="keyword">sizeof</span>(params));</div>
+<div class="line"><span class="lineno">  896</span>  }</div>
+<div class="line"><span class="lineno">  897</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3017,14 +3017,14 @@ template&lt;typename Params &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00744">744</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  744</span>                                                        {</div>
-<div class="line"><span class="lineno">  745</span>  <span class="keywordflow">while</span> (future.wait_for(std::chrono::seconds(0)) !=</div>
-<div class="line"><span class="lineno">  746</span>         std::future_status::ready) {</div>
-<div class="line"><span class="lineno">  747</span>    wgpuInstanceProcessEvents(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
-<div class="line"><span class="lineno">  748</span>  }</div>
-<div class="line"><span class="lineno">  749</span>}</div>
-<div class="ttc" id="astructgpu_1_1_context_html_a9a7416f53b4e2a97af33929d7c50969c"><div class="ttname"><a href="structgpu_1_1_context.html#a9a7416f53b4e2a97af33929d7c50969c">gpu::Context::instance</a></div><div class="ttdeci">WGPUInstance instance</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00421">gpu.h:421</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00746">746</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  746</span>                                                        {</div>
+<div class="line"><span class="lineno">  747</span>  <span class="keywordflow">while</span> (future.wait_for(std::chrono::seconds(0)) !=</div>
+<div class="line"><span class="lineno">  748</span>         std::future_status::ready) {</div>
+<div class="line"><span class="lineno">  749</span>    wgpuInstanceProcessEvents(ctx.<a class="code hl_variable" href="structgpu_1_1_context.html#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
+<div class="line"><span class="lineno">  750</span>  }</div>
+<div class="line"><span class="lineno">  751</span>}</div>
+<div class="ttc" id="astructgpu_1_1_context_html_a9a7416f53b4e2a97af33929d7c50969c"><div class="ttname"><a href="structgpu_1_1_context.html#a9a7416f53b4e2a97af33929d7c50969c">gpu::Context::instance</a></div><div class="ttdeci">WGPUInstance instance</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00423">gpu.h:423</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3051,7 +3051,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00931">931</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00933">933</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>

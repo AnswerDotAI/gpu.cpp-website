@@ -22,7 +22,7 @@ var gpu_8h =
     [ "cdiv", "gpu_8h.html#aea8678985df08ea0baed925266b5e43f", null ],
     [ "cdiv", "gpu_8h.html#ae639cf27d731534ea42a77b63f928c88", null ],
     [ "check", "gpu_8h.html#a3e8bcb1dd85ad12c99d6f27ace6d891a", null ],
-    [ "createContext", "gpu_8h.html#a1d4931274b4522b102e4e98c5f056768", null ],
+    [ "createContext", "gpu_8h.html#aca30e59bd4eb9e991f4f275c40bc00db", null ],
     [ "createKernel", "gpu_8h.html#aa1b3f405db18bafc2e79f10b82f94f8b", null ],
     [ "createKernel", "gpu_8h.html#a62a564af334eff94a0fd4118c70e84f3", null ],
     [ "createTensor", "gpu_8h.html#a358e3c3540b76f01a7b991d0356e6f2f", null ],

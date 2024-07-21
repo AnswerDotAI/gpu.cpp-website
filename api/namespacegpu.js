@@ -29,7 +29,7 @@ var namespacegpu =
     [ "cdiv", "namespacegpu.html#aea8678985df08ea0baed925266b5e43f", null ],
     [ "cdiv", "namespacegpu.html#ae639cf27d731534ea42a77b63f928c88", null ],
     [ "check", "namespacegpu.html#a3e8bcb1dd85ad12c99d6f27ace6d891a", null ],
-    [ "createContext", "namespacegpu.html#a1d4931274b4522b102e4e98c5f056768", null ],
+    [ "createContext", "namespacegpu.html#aca30e59bd4eb9e991f4f275c40bc00db", null ],
     [ "createKernel", "namespacegpu.html#aa1b3f405db18bafc2e79f10b82f94f8b", null ],
     [ "createKernel", "namespacegpu.html#a62a564af334eff94a0fd4118c70e84f3", null ],
     [ "createTensor", "namespacegpu.html#a358e3c3540b76f01a7b991d0356e6f2f", null ],
