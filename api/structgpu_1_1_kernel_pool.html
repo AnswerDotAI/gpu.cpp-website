@@ -133,7 +133,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A pool of kernels to manage GPU resources. For simple use cases this is instantiated as a member in the <a class="el" href="structgpu_1_1_context.html" title="Represents a GPU context, aggregates WebGPU API handles to interact with the GPU including the instan...">Context</a> struct although it's possible to have multiple resource pools of kernels in more complex scenarios. </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00400">400</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00401">401</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea909dc8b4e3de40e5dece5eee4788ee" name="aea909dc8b4e3de40e5dece5eee4788ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea909dc8b4e3de40e5dece5eee4788ee">&#9670;&#160;</a></span>KernelPool()</h2>
@@ -158,10 +158,10 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00401">401</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  401</span>: <a class="code hl_variable" href="#a113cb698a09d90a6d26095d3811eee6c">ctx</a>(<a class="code hl_variable" href="#a113cb698a09d90a6d26095d3811eee6c">ctx</a>), <a class="code hl_variable" href="#a14be3fcb1e16529602f3f32f65ae4a30">data</a>() {}</div>
-<div class="ttc" id="astructgpu_1_1_kernel_pool_html_a113cb698a09d90a6d26095d3811eee6c"><div class="ttname"><a href="#a113cb698a09d90a6d26095d3811eee6c">gpu::KernelPool::ctx</a></div><div class="ttdeci">Context * ctx</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00402">gpu.h:402</a></div></div>
-<div class="ttc" id="astructgpu_1_1_kernel_pool_html_a14be3fcb1e16529602f3f32f65ae4a30"><div class="ttname"><a href="#a14be3fcb1e16529602f3f32f65ae4a30">gpu::KernelPool::data</a></div><div class="ttdeci">std::set&lt; Kernel * &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00403">gpu.h:403</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00402">402</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  402</span>: <a class="code hl_variable" href="#a113cb698a09d90a6d26095d3811eee6c">ctx</a>(<a class="code hl_variable" href="#a113cb698a09d90a6d26095d3811eee6c">ctx</a>), <a class="code hl_variable" href="#a14be3fcb1e16529602f3f32f65ae4a30">data</a>() {}</div>
+<div class="ttc" id="astructgpu_1_1_kernel_pool_html_a113cb698a09d90a6d26095d3811eee6c"><div class="ttname"><a href="#a113cb698a09d90a6d26095d3811eee6c">gpu::KernelPool::ctx</a></div><div class="ttdeci">Context * ctx</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00403">gpu.h:403</a></div></div>
+<div class="ttc" id="astructgpu_1_1_kernel_pool_html_a14be3fcb1e16529602f3f32f65ae4a30"><div class="ttname"><a href="#a14be3fcb1e16529602f3f32f65ae4a30">gpu::KernelPool::data</a></div><div class="ttdeci">std::set&lt; Kernel * &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00404">gpu.h:404</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -188,13 +188,13 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00404">404</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  404</span>                       {</div>
-<div class="line"><span class="lineno">  405</span>    <span class="comment">// Note : Some kernel resources such as commandBuffer are harvested by</span></div>
-<div class="line"><span class="lineno">  406</span>    <span class="comment">// queue submission, explicitly destroying readback and callback buffers</span></div>
-<div class="line"><span class="lineno">  407</span>    <span class="comment">// produces runtime errors.</span></div>
-<div class="line"><span class="lineno">  408</span>    <a class="code hl_variable" href="#a14be3fcb1e16529602f3f32f65ae4a30">data</a>.clear();</div>
-<div class="line"><span class="lineno">  409</span>  }</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00405">405</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  405</span>                       {</div>
+<div class="line"><span class="lineno">  406</span>    <span class="comment">// Note : Some kernel resources such as commandBuffer are harvested by</span></div>
+<div class="line"><span class="lineno">  407</span>    <span class="comment">// queue submission, explicitly destroying readback and callback buffers</span></div>
+<div class="line"><span class="lineno">  408</span>    <span class="comment">// produces runtime errors.</span></div>
+<div class="line"><span class="lineno">  409</span>    <a class="code hl_variable" href="#a14be3fcb1e16529602f3f32f65ae4a30">data</a>.clear();</div>
+<div class="line"><span class="lineno">  410</span>  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -211,7 +211,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00402">402</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00403">403</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
@@ -227,7 +227,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00403">403</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00404">404</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>

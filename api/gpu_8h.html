@@ -116,6 +116,7 @@ $(function(){initNavTree('gpu_8h.html',''); initResizable(true); });
 <code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;future&gt;</code><br />
+<code>#include &lt;initializer_list&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -224,8 +225,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:a358e3c3540b76f01a7b991d0356e6f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the tensor factory function to instantiate a tensor on the GPU with a given shape and data type.  <br /></td></tr>
 <tr class="separator:a358e3c3540b76f01a7b991d0356e6f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20b9e45c7c54c6e69e93101737cedcd7" id="r_a20b9e45c7c54c6e69e93101737cedcd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgpu_1_1_tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a20b9e45c7c54c6e69e93101737cedcd7">gpu::createTensor</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, const <a class="el" href="structgpu_1_1_shape.html">Shape</a> &amp;shape, <a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9">NumType</a> dtype, float *data)</td></tr>
-<tr class="memdesc:a20b9e45c7c54c6e69e93101737cedcd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the tensor factory function to instantiate a tensor on the GPU with a given shape, data type. Unlike the other overloads, this overload also takes initial data to populate the tensor with.  <br /></td></tr>
+<tr class="memdesc:a20b9e45c7c54c6e69e93101737cedcd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the tensor factory function to instantiate a tensor on the GPU with a given shape, data type. This overload also takes initial float* data to populate the tensor with.  <br /></td></tr>
 <tr class="separator:a20b9e45c7c54c6e69e93101737cedcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42dbab57ed622800c31b66f7d86e6a1c" id="r_a42dbab57ed622800c31b66f7d86e6a1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgpu_1_1_tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a42dbab57ed622800c31b66f7d86e6a1c">gpu::createTensor</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, const <a class="el" href="structgpu_1_1_shape.html">Shape</a> &amp;shape, <a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9">NumType</a> dtype, half *data)</td></tr>
+<tr class="memdesc:a42dbab57ed622800c31b66f7d86e6a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the tensor factory function to instantiate a tensor on the GPU with a given shape, data type. This overload also takes initial half* data to populate the tensor with.  <br /></td></tr>
+<tr class="separator:a42dbab57ed622800c31b66f7d86e6a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b6ed2e0cf0953575f225df1ecac2970" id="r_a2b6ed2e0cf0953575f225df1ecac2970"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a2b6ed2e0cf0953575f225df1ecac2970">gpu::FreeTensor</a> (<a class="el" href="structgpu_1_1_tensor_pool.html">TensorPool</a> &amp;pool, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> tensor)</td></tr>
 <tr class="memdesc:a2b6ed2e0cf0953575f225df1ecac2970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a tensor resource and updates the tensor pool.  <br /></td></tr>
 <tr class="separator:a2b6ed2e0cf0953575f225df1ecac2970"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -34,6 +34,7 @@ var namespacegpu =
     [ "createKernel", "namespacegpu.html#a62a564af334eff94a0fd4118c70e84f3", null ],
     [ "createTensor", "namespacegpu.html#a358e3c3540b76f01a7b991d0356e6f2f", null ],
     [ "createTensor", "namespacegpu.html#a20b9e45c7c54c6e69e93101737cedcd7", null ],
+    [ "createTensor", "namespacegpu.html#a42dbab57ed622800c31b66f7d86e6a1c", null ],
     [ "createTensor", "namespacegpu.html#a49f54c3a36e4b4d7756995c7211bc212", null ],
     [ "dispatchKernel", "namespacegpu.html#ad9d0086bd70e16a57ea98d068b7ab226", null ],
     [ "eye", "namespacegpu.html#a51976a8056f4e718ae36e5c256f58fc3", null ],

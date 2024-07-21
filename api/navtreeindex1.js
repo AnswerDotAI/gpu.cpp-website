@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561":[0,0,0,8,1],
+"structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561":[1,0,0,8,1],
 "structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a":[0,0,0,8,0],
 "structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a":[1,0,0,8,0],
 "structgpu_1_1_no_param.html":[0,0,0,9],

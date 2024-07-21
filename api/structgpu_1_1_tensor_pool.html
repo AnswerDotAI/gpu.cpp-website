@@ -135,7 +135,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Represents a pool of tensors to manage GPU resources. The pool is responsible for managing the lifetime of the tensors and freeing them when the pool is destroyed. </p>
 <p>Most users do not need to interact with the <a class="el" href="structgpu_1_1_tensor_pool.html" title="Represents a pool of tensors to manage GPU resources. The pool is responsible for managing the lifeti...">TensorPool</a> type, as there is a member instance in the <a class="el" href="structgpu_1_1_context.html" title="Represents a GPU context, aggregates WebGPU API handles to interact with the GPU including the instan...">Context</a> struct to simplify lifetime management of GPU resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00171">171</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00172">172</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9598953034413e5314d98406468d7e75" name="a9598953034413e5314d98406468d7e75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9598953034413e5314d98406468d7e75">&#9670;&#160;</a></span>TensorPool()</h2>
@@ -160,10 +160,10 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00172">172</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  172</span>: <a class="code hl_variable" href="#a2bec343c0877f4d7a864489706aa25ac">ctx</a>(<a class="code hl_variable" href="#a2bec343c0877f4d7a864489706aa25ac">ctx</a>), <a class="code hl_variable" href="#a9ddc1ca280f17c2d4006c04617000c58">data</a>() {};</div>
-<div class="ttc" id="astructgpu_1_1_tensor_pool_html_a2bec343c0877f4d7a864489706aa25ac"><div class="ttname"><a href="#a2bec343c0877f4d7a864489706aa25ac">gpu::TensorPool::ctx</a></div><div class="ttdeci">Context * ctx</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00173">gpu.h:173</a></div></div>
-<div class="ttc" id="astructgpu_1_1_tensor_pool_html_a9ddc1ca280f17c2d4006c04617000c58"><div class="ttname"><a href="#a9ddc1ca280f17c2d4006c04617000c58">gpu::TensorPool::data</a></div><div class="ttdeci">std::unordered_map&lt; WGPUBuffer, Tensor &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00174">gpu.h:174</a></div></div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00173">173</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  173</span>: <a class="code hl_variable" href="#a2bec343c0877f4d7a864489706aa25ac">ctx</a>(<a class="code hl_variable" href="#a2bec343c0877f4d7a864489706aa25ac">ctx</a>), <a class="code hl_variable" href="#a9ddc1ca280f17c2d4006c04617000c58">data</a>() {};</div>
+<div class="ttc" id="astructgpu_1_1_tensor_pool_html_a2bec343c0877f4d7a864489706aa25ac"><div class="ttname"><a href="#a2bec343c0877f4d7a864489706aa25ac">gpu::TensorPool::ctx</a></div><div class="ttdeci">Context * ctx</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00174">gpu.h:174</a></div></div>
+<div class="ttc" id="astructgpu_1_1_tensor_pool_html_a9ddc1ca280f17c2d4006c04617000c58"><div class="ttname"><a href="#a9ddc1ca280f17c2d4006c04617000c58">gpu::TensorPool::data</a></div><div class="ttdeci">std::unordered_map&lt; WGPUBuffer, Tensor &gt; data</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00175">gpu.h:175</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -192,21 +192,21 @@ Public Attributes</h2></td></tr>
 
 <p>Destructor for <a class="el" href="structgpu_1_1_tensor_pool.html" title="Represents a pool of tensors to manage GPU resources. The pool is responsible for managing the lifeti...">TensorPool</a> which frees all tensors in the pool. </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00582">582</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  582</span>                               {</div>
-<div class="line"><span class="lineno">  583</span>  <span class="comment">// Need to get keys in a separate iteration, otherwise iterator is getting</span></div>
-<div class="line"><span class="lineno">  584</span>  <span class="comment">// invalidated during erase.</span></div>
-<div class="line"><span class="lineno">  585</span>  std::vector&lt;WGPUBuffer&gt; keys;</div>
-<div class="line"><span class="lineno">  586</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pair : <a class="code hl_variable" href="#a9ddc1ca280f17c2d4006c04617000c58">data</a>) {</div>
-<div class="line"><span class="lineno">  587</span>    keys.push_back(pair.first);</div>
-<div class="line"><span class="lineno">  588</span>  }</div>
-<div class="line"><span class="lineno">  589</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;key : keys) {</div>
-<div class="line"><span class="lineno">  590</span>    <a class="code hl_function" href="namespacegpu.html#a2b6ed2e0cf0953575f225df1ecac2970">FreeTensor</a>(*<span class="keyword">this</span>, <a class="code hl_variable" href="#a9ddc1ca280f17c2d4006c04617000c58">data</a>[key]);</div>
-<div class="line"><span class="lineno">  591</span>    <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04">kTrace</a>, <span class="stringliteral">&quot;Freed tensor&quot;</span>);</div>
-<div class="line"><span class="lineno">  592</span>  }</div>
-<div class="line"><span class="lineno">  593</span>}</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00611">611</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  611</span>                               {</div>
+<div class="line"><span class="lineno">  612</span>  <span class="comment">// Need to get keys in a separate iteration, otherwise iterator is getting</span></div>
+<div class="line"><span class="lineno">  613</span>  <span class="comment">// invalidated during erase.</span></div>
+<div class="line"><span class="lineno">  614</span>  std::vector&lt;WGPUBuffer&gt; keys;</div>
+<div class="line"><span class="lineno">  615</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pair : <a class="code hl_variable" href="#a9ddc1ca280f17c2d4006c04617000c58">data</a>) {</div>
+<div class="line"><span class="lineno">  616</span>    keys.push_back(pair.first);</div>
+<div class="line"><span class="lineno">  617</span>  }</div>
+<div class="line"><span class="lineno">  618</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;key : keys) {</div>
+<div class="line"><span class="lineno">  619</span>    <a class="code hl_function" href="namespacegpu.html#a2b6ed2e0cf0953575f225df1ecac2970">FreeTensor</a>(*<span class="keyword">this</span>, <a class="code hl_variable" href="#a9ddc1ca280f17c2d4006c04617000c58">data</a>[key]);</div>
+<div class="line"><span class="lineno">  620</span>    <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04">kTrace</a>, <span class="stringliteral">&quot;Freed tensor&quot;</span>);</div>
+<div class="line"><span class="lineno">  621</span>  }</div>
+<div class="line"><span class="lineno">  622</span>}</div>
 <div class="ttc" id="anamespacegpu_html_a0188200bb20637971454432ffdb2e3ab"><div class="ttname"><a href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">gpu::kDefLog</a></div><div class="ttdeci">static Logger kDefLog</div><div class="ttdoc">Default logger for logging messages to stdout at the info level. Output stream and logging level for ...</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00064">logging.h:64</a></div></div>
-<div class="ttc" id="anamespacegpu_html_a2b6ed2e0cf0953575f225df1ecac2970"><div class="ttname"><a href="namespacegpu.html#a2b6ed2e0cf0953575f225df1ecac2970">gpu::FreeTensor</a></div><div class="ttdeci">void FreeTensor(TensorPool &amp;pool, Tensor tensor)</div><div class="ttdoc">Frees a tensor resource and updates the tensor pool.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00566">gpu.h:566</a></div></div>
+<div class="ttc" id="anamespacegpu_html_a2b6ed2e0cf0953575f225df1ecac2970"><div class="ttname"><a href="namespacegpu.html#a2b6ed2e0cf0953575f225df1ecac2970">gpu::FreeTensor</a></div><div class="ttdeci">void FreeTensor(TensorPool &amp;pool, Tensor tensor)</div><div class="ttdoc">Frees a tensor resource and updates the tensor pool.</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00595">gpu.h:595</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a508fff3f15882a37b1c0bd0341296176"><div class="ttname"><a href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">gpu::LOG</a></div><div class="ttdeci">void LOG(Logger &amp;logger, int level, const char *message,...)</div><div class="ttdoc">Log a message to the logger. If NDEBUG is defined in a source or as a compiler flag,...</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00034">logging.h:34</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04"><div class="ttname"><a href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04">gpu::kTrace</a></div><div class="ttdeci">@ kTrace</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00009">logging.h:9</a></div></div>
 </div><!-- fragment -->
@@ -225,7 +225,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00173">173</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00174">174</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
@@ -241,7 +241,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00174">174</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00175">175</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
