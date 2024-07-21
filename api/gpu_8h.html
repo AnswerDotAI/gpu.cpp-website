@@ -122,10 +122,11 @@ $(function(){initNavTree('gpu_8h.html',''); initResizable(true); });
 <code>#include &lt;tuple&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
-<code>#include &quot;<a class="el" href="logging_8h_source.html">utils/logging.h</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;webgpu/webgpu.h&quot;</code><br />
+<code>#include &quot;numeric_types/half.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="logging_8h_source.html">utils/logging.h</a>&quot;</code><br />
 </div>
 <p><a href="gpu_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -152,8 +153,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgpu_1_1_kernel_code.html">gpu::KernelCode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structgpu_1_1_kernel_code.html" title="KernelCode is the representation of WGSL GPU code with template substitutions applied....">KernelCode</a> is the representation of WGSL GPU code with template substitutions applied. It is a type around the code string with additional metadata for workgroup size and precision since they are specified in the WGSL code. Additionally, label and entryPoint are used by <code><a class="el" href="namespacegpu.html#a62a564af334eff94a0fd4118c70e84f3" title="A factory function to create a kernel on the GPU. The kernel is created with the given WGSL code,...">createKernel()</a></code> to specify the label and entry point of the kernel.  <a href="structgpu_1_1_kernel_code.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgpu_1_1_callback_data_dyn.html">gpu::CallbackDataDyn</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for on-done callback data for asynchronous operations sduch as kernel launching.  <a href="structgpu_1_1_callback_data_dyn.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgpu_1_1_callback_data.html">gpu::CallbackData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for on-done callback data for asynchronous operations sduch as kernel launching.  <a href="structgpu_1_1_callback_data.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgpu_1_1_copy_data.html">gpu::CopyData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Staging buffer and callback data for copying data between the GPU and CPU.  <a href="structgpu_1_1_copy_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgpu_1_1_kernel.html">gpu::Kernel</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents handles + metadata for a reusable kernel on the GPU. The struct members can be divided into "consumed upon dispatch" (commandBuffer) and reusable ahead-of-time setup (all other members).  <a href="structgpu_1_1_kernel.html#details">More...</a><br /></td></tr>
@@ -175,7 +179,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a7641c2218622a47af47216dc8b053fa9" id="r_a7641c2218622a47af47216dc8b053fa9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9">gpu::NumType</a> { <a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe">gpu::kf32</a>
+<tr class="memitem:a7641c2218622a47af47216dc8b053fa9" id="r_a7641c2218622a47af47216dc8b053fa9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9">gpu::NumType</a> { <a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9a9caa1ff3c1c2f8b2906fa890614f323d">gpu::kf16</a>
+, <a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe">gpu::kf32</a>
  }</td></tr>
 <tr class="separator:a7641c2218622a47af47216dc8b053fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -191,6 +196,9 @@ Functions</h2></td></tr>
 <tr class="memitem:adfdffb34c646d3410de7e261caebdcd1" id="r_adfdffb34c646d3410de7e261caebdcd1"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:adfdffb34c646d3410de7e261caebdcd1"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegpu.html#adfdffb34c646d3410de7e261caebdcd1">gpu::Bindings</a> (Args...) -&gt; Bindings&lt; sizeof...(Args)&gt;</td></tr>
 <tr class="separator:adfdffb34c646d3410de7e261caebdcd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee4f458c8ea52a549339459aa46fafe0" id="r_aee4f458c8ea52a549339459aa46fafe0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#aee4f458c8ea52a549339459aa46fafe0">gpu::sizeBytes</a> (const <a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9">NumType</a> &amp;type)</td></tr>
+<tr class="memdesc:aee4f458c8ea52a549339459aa46fafe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bytes of a number type.  <br /></td></tr>
+<tr class="separator:aee4f458c8ea52a549339459aa46fafe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735cb8bbb44ccc41d38889342d5825ea" id="r_a735cb8bbb44ccc41d38889342d5825ea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a735cb8bbb44ccc41d38889342d5825ea">gpu::toString</a> (<a class="el" href="namespacegpu.html#a7641c2218622a47af47216dc8b053fa9">NumType</a> type)</td></tr>
 <tr class="memdesc:a735cb8bbb44ccc41d38889342d5825ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts NumType to string.  <br /></td></tr>
 <tr class="separator:a735cb8bbb44ccc41d38889342d5825ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -229,9 +237,12 @@ Functions</h2></td></tr>
 <tr class="separator:a1d4931274b4522b102e4e98c5f056768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2d750e74781cee97de3145d9949b777" id="r_ae2d750e74781cee97de3145d9949b777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#ae2d750e74781cee97de3145d9949b777">gpu::wait</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, std::future&lt; void &gt; &amp;future)</td></tr>
 <tr class="separator:ae2d750e74781cee97de3145d9949b777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8512ee079905e5861ab90064caefc299" id="r_a8512ee079905e5861ab90064caefc299"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a8512ee079905e5861ab90064caefc299">gpu::toCPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> &amp;tensor, float *data, size_t bufferSize)</td></tr>
-<tr class="memdesc:a8512ee079905e5861ab90064caefc299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a GPU buffer to CPU memory.  <br /></td></tr>
-<tr class="separator:a8512ee079905e5861ab90064caefc299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e645acd60386c08f5425ce2845856c0" id="r_a3e645acd60386c08f5425ce2845856c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a3e645acd60386c08f5425ce2845856c0">gpu::toCPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> &amp;tensor, void *data, size_t bufferSize, <a class="el" href="structgpu_1_1_copy_data.html">CopyData</a> &amp;op)</td></tr>
+<tr class="memdesc:a3e645acd60386c08f5425ce2845856c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from a GPU buffer to CPU memory.  <br /></td></tr>
+<tr class="separator:a3e645acd60386c08f5425ce2845856c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a734d3d9f78813a05979a6b7fd76338ba" id="r_a734d3d9f78813a05979a6b7fd76338ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a734d3d9f78813a05979a6b7fd76338ba">gpu::toCPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> &amp;tensor, void *data, size_t bufferSize)</td></tr>
+<tr class="memdesc:a734d3d9f78813a05979a6b7fd76338ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the toCPU function to copy data from a GPU buffer to CPU but initializes a staging buffer and promise/future for the operation for you.  <br /></td></tr>
+<tr class="separator:a734d3d9f78813a05979a6b7fd76338ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a398921cf034bedbf09842257269b3d19" id="r_a398921cf034bedbf09842257269b3d19"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:a398921cf034bedbf09842257269b3d19"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a398921cf034bedbf09842257269b3d19">gpu::toCPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> &amp;tensor, std::array&lt; float, N &gt; &amp;data)</td></tr>
 <tr class="memdesc:a398921cf034bedbf09842257269b3d19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the toCPU function to copy data from a GPU buffer to CPU memory for an array of floats instead of a pointer to a float buffer.  <br /></td></tr>
@@ -242,6 +253,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a2fae6ec686b7fdf2f82ab515ea67b167" id="r_a2fae6ec686b7fdf2f82ab515ea67b167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a2fae6ec686b7fdf2f82ab515ea67b167">gpu::toGPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, const float *data, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> &amp;tensor)</td></tr>
 <tr class="memdesc:a2fae6ec686b7fdf2f82ab515ea67b167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the toGPU function to copy data from CPU memory to a GPU taking a <a class="el" href="structgpu_1_1_tensor.html" title="Represents a tensor on the GPU, which is a buffer of values with a shape.">Tensor</a> instance instead of a WGPUBuffer instance.  <br /></td></tr>
 <tr class="separator:a2fae6ec686b7fdf2f82ab515ea67b167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1430a7956b8af8fe16e9694bd0217659" id="r_a1430a7956b8af8fe16e9694bd0217659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a1430a7956b8af8fe16e9694bd0217659">gpu::toGPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, const half *data, <a class="el" href="structgpu_1_1_tensor.html">Tensor</a> &amp;tensor)</td></tr>
+<tr class="separator:a1430a7956b8af8fe16e9694bd0217659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0273ad1b353bd0cbde0460c87d929705" id="r_a0273ad1b353bd0cbde0460c87d929705"><td class="memTemplParams" colspan="2">template&lt;typename Params &gt; </td></tr>
 <tr class="memitem:a0273ad1b353bd0cbde0460c87d929705"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a0273ad1b353bd0cbde0460c87d929705">gpu::toGPU</a> (<a class="el" href="structgpu_1_1_context.html">Context</a> &amp;ctx, Params &amp;params, <a class="el" href="structgpu_1_1_kernel.html">Kernel</a> &amp;op)</td></tr>
 <tr class="separator:a0273ad1b353bd0cbde0460c87d929705"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,8 +280,6 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa260b4aa723e3754e338952a00a00fa5" id="r_aa260b4aa723e3754e338952a00a00fa5"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegpu.html#aa260b4aa723e3754e338952a00a00fa5">gpu::kDebug</a> = true</td></tr>
-<tr class="separator:aa260b4aa723e3754e338952a00a00fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ff18d8b3b09f727e44a58cb443c2ddb" id="r_a9ff18d8b3b09f727e44a58cb443c2ddb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a9ff18d8b3b09f727e44a58cb443c2ddb"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegpu.html#a9ff18d8b3b09f727e44a58cb443c2ddb">gpu::IsNoParam</a> = std::is_same_v&lt;T, <a class="el" href="structgpu_1_1_no_param.html">NoParam</a>&gt;</td></tr>
 <tr class="separator:a9ff18d8b3b09f727e44a58cb443c2ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>

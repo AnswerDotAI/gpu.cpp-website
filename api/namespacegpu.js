@@ -2,8 +2,9 @@ var namespacegpu =
 [
     [ "Array", "structgpu_1_1_array.html", "structgpu_1_1_array" ],
     [ "Bindings", "structgpu_1_1_bindings.html", "structgpu_1_1_bindings" ],
-    [ "CallbackDataDyn", "structgpu_1_1_callback_data_dyn.html", "structgpu_1_1_callback_data_dyn" ],
+    [ "CallbackData", "structgpu_1_1_callback_data.html", "structgpu_1_1_callback_data" ],
     [ "Context", "structgpu_1_1_context.html", "structgpu_1_1_context" ],
+    [ "CopyData", "structgpu_1_1_copy_data.html", "structgpu_1_1_copy_data" ],
     [ "Kernel", "structgpu_1_1_kernel.html", "structgpu_1_1_kernel" ],
     [ "KernelCode", "structgpu_1_1_kernel_code.html", "structgpu_1_1_kernel_code" ],
     [ "KernelPool", "structgpu_1_1_kernel_pool.html", "structgpu_1_1_kernel_pool" ],
@@ -20,6 +21,7 @@ var namespacegpu =
       [ "kTrace", "namespacegpu.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04", null ]
     ] ],
     [ "NumType", "namespacegpu.html#a7641c2218622a47af47216dc8b053fa9", [
+      [ "kf16", "namespacegpu.html#a7641c2218622a47af47216dc8b053fa9a9caa1ff3c1c2f8b2906fa890614f323d", null ],
       [ "kf32", "namespacegpu.html#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe", null ]
     ] ],
     [ "Bindings", "namespacegpu.html#adfdffb34c646d3410de7e261caebdcd1", null ],
@@ -53,9 +55,12 @@ var namespacegpu =
     [ "show", "namespacegpu.html#a558085d4f4bdbc85d9d894c05e8c79e0", null ],
     [ "show", "namespacegpu.html#a6a7b41f8fbb4b127d4c43b494bf9d950", null ],
     [ "size", "namespacegpu.html#ad0a150a30d8cb17db98e18ad6df0dcea", null ],
-    [ "toCPU", "namespacegpu.html#a8512ee079905e5861ab90064caefc299", null ],
+    [ "sizeBytes", "namespacegpu.html#aee4f458c8ea52a549339459aa46fafe0", null ],
     [ "toCPU", "namespacegpu.html#a398921cf034bedbf09842257269b3d19", null ],
+    [ "toCPU", "namespacegpu.html#a734d3d9f78813a05979a6b7fd76338ba", null ],
+    [ "toCPU", "namespacegpu.html#a3e645acd60386c08f5425ce2845856c0", null ],
     [ "toGPU", "namespacegpu.html#a2fae6ec686b7fdf2f82ab515ea67b167", null ],
+    [ "toGPU", "namespacegpu.html#a1430a7956b8af8fe16e9694bd0217659", null ],
     [ "toGPU", "namespacegpu.html#acb3f60f1a4282808c882b205d05c44ab", null ],
     [ "toGPU", "namespacegpu.html#a0273ad1b353bd0cbde0460c87d929705", null ],
     [ "toString", "namespacegpu.html#ad9d124faa9f793d96e4e0e5531934ac9", null ],
@@ -64,7 +69,6 @@ var namespacegpu =
     [ "transpose", "namespacegpu.html#a841ef6a84098e4202bfd50e08e33164c", null ],
     [ "wait", "namespacegpu.html#ae2d750e74781cee97de3145d9949b777", null ],
     [ "IsNoParam", "namespacegpu.html#a9ff18d8b3b09f727e44a58cb443c2ddb", null ],
-    [ "kDebug", "namespacegpu.html#aa260b4aa723e3754e338952a00a00fa5", null ],
     [ "kDefLog", "namespacegpu.html#a0188200bb20637971454432ffdb2e3ab", null ],
     [ "kLevelStr", "namespacegpu.html#ae1d3f2326d04b410a85cbd7b3ac2b876", null ],
     [ "kShowMaxCols", "namespacegpu.html#aba79867fea95e4073373d7618094a9cd", null ],

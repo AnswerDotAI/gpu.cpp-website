@@ -7,12 +7,14 @@ var gpu_8h =
     [ "gpu::Bindings< N >", "structgpu_1_1_bindings.html", "structgpu_1_1_bindings" ],
     [ "gpu::TensorPool", "structgpu_1_1_tensor_pool.html", "structgpu_1_1_tensor_pool" ],
     [ "gpu::KernelCode", "structgpu_1_1_kernel_code.html", "structgpu_1_1_kernel_code" ],
-    [ "gpu::CallbackDataDyn", "structgpu_1_1_callback_data_dyn.html", "structgpu_1_1_callback_data_dyn" ],
+    [ "gpu::CallbackData", "structgpu_1_1_callback_data.html", "structgpu_1_1_callback_data" ],
+    [ "gpu::CopyData", "structgpu_1_1_copy_data.html", "structgpu_1_1_copy_data" ],
     [ "gpu::Kernel", "structgpu_1_1_kernel.html", "structgpu_1_1_kernel" ],
     [ "gpu::KernelPool", "structgpu_1_1_kernel_pool.html", "structgpu_1_1_kernel_pool" ],
     [ "gpu::Context", "structgpu_1_1_context.html", "structgpu_1_1_context" ],
     [ "gpu::NoParam", "structgpu_1_1_no_param.html", null ],
     [ "NumType", "gpu_8h.html#a7641c2218622a47af47216dc8b053fa9", [
+      [ "kf16", "gpu_8h.html#a7641c2218622a47af47216dc8b053fa9a9caa1ff3c1c2f8b2906fa890614f323d", null ],
       [ "kf32", "gpu_8h.html#a7641c2218622a47af47216dc8b053fa9aa9a0aab3519487443b9015674c54b3fe", null ]
     ] ],
     [ "Bindings", "gpu_8h.html#adfdffb34c646d3410de7e261caebdcd1", null ],
@@ -33,15 +35,17 @@ var gpu_8h =
     [ "replaceAll", "gpu_8h.html#a8054277aecd35b5d61ac5ce150aa6c22", null ],
     [ "resetCommandBuffer", "gpu_8h.html#ac59323bc390c2a01dc473dcb72d03868", null ],
     [ "size", "gpu_8h.html#ad0a150a30d8cb17db98e18ad6df0dcea", null ],
-    [ "toCPU", "gpu_8h.html#a8512ee079905e5861ab90064caefc299", null ],
+    [ "sizeBytes", "gpu_8h.html#aee4f458c8ea52a549339459aa46fafe0", null ],
     [ "toCPU", "gpu_8h.html#a398921cf034bedbf09842257269b3d19", null ],
+    [ "toCPU", "gpu_8h.html#a734d3d9f78813a05979a6b7fd76338ba", null ],
+    [ "toCPU", "gpu_8h.html#a3e645acd60386c08f5425ce2845856c0", null ],
     [ "toGPU", "gpu_8h.html#a2fae6ec686b7fdf2f82ab515ea67b167", null ],
+    [ "toGPU", "gpu_8h.html#a1430a7956b8af8fe16e9694bd0217659", null ],
     [ "toGPU", "gpu_8h.html#acb3f60f1a4282808c882b205d05c44ab", null ],
     [ "toGPU", "gpu_8h.html#a0273ad1b353bd0cbde0460c87d929705", null ],
     [ "toString", "gpu_8h.html#ad9d124faa9f793d96e4e0e5531934ac9", null ],
     [ "toString", "gpu_8h.html#a735cb8bbb44ccc41d38889342d5825ea", null ],
     [ "toString", "gpu_8h.html#a5bec633630490d58392b1e4510dc5ef8", null ],
     [ "wait", "gpu_8h.html#ae2d750e74781cee97de3145d9949b777", null ],
-    [ "IsNoParam", "gpu_8h.html#a9ff18d8b3b09f727e44a58cb443c2ddb", null ],
-    [ "kDebug", "gpu_8h.html#aa260b4aa723e3754e338952a00a00fa5", null ]
+    [ "IsNoParam", "gpu_8h.html#a9ff18d8b3b09f727e44a58cb443c2ddb", null ]
 ];
