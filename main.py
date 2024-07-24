@@ -14,7 +14,7 @@ if TARGET == "release":
                 description="Portable C++ GPU Compute using WebGPU",
                 site_name="gpucpp.answer.ai",
                 twitter_site="@answerdotai",
-                image=f"images/social-card.png",
+                image=f"/images/social-card.png",
                 url="https://gpucpp.answer.ai",
             ),
         ]
