@@ -6,7 +6,19 @@ import uvicorn
 TARGET = os.getenv("TARGET", "release")
 
 if TARGET == "release":
-    app = FastHTML(hdrs=picolink)
+    app = FastHTML(
+        hdrs=[
+            picolink,
+            *Socials(
+                title="gpu.cpp",
+                description="Portable C++ GPU Compute using WebGPU",
+                site_name="gpucpp.answer.ai",
+                twitter_site="@answerdotai",
+                image=f"images/social-card.png",
+                url="https://gpucpp.answer.ai",
+            ),
+        ]
+    )
 else:
     app = FastHTMLWithLiveReload(hdrs=picolink)
 
