@@ -32,6 +32,7 @@ var gpu_8h =
     [ "dispatchKernel", "gpu_8h.html#ad9d0086bd70e16a57ea98d068b7ab226", null ],
     [ "FreeTensor", "gpu_8h.html#a2b6ed2e0cf0953575f225df1ecac2970", null ],
     [ "operator<", "gpu_8h.html#abd91fae4ecbe9c19d23ac0e6f59efdaa", null ],
+    [ "processEvents", "gpu_8h.html#a5dc79ec46682215fc338ff8076ebc540", null ],
     [ "replaceAll", "gpu_8h.html#a9f58428241e500f69c95422e678ac2f0", null ],
     [ "replaceAll", "gpu_8h.html#a8054277aecd35b5d61ac5ce150aa6c22", null ],
     [ "resetCommandBuffer", "gpu_8h.html#ac59323bc390c2a01dc473dcb72d03868", null ],

@@ -33,7 +33,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">gpu.cpp
+   <div id="projectname">gpu.cpp<span id="projectnumber">&#160;0.1.0</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -140,7 +140,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Represents a GPU context, aggregates WebGPU API handles to interact with the GPU including the instance, adapter, device, and queue. </p>
 <p>Additionally contains a <a class="el" href="structgpu_1_1_tensor_pool.html" title="Represents a pool of tensors to manage GPU resources. The pool is responsible for managing the lifeti...">TensorPool</a> and <a class="el" href="structgpu_1_1_kernel_pool.html" title="A pool of kernels to manage GPU resources. For simple use cases this is instantiated as a member in t...">KernelPool</a> for managing GPU resources to simplify lifetime management of GPU resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00422">422</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00434">434</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad4865a98613cf4ec6326cabfeca330ab" name="ad4865a98613cf4ec6326cabfeca330ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4865a98613cf4ec6326cabfeca330ab">&#9670;&#160;</a></span>~Context()</h2>
@@ -165,43 +165,43 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00429">429</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  429</span>             {</div>
-<div class="line"><span class="lineno">  430</span>    <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04">kTrace</a>, <span class="stringliteral">&quot;Destroying context&quot;</span>);</div>
-<div class="line"><span class="lineno">  431</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a6e289f57ee9bfa539477ecf18726242e">queue</a>) {</div>
-<div class="line"><span class="lineno">  432</span>      wgpuQueueRelease(<a class="code hl_variable" href="#a6e289f57ee9bfa539477ecf18726242e">queue</a>);</div>
-<div class="line"><span class="lineno">  433</span>      wgpuInstanceProcessEvents(<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
-<div class="line"><span class="lineno">  434</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  435</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Queue is null&quot;</span>);</div>
-<div class="line"><span class="lineno">  436</span>    }</div>
-<div class="line"><span class="lineno">  437</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>) {</div>
-<div class="line"><span class="lineno">  438</span>      wgpuDeviceRelease(<a class="code hl_variable" href="#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>);</div>
-<div class="line"><span class="lineno">  439</span>      wgpuInstanceProcessEvents(<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
-<div class="line"><span class="lineno">  440</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  441</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Device is null&quot;</span>);</div>
-<div class="line"><span class="lineno">  442</span>    }</div>
-<div class="line"><span class="lineno">  443</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#aa926632bdf594d647d63a3f79ecb4813">adapter</a>) {</div>
-<div class="line"><span class="lineno">  444</span>      wgpuAdapterRelease(<a class="code hl_variable" href="#aa926632bdf594d647d63a3f79ecb4813">adapter</a>);</div>
-<div class="line"><span class="lineno">  445</span>      wgpuInstanceProcessEvents(<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
-<div class="line"><span class="lineno">  446</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  447</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Adapter is null&quot;</span>);</div>
-<div class="line"><span class="lineno">  448</span>    }</div>
-<div class="line"><span class="lineno">  449</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>) {</div>
-<div class="line"><span class="lineno">  450</span>      wgpuInstanceRelease(<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00441">441</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  441</span>             {</div>
+<div class="line"><span class="lineno">  442</span>    <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04">kTrace</a>, <span class="stringliteral">&quot;Destroying context&quot;</span>);</div>
+<div class="line"><span class="lineno">  443</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a6e289f57ee9bfa539477ecf18726242e">queue</a>) {</div>
+<div class="line"><span class="lineno">  444</span>      wgpuQueueRelease(<a class="code hl_variable" href="#a6e289f57ee9bfa539477ecf18726242e">queue</a>);</div>
+<div class="line"><span class="lineno">  445</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  446</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Queue is null&quot;</span>);</div>
+<div class="line"><span class="lineno">  447</span>    }</div>
+<div class="line"><span class="lineno">  448</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>) {</div>
+<div class="line"><span class="lineno">  449</span>      wgpuDeviceRelease(<a class="code hl_variable" href="#ae810ad2a9cd07cd59e28a1da6965a7ba">device</a>);</div>
+<div class="line"><span class="lineno">  450</span>      <a class="code hl_function" href="namespacegpu.html#a5dc79ec46682215fc338ff8076ebc540">processEvents</a>(<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
 <div class="line"><span class="lineno">  451</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  452</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Instance is null&quot;</span>);</div>
+<div class="line"><span class="lineno">  452</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Device is null&quot;</span>);</div>
 <div class="line"><span class="lineno">  453</span>    }</div>
-<div class="line"><span class="lineno">  454</span>    <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156ae0c75f8284ef21f84d64259522a74b27">kInfo</a>, <span class="stringliteral">&quot;Context destroyed&quot;</span>);</div>
-<div class="line"><span class="lineno">  455</span>  }</div>
+<div class="line"><span class="lineno">  454</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#aa926632bdf594d647d63a3f79ecb4813">adapter</a>) {</div>
+<div class="line"><span class="lineno">  455</span>      wgpuAdapterRelease(<a class="code hl_variable" href="#aa926632bdf594d647d63a3f79ecb4813">adapter</a>);</div>
+<div class="line"><span class="lineno">  456</span>      <a class="code hl_function" href="namespacegpu.html#a5dc79ec46682215fc338ff8076ebc540">processEvents</a>(<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
+<div class="line"><span class="lineno">  457</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  458</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Adapter is null&quot;</span>);</div>
+<div class="line"><span class="lineno">  459</span>    }</div>
+<div class="line"><span class="lineno">  460</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>) {</div>
+<div class="line"><span class="lineno">  461</span>      wgpuInstanceRelease(<a class="code hl_variable" href="#a9a7416f53b4e2a97af33929d7c50969c">instance</a>);</div>
+<div class="line"><span class="lineno">  462</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  463</span>      <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">kWarn</a>, <span class="stringliteral">&quot;Instance is null&quot;</span>);</div>
+<div class="line"><span class="lineno">  464</span>    }</div>
+<div class="line"><span class="lineno">  465</span>    <a class="code hl_function" href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">LOG</a>(<a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156ae0c75f8284ef21f84d64259522a74b27">kInfo</a>, <span class="stringliteral">&quot;Context destroyed&quot;</span>);</div>
+<div class="line"><span class="lineno">  466</span>  }</div>
 <div class="ttc" id="anamespacegpu_html_a0188200bb20637971454432ffdb2e3ab"><div class="ttname"><a href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">gpu::kDefLog</a></div><div class="ttdeci">static Logger kDefLog</div><div class="ttdoc">Default logger for logging messages to stdout at the info level. Output stream and logging level for ...</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00064">logging.h:64</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a508fff3f15882a37b1c0bd0341296176"><div class="ttname"><a href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">gpu::LOG</a></div><div class="ttdeci">void LOG(Logger &amp;logger, int level, const char *message,...)</div><div class="ttdoc">Log a message to the logger. If NDEBUG is defined in a source or as a compiler flag,...</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00034">logging.h:34</a></div></div>
+<div class="ttc" id="anamespacegpu_html_a5dc79ec46682215fc338ff8076ebc540"><div class="ttname"><a href="namespacegpu.html#a5dc79ec46682215fc338ff8076ebc540">gpu::processEvents</a></div><div class="ttdeci">void processEvents(const WGPUInstance &amp;instance)</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00419">gpu.h:419</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14"><div class="ttname"><a href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">gpu::kWarn</a></div><div class="ttdeci">@ kWarn</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00009">logging.h:9</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04"><div class="ttname"><a href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04">gpu::kTrace</a></div><div class="ttdeci">@ kTrace</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00009">logging.h:9</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a8387bde500e78abd34b817796e0ab156ae0c75f8284ef21f84d64259522a74b27"><div class="ttname"><a href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156ae0c75f8284ef21f84d64259522a74b27">gpu::kInfo</a></div><div class="ttdeci">@ kInfo</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00009">logging.h:9</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html_a6e289f57ee9bfa539477ecf18726242e"><div class="ttname"><a href="#a6e289f57ee9bfa539477ecf18726242e">gpu::Context::queue</a></div><div class="ttdeci">WGPUQueue queue</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00426">gpu.h:426</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html_a9a7416f53b4e2a97af33929d7c50969c"><div class="ttname"><a href="#a9a7416f53b4e2a97af33929d7c50969c">gpu::Context::instance</a></div><div class="ttdeci">WGPUInstance instance</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00423">gpu.h:423</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html_aa926632bdf594d647d63a3f79ecb4813"><div class="ttname"><a href="#aa926632bdf594d647d63a3f79ecb4813">gpu::Context::adapter</a></div><div class="ttdeci">WGPUAdapter adapter</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00424">gpu.h:424</a></div></div>
-<div class="ttc" id="astructgpu_1_1_context_html_ae810ad2a9cd07cd59e28a1da6965a7ba"><div class="ttname"><a href="#ae810ad2a9cd07cd59e28a1da6965a7ba">gpu::Context::device</a></div><div class="ttdeci">WGPUDevice device</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00425">gpu.h:425</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html_a6e289f57ee9bfa539477ecf18726242e"><div class="ttname"><a href="#a6e289f57ee9bfa539477ecf18726242e">gpu::Context::queue</a></div><div class="ttdeci">WGPUQueue queue</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00438">gpu.h:438</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html_a9a7416f53b4e2a97af33929d7c50969c"><div class="ttname"><a href="#a9a7416f53b4e2a97af33929d7c50969c">gpu::Context::instance</a></div><div class="ttdeci">WGPUInstance instance</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00435">gpu.h:435</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html_aa926632bdf594d647d63a3f79ecb4813"><div class="ttname"><a href="#aa926632bdf594d647d63a3f79ecb4813">gpu::Context::adapter</a></div><div class="ttdeci">WGPUAdapter adapter</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00436">gpu.h:436</a></div></div>
+<div class="ttc" id="astructgpu_1_1_context_html_ae810ad2a9cd07cd59e28a1da6965a7ba"><div class="ttname"><a href="#ae810ad2a9cd07cd59e28a1da6965a7ba">gpu::Context::device</a></div><div class="ttdeci">WGPUDevice device</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00437">gpu.h:437</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -218,7 +218,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00424">424</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00436">436</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
@@ -234,7 +234,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00425">425</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00437">437</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
@@ -250,7 +250,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00423">423</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00435">435</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
@@ -266,7 +266,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00428">428</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00440">440</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
@@ -282,7 +282,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00427">427</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00439">439</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>
@@ -298,7 +298,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00426">426</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gpu_8h_source.html#l00438">438</a> of file <a class="el" href="gpu_8h_source.html">gpu.h</a>.</p>
 
 </div>
 </div>

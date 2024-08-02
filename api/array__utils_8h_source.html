@@ -33,7 +33,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">gpu.cpp
+   <div id="projectname">gpu.cpp<span id="projectnumber">&#160;0.1.0</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -170,14 +170,14 @@ $(function(){initNavTree('array__utils_8h_source.html',''); initResizable(true);
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      }</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      <span class="keywordtype">char</span> buffer[50];</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same&lt;numtype, int&gt;::value) {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        sprintf(buffer, <span class="stringliteral">&quot;%*d&quot;</span>, spacing, a[i * cols + j]);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        snprintf(buffer, spacing, <span class="stringliteral">&quot;%*d&quot;</span>, spacing, a[i * cols + j]);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same&lt;numtype, float&gt;::value) {</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">if</span> (std::abs(a[i * cols + j]) &lt; 1000 &amp;&amp;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                std::abs(a[i * cols + j]) &gt; 0.01 ||</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            a[i * cols + j] == 0.0) {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>          sprintf(buffer, <span class="stringliteral">&quot;%9.2f&quot;</span>, a[i * cols + j]);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>          snprintf(buffer, 16, <span class="stringliteral">&quot;%9.2f&quot;</span>, a[i * cols + j]);</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        } <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>          sprintf(buffer, <span class="stringliteral">&quot;%10.2e&quot;</span>, a[i * cols + j]);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>          snprintf(buffer, 16, <span class="stringliteral">&quot;%10.2e&quot;</span>, a[i * cols + j]);</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Unsupported number type for show()&quot;</span>);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      }</div>
@@ -326,7 +326,7 @@ $(function(){initNavTree('array__utils_8h_source.html',''); initResizable(true);
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
-<div class="ttc" id="anamespacegpu_html"><div class="ttname"><a href="namespacegpu.html">gpu</a></div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00023">gpu.h:23</a></div></div>
+<div class="ttc" id="anamespacegpu_html"><div class="ttname"><a href="namespacegpu.html">gpu</a></div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00027">gpu.h:27</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a0188200bb20637971454432ffdb2e3ab"><div class="ttname"><a href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">gpu::kDefLog</a></div><div class="ttdeci">static Logger kDefLog</div><div class="ttdoc">Default logger for logging messages to stdout at the info level. Output stream and logging level for ...</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00064">logging.h:64</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a4dfc7beab528e65823ed28d9095149db"><div class="ttname"><a href="namespacegpu.html#a4dfc7beab528e65823ed28d9095149db">gpu::range</a></div><div class="ttdeci">void range(float *input, size_t N, float start=0.0, float step=1.0)</div><div class="ttdoc">Populate the array with a range of values. This is mostly for testing purposes.</div><div class="ttdef"><b>Definition</b> <a href="#l00139">array_utils.h:139</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a508fff3f15882a37b1c0bd0341296176"><div class="ttname"><a href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">gpu::LOG</a></div><div class="ttdeci">void LOG(Logger &amp;logger, int level, const char *message,...)</div><div class="ttdoc">Log a message to the logger. If NDEBUG is defined in a source or as a compiler flag,...</div><div class="ttdef"><b>Definition</b> <a href="logging_8h_source.html#l00034">logging.h:34</a></div></div>
@@ -338,7 +338,7 @@ $(function(){initNavTree('array__utils_8h_source.html',''); initResizable(true);
 <div class="ttc" id="anamespacegpu_html_a841ef6a84098e4202bfd50e08e33164c"><div class="ttname"><a href="namespacegpu.html#a841ef6a84098e4202bfd50e08e33164c">gpu::transpose</a></div><div class="ttdeci">void transpose(float *input, float *output, size_t M, size_t N)</div><div class="ttdoc">Transpose a matrix.</div><div class="ttdef"><b>Definition</b> <a href="#l00249">array_utils.h:249</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a958ba3c82efaee6749be9f5b828027db"><div class="ttname"><a href="namespacegpu.html#a958ba3c82efaee6749be9f5b828027db">gpu::randint</a></div><div class="ttdeci">void randint(float *a, size_t N, std::mt19937 &amp;gen, int min=-1, int max=1)</div><div class="ttdoc">Populate the array with random integers.</div><div class="ttdef"><b>Definition</b> <a href="#l00171">array_utils.h:171</a></div></div>
 <div class="ttc" id="anamespacegpu_html_aba79867fea95e4073373d7618094a9cd"><div class="ttname"><a href="namespacegpu.html#aba79867fea95e4073373d7618094a9cd">gpu::kShowMaxCols</a></div><div class="ttdeci">static constexpr int kShowMaxCols</div><div class="ttdef"><b>Definition</b> <a href="#l00027">array_utils.h:27</a></div></div>
-<div class="ttc" id="anamespacegpu_html_ad0a150a30d8cb17db98e18ad6df0dcea"><div class="ttname"><a href="namespacegpu.html#ad0a150a30d8cb17db98e18ad6df0dcea">gpu::size</a></div><div class="ttdeci">size_t size(const Shape &amp;shape)</div><div class="ttdoc">Returns the number of elements in a tensor with the given shape, which is equal to the product of the...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00076">gpu.h:76</a></div></div>
+<div class="ttc" id="anamespacegpu_html_ad0a150a30d8cb17db98e18ad6df0dcea"><div class="ttname"><a href="namespacegpu.html#ad0a150a30d8cb17db98e18ad6df0dcea">gpu::size</a></div><div class="ttdeci">size_t size(const Shape &amp;shape)</div><div class="ttdoc">Returns the number of elements in a tensor with the given shape, which is equal to the product of the...</div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00080">gpu.h:80</a></div></div>
 <div class="ttc" id="anamespacegpu_html_add001dc6cf01bdd72293694791d5d1bc"><div class="ttname"><a href="namespacegpu.html#add001dc6cf01bdd72293694791d5d1bc">gpu::kShowMaxRows</a></div><div class="ttdeci">static constexpr int kShowMaxRows</div><div class="ttdef"><b>Definition</b> <a href="#l00026">array_utils.h:26</a></div></div>
 <div class="ttc" id="anamespacegpu_html_ae43fe29a6e3cdc14168666a7abfc3196"><div class="ttname"><a href="namespacegpu.html#ae43fe29a6e3cdc14168666a7abfc3196">gpu::flip</a></div><div class="ttdeci">void flip(float *a, size_t R, size_t C, bool horizontal=true)</div><div class="ttdoc">Flip a matrix horizontally or vertically.</div><div class="ttdef"><b>Definition</b> <a href="#l00264">array_utils.h:264</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

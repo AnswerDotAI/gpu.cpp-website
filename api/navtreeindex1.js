@@ -1,9 +1,13 @@
 var NAVTREEINDEX1 =
 {
+"structgpu_1_1_logger.html":[0,0,0,8],
+"structgpu_1_1_logger.html":[1,0,0,8],
+"structgpu_1_1_logger.html#a84b5eb796e90dc1e55ecfa798327786e":[0,0,0,8,2],
+"structgpu_1_1_logger.html#a84b5eb796e90dc1e55ecfa798327786e":[1,0,0,8,2],
+"structgpu_1_1_logger.html#aacca730e40a5f662e0e3f57d6a1cda97":[0,0,0,8,0],
+"structgpu_1_1_logger.html#aacca730e40a5f662e0e3f57d6a1cda97":[1,0,0,8,0],
 "structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561":[0,0,0,8,1],
 "structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561":[1,0,0,8,1],
-"structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a":[0,0,0,8,0],
-"structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a":[1,0,0,8,0],
 "structgpu_1_1_no_param.html":[0,0,0,9],
 "structgpu_1_1_no_param.html":[1,0,0,9],
 "structgpu_1_1_shape.html":[0,0,0,10],

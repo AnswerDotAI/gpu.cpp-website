@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['tensorpool_0',['TensorPool',['../structgpu_1_1_tensor_pool.html#a9598953034413e5314d98406468d7e75',1,'gpu::TensorPool']]],
-  ['tocpu_1',['toCPU',['../namespacegpu.html#a3e645acd60386c08f5425ce2845856c0',1,'gpu::toCPU(Context &amp;ctx, Tensor &amp;tensor, void *data, size_t bufferSize, CopyData &amp;op)'],['../namespacegpu.html#a734d3d9f78813a05979a6b7fd76338ba',1,'gpu::toCPU(Context &amp;ctx, Tensor &amp;tensor, void *data, size_t bufferSize)'],['../namespacegpu.html#a398921cf034bedbf09842257269b3d19',1,'gpu::toCPU(Context &amp;ctx, Tensor &amp;tensor, std::array&lt; float, N &gt; &amp;data)']]],
-  ['togpu_2',['toGPU',['../namespacegpu.html#acb3f60f1a4282808c882b205d05c44ab',1,'gpu::toGPU(Context &amp;ctx, const void *data, WGPUBuffer buffer, size_t size)'],['../namespacegpu.html#a2fae6ec686b7fdf2f82ab515ea67b167',1,'gpu::toGPU(Context &amp;ctx, const float *data, Tensor &amp;tensor)'],['../namespacegpu.html#a1430a7956b8af8fe16e9694bd0217659',1,'gpu::toGPU(Context &amp;ctx, const half *data, Tensor &amp;tensor)'],['../namespacegpu.html#a0273ad1b353bd0cbde0460c87d929705',1,'gpu::toGPU(Context &amp;ctx, Params &amp;params, Kernel &amp;op)']]],
-  ['tostring_3',['toString',['../namespacegpu.html#a735cb8bbb44ccc41d38889342d5825ea',1,'gpu::toString(NumType type)'],['../namespacegpu.html#ad9d124faa9f793d96e4e0e5531934ac9',1,'gpu::toString(const Shape &amp;shape)'],['../namespacegpu.html#a5bec633630490d58392b1e4510dc5ef8',1,'gpu::toString(size_t value)']]],
-  ['transpose_4',['transpose',['../namespacegpu.html#a841ef6a84098e4202bfd50e08e33164c',1,'gpu']]]
+  ['setloglevel_0',['setLogLevel',['../namespacegpu.html#a7c3e802d99b0b664940d4bcebefd3b0d',1,'gpu']]],
+  ['shape_1',['Shape',['../structgpu_1_1_shape.html#a0147e94c2543df4248583ff07b721a99',1,'gpu::Shape::Shape()=default'],['../structgpu_1_1_shape.html#a47188c64383b8691ba2428ae8d9c0e8a',1,'gpu::Shape::Shape(std::initializer_list&lt; size_t &gt; dims)']]],
+  ['show_2',['show',['../namespacegpu.html#a70a38bd3469ce5a2c7be8891f499bb24',1,'gpu::show(const numtype *a, size_t rows, size_t cols, const std::string &amp;name=&quot;&quot;)'],['../namespacegpu.html#a6a7b41f8fbb4b127d4c43b494bf9d950',1,'gpu::show(const std::array&lt; numtype, rows *cols &gt; &amp;a, const std::string &amp;name=&quot;&quot;)'],['../namespacegpu.html#a558085d4f4bdbc85d9d894c05e8c79e0',1,'gpu::show(const std::array&lt; float, rows *cols &gt; &amp;a, const std::string &amp;name=&quot;&quot;)']]],
+  ['size_3',['size',['../namespacegpu.html#ad0a150a30d8cb17db98e18ad6df0dcea',1,'gpu']]],
+  ['sizebytes_4',['sizeBytes',['../namespacegpu.html#aee4f458c8ea52a549339459aa46fafe0',1,'gpu']]]
 ];

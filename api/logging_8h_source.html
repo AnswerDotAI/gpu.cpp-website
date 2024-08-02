@@ -33,7 +33,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">gpu.cpp
+   <div id="projectname">gpu.cpp<span id="projectnumber">&#160;0.1.0</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -121,7 +121,7 @@ $(function(){initNavTree('logging_8h_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structgpu_1_1_logger.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structgpu_1_1_logger.html">Logger</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structgpu_1_1_logger.html#a84b5eb796e90dc1e55ecfa798327786e">   20</a></span>  FILE *<a class="code hl_variable" href="structgpu_1_1_logger.html#a84b5eb796e90dc1e55ecfa798327786e">stream</a>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a">   21</a></span>  <span class="keywordtype">char</span> <a class="code hl_variable" href="structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a">buffer</a>[1024];</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structgpu_1_1_logger.html#aacca730e40a5f662e0e3f57d6a1cda97">   21</a></span>  <span class="keywordtype">char</span> <a class="code hl_variable" href="structgpu_1_1_logger.html#aacca730e40a5f662e0e3f57d6a1cda97">buffer</a>[32768]; <span class="comment">// TODO(avh): Expand as needed or fail gracefully.</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561">   22</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561">level</a>;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
 </div>
@@ -138,7 +138,7 @@ $(function(){initNavTree('logging_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordflow">if</span> (level &lt;= logger.<a class="code hl_variable" href="structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561">level</a>) {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    va_list(args);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    va_start(args, message);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    snprintf(logger.<a class="code hl_variable" href="structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a">buffer</a>, <span class="keyword">sizeof</span>(logger.<a class="code hl_variable" href="structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a">buffer</a>), message, args);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    snprintf(logger.<a class="code hl_variable" href="structgpu_1_1_logger.html#aacca730e40a5f662e0e3f57d6a1cda97">buffer</a>, <span class="keyword">sizeof</span>(logger.<a class="code hl_variable" href="structgpu_1_1_logger.html#aacca730e40a5f662e0e3f57d6a1cda97">buffer</a>), message, args);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// Brackets and messages are white.</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// Log levels are red for error and warning, orange for info, and grey for trace.</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Then the color is reset.</span></div>
@@ -156,12 +156,19 @@ $(function(){initNavTree('logging_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">   64</a></span><span class="keyword">static</span> <a class="code hl_struct" href="structgpu_1_1_logger.html">Logger</a> <a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a> = {stdout, <span class="stringliteral">&quot;&quot;</span>, <a class="code hl_enumvalue" href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156ae0c75f8284ef21f84d64259522a74b27">kInfo</a>};</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <span class="comment">// namespace gpu</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespacegpu_html"><div class="ttname"><a href="namespacegpu.html">gpu</a></div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00023">gpu.h:23</a></div></div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacegpu.html#a7c3e802d99b0b664940d4bcebefd3b0d">   70</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacegpu.html#a7c3e802d99b0b664940d4bcebefd3b0d">setLogLevel</a>(<span class="keywordtype">int</span> level) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <a class="code hl_variable" href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">kDefLog</a>.<a class="code hl_variable" href="structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561">level</a> = level;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>} <span class="comment">// namespace gpu</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacegpu_html"><div class="ttname"><a href="namespacegpu.html">gpu</a></div><div class="ttdef"><b>Definition</b> <a href="gpu_8h_source.html#l00027">gpu.h:27</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a0188200bb20637971454432ffdb2e3ab"><div class="ttname"><a href="namespacegpu.html#a0188200bb20637971454432ffdb2e3ab">gpu::kDefLog</a></div><div class="ttdeci">static Logger kDefLog</div><div class="ttdoc">Default logger for logging messages to stdout at the info level. Output stream and logging level for ...</div><div class="ttdef"><b>Definition</b> <a href="#l00064">logging.h:64</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a508fff3f15882a37b1c0bd0341296176"><div class="ttname"><a href="namespacegpu.html#a508fff3f15882a37b1c0bd0341296176">gpu::LOG</a></div><div class="ttdeci">void LOG(Logger &amp;logger, int level, const char *message,...)</div><div class="ttdoc">Log a message to the logger. If NDEBUG is defined in a source or as a compiler flag,...</div><div class="ttdef"><b>Definition</b> <a href="#l00034">logging.h:34</a></div></div>
+<div class="ttc" id="anamespacegpu_html_a7c3e802d99b0b664940d4bcebefd3b0d"><div class="ttname"><a href="namespacegpu.html#a7c3e802d99b0b664940d4bcebefd3b0d">gpu::setLogLevel</a></div><div class="ttdeci">void setLogLevel(int level)</div><div class="ttdoc">Set the log level of the default logger.</div><div class="ttdef"><b>Definition</b> <a href="#l00070">logging.h:70</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a8387bde500e78abd34b817796e0ab156"><div class="ttname"><a href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156">gpu::LogLevel</a></div><div class="ttdeci">LogLevel</div><div class="ttdef"><b>Definition</b> <a href="#l00009">logging.h:9</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a8387bde500e78abd34b817796e0ab156a56dc8400798e5d1c4812f2b96f484284"><div class="ttname"><a href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a56dc8400798e5d1c4812f2b96f484284">gpu::kError</a></div><div class="ttdeci">@ kError</div><div class="ttdef"><b>Definition</b> <a href="#l00009">logging.h:9</a></div></div>
 <div class="ttc" id="anamespacegpu_html_a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14"><div class="ttname"><a href="namespacegpu.html#a8387bde500e78abd34b817796e0ab156a73ec08472eddc3b9f92176e2a1537a14">gpu::kWarn</a></div><div class="ttdeci">@ kWarn</div><div class="ttdef"><b>Definition</b> <a href="#l00009">logging.h:9</a></div></div>
@@ -170,8 +177,8 @@ $(function(){initNavTree('logging_8h_source.html',''); initResizable(true); });
 <div class="ttc" id="anamespacegpu_html_ae1d3f2326d04b410a85cbd7b3ac2b876"><div class="ttname"><a href="namespacegpu.html#ae1d3f2326d04b410a85cbd7b3ac2b876">gpu::kLevelStr</a></div><div class="ttdeci">static const char * kLevelStr[]</div><div class="ttdef"><b>Definition</b> <a href="#l00011">logging.h:11</a></div></div>
 <div class="ttc" id="astructgpu_1_1_logger_html"><div class="ttname"><a href="structgpu_1_1_logger.html">gpu::Logger</a></div><div class="ttdoc">Logger struct for logging messages. stream: The stream to log to. buffer: A buffer to store the forma...</div><div class="ttdef"><b>Definition</b> <a href="#l00019">logging.h:19</a></div></div>
 <div class="ttc" id="astructgpu_1_1_logger_html_a84b5eb796e90dc1e55ecfa798327786e"><div class="ttname"><a href="structgpu_1_1_logger.html#a84b5eb796e90dc1e55ecfa798327786e">gpu::Logger::stream</a></div><div class="ttdeci">FILE * stream</div><div class="ttdef"><b>Definition</b> <a href="#l00020">logging.h:20</a></div></div>
+<div class="ttc" id="astructgpu_1_1_logger_html_aacca730e40a5f662e0e3f57d6a1cda97"><div class="ttname"><a href="structgpu_1_1_logger.html#aacca730e40a5f662e0e3f57d6a1cda97">gpu::Logger::buffer</a></div><div class="ttdeci">char buffer[32768]</div><div class="ttdef"><b>Definition</b> <a href="#l00021">logging.h:21</a></div></div>
 <div class="ttc" id="astructgpu_1_1_logger_html_acfa09841298ff5ddfb50fece65cb3561"><div class="ttname"><a href="structgpu_1_1_logger.html#acfa09841298ff5ddfb50fece65cb3561">gpu::Logger::level</a></div><div class="ttdeci">int level</div><div class="ttdef"><b>Definition</b> <a href="#l00022">logging.h:22</a></div></div>
-<div class="ttc" id="astructgpu_1_1_logger_html_aff6d34b61575cfd965db61ff1acb607a"><div class="ttname"><a href="structgpu_1_1_logger.html#aff6d34b61575cfd965db61ff1acb607a">gpu::Logger::buffer</a></div><div class="ttdeci">char buffer[1024]</div><div class="ttdef"><b>Definition</b> <a href="#l00021">logging.h:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

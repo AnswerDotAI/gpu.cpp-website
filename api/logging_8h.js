@@ -8,6 +8,7 @@ var logging_8h =
       [ "kTrace", "logging_8h.html#a8387bde500e78abd34b817796e0ab156a92948dbbc0fe0cfbea020bbb04b58a04", null ]
     ] ],
     [ "LOG", "logging_8h.html#a508fff3f15882a37b1c0bd0341296176", null ],
+    [ "setLogLevel", "logging_8h.html#a7c3e802d99b0b664940d4bcebefd3b0d", null ],
     [ "kDefLog", "logging_8h.html#a0188200bb20637971454432ffdb2e3ab", null ],
     [ "kLevelStr", "logging_8h.html#ae1d3f2326d04b410a85cbd7b3ac2b876", null ]
 ];
